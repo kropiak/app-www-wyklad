@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Aplikacje WWW&period; Wyk&lstrok;ad &num;1</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="aplikacje-www-wykład-1">Aplikacje WWW. Wykład #1</h1>
+<h2 id="1-czym-jest-aplikacja-wwwwebowainternetowa">1. Czym jest aplikacja WWW/webowa/internetowa?</h2>
+<p><strong>Jest to aplikacja uruchamiana na serwerze, a dostęp do niej odbywa się przez przeglądarkę internetową bez konieczności instalacji na urządzeniu użytkownika.</strong></p>
+<p>Aplikacją nazwiemy rozwiązanie, które wychodzi poza schemat klasycznej statycznej strony internetowej. Aplikacja dostarcza pewnej funkcjonalności, która poprzez technologie frontendowe pozwala na realizację pewnych zadań, które często były do tej pory realizowane poprzez aplikacje natywne.</p>
+<p>Mogą to być aplikacje klasy CRM, portale społecznościowe z elementami komunikatorów, gry online, edytory tekstu, arkusze, klient e-mail i wiele innych.</p>
+<blockquote>
+<p><strong>Kilka wybranych cech aplikacji www:</strong></p>
+</blockquote>
+<ul>
+<li>uruchamiana na serwerze,</li>
+<li>architektura klient (przeglądarka) - serwer (serwer www + serwer aplikacji)</li>
+<li>komunikacja typu żądanie - odpowiedź,</li>
+<li>wymaga zazwyczaj (dla pełnej funkcjonalności) nieprzerwanego dostępu do Internetu,</li>
+</ul>
+<blockquote>
+<p><strong>Zalety aplikacji webowych</strong></p>
+</blockquote>
+<ul>
+<li>brak konieczności instalacji na urządzeniu, ale przede wszystkim aktualizacji do nowszych wersji (aktualizacja odbywa się centralnie czyli na serwerze),</li>
+<li>potencjalnie mniejszy koszt wytworzenia dla wielu różnych urządzeń klienckich, zwłaszcza całej gamy urządzeń mobilnych,</li>
+<li>większa dostępność ze względu na niskie wymagania (przeglądarka) aplikacji,</li>
+<li>stosunkowo łatwa adaptacja użytkownika do nowej aplikacji ze względu na podobieństwo aplikacji www i powszechność z korzystania z przeglądarek internetowych.</li>
+</ul>
+<blockquote>
+<p><strong>Wady aplikacji webowych</strong></p>
+</blockquote>
+<ul>
+<li>konieczność stałego dostępu do Internetu (o bolączkach można się przekonać zwłaszcza przy wypełnianiu i przesyłaniu rozległych formularzy), ale ta wada nie dotyczy aplikacji typu PWA (o nich za chwilę),</li>
+<li>ograniczone możliwości przechowywania danych z aplikacji lokalnie,</li>
+<li>potencjalnie mniejsza wydajność niektórych rozwiązań względem aplikacji natywnych,</li>
+<li>ograniczenia w dostępie do zasobów systemu operacyjnego i urządzeń lokalnych,</li>
+<li>konieczność dostosowania interfejsu do szerokiego spektrum urządzeń (wyświetlaczy) w ramach jednej aplikacji (brak aplikacji dedykowanych).</li>
+</ul>
+<h3 id="a-co-z-pwa-progressive-web-applications">A co z PWA (Progressive Web Applications)?</h3>
+<p>Aplikacje typu PWA, progresywne aplikacje webowe, są aplikacjami, które w pewnym stopniu łączą ze sobą cechy klasycznej aplikacji webowej oraz aplikacji natywnej.</p>
+<blockquote>
+<p><strong>Poniżej kilka z tych cech:</strong></p>
+</blockquote>
+<ul>
+<li>uruchamiane są w przeglądarce internetowej, ale wyglądają jakby były aplikacjami natywnymi,</li>
+<li>mogą być &quot;zainstalowane&quot; na urządzeniu klienckim (urządzenia mobilne, dekstop) i uruchamiane jak inne lokalne aplikacje bez konieczności wpisywania adresu w przeglądarce po raz kolejny,</li>
+<li>mogą pracować w trybie offline,</li>
+<li>wykorzystywane są znane już technologie takie jak HTML, CSS, JS,</li>
+<li>mogą korzystać z powiadomień push, systemu GPS, Bluetooth,</li>
+<li>nie wymagają tworzenia oddzielnych wersji dla różnych systemów operacyjnych,</li>
+<li>zawsze wykorzystują HTTPS.</li>
+</ul>
+<h2 id="2-krótka-historia-aplikacji-webowych">2. Krótka historia aplikacji webowych.</h2>
+<blockquote>
+<p><strong>rok 1989</strong></p>
+</blockquote>
+<ul>
+<li>Pierwsze propozycje projektu <strong>World Wide Web</strong> zaprezentowane przez <strong>Tim'a Berners Lee</strong> wewnątrz <strong>CERN</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 1991</strong></p>
+</blockquote>
+<ul>
+<li>zostaje uruchominy <strong>pierwszy serwer webowy</strong> w laboratorium  Stanford Linear Accelerator Center (SLAC) w stanie California (maszyna NeXT).</li>
+<li>Powstaje pierwsza strona internetowa (autor: <strong>Tim Berners Lee</strong>)</li>
+<li><strong>Tim Berners Lee</strong> ogłasza światu projekt <strong>World Wide Web</strong>.</li>
+<li><strong>Tim Berners Lee</strong> przedstawia szkic <strong>pierwszej wersji języka HTML</strong>.</li>
+<li>powstaje <strong>protokół HTTP</strong> (v0.9), który posiada tylko metodę GET</li>
+</ul>
+<blockquote>
+<p><strong>rok 1993</strong></p>
+</blockquote>
+<ul>
+<li>CERN po namowach uwalnia WWW dla wszystkich (wcześniej pobierano opłaty licencyjne).</li>
+<li>Powstaje <strong>HTML 1.0</strong>.</li>
+<li>Światło dzienne ujrzała przyjazna użytkownikom przeglądarka NCSA Mosaic z interfejsem graficznym.</li>
+<li>Powstaje interfejs CGI do komunikacji z serwerem WWW za pomocą języka HTML.</li>
+</ul>
+<blockquote>
+<p><strong>rok 1994</strong></p>
+</blockquote>
+<ul>
+<li>Powstaje serwis Yahoo!</li>
+<li>Pierwsza stabilna wersja języka Python została wydana.</li>
+<li><strong>Tim Berners Lee</strong> ogłasza powstanie <strong>World Wide Web Consortium (W3C)</strong></li>
+<li>Powstaje przeglądarka Netscape Navigator.</li>
+</ul>
+<blockquote>
+<p><strong>rok 1995</strong></p>
+</blockquote>
+<ul>
+<li>Pierwsze publiczne wydanie <strong>PHP/FI</strong> (Personal Home Page/Form Interpreter) w wersji 2.0, którego pierwsza nieoficjalna wersja powstała rok wcześniej za sprawą Rasmusa Lerdorfa.</li>
+<li>Powstała pierwsza wersja języka <strong>JavaScript</strong>. Twórcą jest <strong>Brendan Eich</strong>. (tu nieco więcej o historii JavaScript: <a href="https://www.w3schools.com/js/js_history.asp">https://www.w3schools.com/js/js_history.asp</a>).</li>
+<li>Ogłoszona zostaje wersja 2.0 języka HTML.</li>
+<li>Powstaje przeglądarka Opera oraz Internet Explorer 1.0.</li>
+<li>Jeff Bezos uruchamian <a href="http://Amazon.com">Amazon.com</a>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 1996</strong></p>
+</blockquote>
+<ul>
+<li>Firma Macromedia przejmuje technologię, którą nazwą później Macromedia Flash.</li>
+<li>powstaje <strong>CSS (Cascade Style Sheet)</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 1997</strong></p>
+</blockquote>
+<ul>
+<li>HTML 3.2.</li>
+<li>XML 1.0.</li>
+<li>XML-RPC.</li>
+</ul>
+<blockquote>
+<p><strong>rok 1998</strong></p>
+</blockquote>
+<ul>
+<li>Netscape przenosi swoją przeglądarkę do open source i powstaje Mozilla Organization (później Mozilla Foundation).</li>
+<li>CSS 2.0</li>
+<li>PHP 3.0</li>
+<li>Powstaje <strong>Google</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 1999</strong></p>
+</blockquote>
+<ul>
+<li>24.12.1999 wychodzi wersja <strong>HTML 4.01</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2000</strong></p>
+</blockquote>
+<ul>
+<li>powstaje zarys <strong>Representational State Transfer (REST)</strong> w pracy doktorskiej Roy'a Fielding'a.</li>
+<li>pęka bańka dotcomów.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2001</strong></p>
+</blockquote>
+<ul>
+<li>15.01.2001 - powstaje serwis <strong>Wikipedia</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2002</strong></p>
+</blockquote>
+<ul>
+<li>Powstaje <strong>AWS (Amazon Web Services)</strong>.</li>
+<li><strong>JSON (JavaScript Object Notation)</strong> zostaje zaprezentowany.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2003</strong></p>
+</blockquote>
+<ul>
+<li>Przeglądarka <strong>Safari</strong> debiutuje.</li>
+<li>Powstaje <strong>WordPress</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2004</strong></p>
+</blockquote>
+<ul>
+<li>Powstaje grupa <strong>Web Hypertext Application Technology Working Group (WHATWG)</strong> w opozycji do W3C i jej fokusowania się na rozwoju XHTML.
+(Ian Hickson).</li>
+<li>Przeglądarka <strong>Mozilla Firefox</strong> debiutuje.</li>
+<li>Powstaje <strong>Gmail</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2005</strong></p>
+</blockquote>
+<ul>
+<li>Debiutuje <strong>Google Maps</strong> oraz <strong>YouTube</strong>.</li>
+<li>Ogłoszono technologię <strong>AJAX (Asynchronous Javascript and XML)</strong>, Microsoft. Dała ona początek aplikacjom Rich Internet Application, znanych dzisiaj pod nazwą Single Page Application.</li>
+<li><strong>Webkit (Apple)</strong> przechodzi w open source.</li>
+<li>Million DOlar Homepage (sprawdźcie sami!).</li>
+<li>Ruby on rails debiutuje.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2006</strong></p>
+</blockquote>
+<ul>
+<li>powstaje pierwsza wersja <strong>jQuery</strong>.</li>
+<li>na świecie jest już ponad 100 000 000 stron internetowych.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2008</strong></p>
+</blockquote>
+<ul>
+<li><a href="http://960.gs">960.gs</a> Framework.</li>
+<li>Debiutuje <strong>Github</strong>.</li>
+<li>Powstaje pierwsza wersja <strong>Google Chrome</strong>.</li>
+<li>Flexible Web Design, które jest początkiem ruchu w kierunku Responsive Web Design (artykuł Ethan'a Marcotte'a z roku 2010), który znamy do dziś.</li>
+<li>Szkic standardu <strong>HTML 5</strong> zostaje przedstawiony światu.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2009</strong></p>
+</blockquote>
+<ul>
+<li>Debiutuje <strong>Node.js</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2010</strong></p>
+</blockquote>
+<ul>
+<li>Powstaje <strong>AngularJS</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2011</strong></p>
+</blockquote>
+<ul>
+<li>Framework <strong>Bootstrap</strong> debiutuje.</li>
+<li>Pojawia się technologia <strong>WebSockets</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2012</strong></p>
+</blockquote>
+<ul>
+<li>Powstaje pierwsza wersja <strong>TypeScript</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2013</strong></p>
+</blockquote>
+<ul>
+<li>Pierwsza wersja <strong>React.js</strong> zostaje zaprezentowana.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2014</strong></p>
+</blockquote>
+<ul>
+<li>Debiutuje <strong>Vue.js</strong>.</li>
+<li>Sieć WWW liczy już ponad 1 000 000 000 stron internetowych.</li>
+<li>Standard <strong>HTML 5 doczekał się upgrade'u oraz rekomendacji W3C</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2015</strong></p>
+</blockquote>
+<ul>
+<li>Wpis na blogu niejakiego Alexa Russell'a daje początek koncepcji <strong>PWA (Progressive Web Applications)</strong>.</li>
+<li>Po raz pierwszy ogłoszono prace nad technologią <strong>WebAssembly</strong>.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2017</strong></p>
+</blockquote>
+<ul>
+<li>Adobe ogłasza koniec technologii Flash.</li>
+<li>Opublikowano pierwszą wersję WebAssembly.</li>
+</ul>
+<blockquote>
+<p><strong>rok 2019</strong></p>
+</blockquote>
+<ul>
+<li>WebAssembly otrzymało rekomendację W3C (w 2021 otrzymało również nagrodę Programming Languages Software Award)</li>
+</ul>
+<blockquote>
+<p><strong>teraz</strong></p>
+</blockquote>
+<ul>
+<li>rozwiązania oparte o AI potrafią wytwarzać większość mniej (to kwestia czasu) skomplikowanego kodu aplikacji webowych (ale i nie tylko).</li>
+</ul>
+<p>Bardziej kompletna lista osadzona na osi czasu jest dostępna pod adresem: <a href="https://thehistoryoftheweb.com/timeline/">https://thehistoryoftheweb.com/timeline/</a>.</p>
+<h2 id="3-architektura-aplikacji-webowych">3. Architektura aplikacji webowych.</h2>
+<p>Aplikacja webowa (ale dotyczy to również szerszego zakresu aplikacji) składa się zazwyczaj z trzech warstw aplikacji:</p>
+<ul>
+<li>
+<p><strong>warstwa prezentacji (ang. frontend)</strong> - jest to część, która odpowiada za interakcję użytkownika z aplikacją poprzez interfejs graficzny. Główne technologie to HTML, CSS oraz JavaScript.</p>
+</li>
+<li>
+<p><strong>warstwa logiki biznesowej (ang. backend)</strong> - jest warstwa znajdująca sie po stronie serwera, która zawiera reguły działania aplikacji. Odpowiada za obsługę komunikatów z frontendu, ich przetwarzaniu, komunikacji z bazą danych i przekazanie wyników do aplikacji klienckiej.</p>
+</li>
+<li>
+<p><strong>warstwa dostępu do danych (bazy danych)</strong> - system przechowywania i dostępu do danych.</p>
+</li>
+</ul>
+<p>Aplikacje webowe możemy również podzielić ze względu na modele architektoniczne.</p>
+<p>Poniżej kilka popularnych rozwiązań architektonicznych:</p>
+<ul>
+<li><strong>architektura trójwarstwowa</strong> - architektura, której składowe zostały opisane powyżej czyli frontend, backend i baza danych.</li>
+</ul>
+<p><img src="file:///c:\Users\Krzysztof\__projects\__uwm_aplikacje_www_wykład\wykład_#1\3_warstwy.svg" alt="3 warstwy"><br>
+<strong>Rysunek 1</strong> - Architektura trójwarstwowa aplikacji webowej.</p>
+<ul>
+<li><strong>architektura mikrousług</strong> - to podejście składa się z wyodrębnionych usług (np. usługa uwierzytelniania, usługa pamięci podręcznej, itp.), które zazwyczaj odpowiadają za jedną funkcję biznesową aplikacji. Takie podejście umożliwia bardziej dynamiczne skalowanie poszczególnych usług w zależności od potrzeb (np. obciążenia) dzięki takim rozwiązaniom jak konteneryzacja.</li>
+</ul>
+<p><img src="file:///c:\Users\Krzysztof\__projects\__uwm_aplikacje_www_wykład\wykład_#1\microservice_architecture_v2.png" alt=""><br>
+<strong>Rysunek 2</strong> - Przykładowa architektura rozwiązania opartego o mikrousługi.</p>
+<p><em>źródło: <a href="https://atlassian.com">https://atlassian.com</a></em></p>
+<ul>
+<li>
+<p><strong>architektura Web-Queue-Worker</strong> - model wykorzystywany zazwyczaj w przypadku aplikacji, które obsługują długotrwałe i zasobożerne operacje, które tutaj realizowane są poprzez workera oraz kolejkę komunikatów.</p>
+</li>
+<li>
+<p><strong>architektura SPA (Single Page Architecture)</strong> - aplikacja jednostronicowa (czasem nazywana jednoplikową, gdyż składa się z jednego pliku HTML), której zawartość jest przeładowywana z wykorzystaniem technologii AJAX i przypomina to pracę aplikacji natywnej.</p>
+</li>
+</ul>
+<h2 id="monolit-vs-aplikacja-oparta-o-mikrousługi"><strong>Monolit vs aplikacja oparta o mikrousługi</strong></h2>
+<h3 id="aplikacja-monolityczna">Aplikacja monolityczna</h3>
+<p>Aplikacja <strong>monolityczna</strong> charakteryzuje się samodzielnością działania (realizuje wszystkie usługi w ramach jednej aplikacji), chociaż może komunikować się z innymi systemamy zewnętrznymi. Składowe tej aplikacji są ze sobą znacznie sztywniej powiązane niż w przypadku aplikacji opartej o mikrousługi.</p>
+<blockquote>
+<p><strong>Główne zalety monolitu to:</strong></p>
+</blockquote>
+<ul>
+<li><strong>łatwiejsze wdrażanie i rozwój</strong> - aplikacja stanowi jedną całość ułatwiając zarządzanie infrastrukturą oraz kodem,</li>
+<li><strong>mniejsze opóźnienia</strong> - dzięki monolitycznej naturze nie ma konieczności komunikacji z wieloma usługami w celu obsługi żądania co skraca czas jego realizacji,</li>
+<li><strong>łatwiejsze testowanie</strong> - podobnie jak przy zarzadzaniu kodem tak i tutaj rozproszona natura aplikacji powoduje konieczność przetestowania jej komponentów w rozproszonym środowisku,</li>
+<li><strong>niższe koszty infrastruktury</strong> - ze względu na rozbudowaną architekturę mikrousług, jej konfiguracja może pociągnąć za sobą większe koszty infrastruktury w stosunku do monolitu.</li>
+</ul>
+<blockquote>
+<p>‍<strong>Główne wady monolitu to:</strong></p>
+</blockquote>
+<ul>
+<li><strong>kosztowne skalowanie</strong> – konieczność skalowania całej aplikacji lub znacznej jej części w przypadku niewystarczającej wydajności,</li>
+<li><strong>problematyczna aktualizacja</strong> – każda zmiana wymaga ponownego wdrożenia całości,</li>
+<li><strong>zmiany technologiczne</strong> - zmiana technologii lub frameworka jest skomplikowana, ponieważ dotyka całego systemu,</li>
+<li><strong>potencjalne większe koszty awarii</strong> - awaria aplikacji może powodować brak dostępu do całego systemu, co w przypadku mikrousług może zostać zredukowane poprzez większą redundancję poszczególnych jego składowych.</li>
+</ul>
+<blockquote>
+<p><strong>Skalowanie aplikacji monolitycznej</strong></p>
+</blockquote>
+<p>Skalowanie aplikacji monolitycznej odbywa się w poziomie i polega na skalowaniu jednej lub wielu jej warstw. Zazwyczaj dotyczy to warstwy backend lub bazodanowej i polega na uruchomieniu kolejnej instancji tej warstwy w postaci serwera fizycznego lub maszyny wirtualnej.</p>
+<p>Schematów skalowania jest co najmniej kilka. Przytoczę dwa poniżej.</p>
+<p><strong>Skalowanie warstwy backend</strong></p>
+<p><img src="file:///c:\Users\Krzysztof\__projects\__uwm_aplikacje_www_wykład\wykład_#1\skalowanie_backend.svg" alt=""><br>
+<strong>Rysunek 3</strong> - Przykład architektury systemu ze skalowaniem poziomym warstwy backend.</p>
+<p>Tutaj mamy do czynienia ze skalowaniem tylko warstwy backend, która w porównaniu do warstwy frontend generuje zazwyczaj znaczne obciążenie dla serwera.
+Takie rozwiązanie ma sens o ile tzw. &quot;wąskim gardłem&quot; całej aplikacji jest backend a nie baza danych.</p>
+<p><strong>Skalowanie warstwy backend oraz warstwy bazy danych</strong></p>
+<p><img src="file:///c:\Users\Krzysztof\__projects\__uwm_aplikacje_www_wykład\wykład_#1\skalowanie_backend_i_baza.svg" alt=""><br>
+<strong>Rysunek 4</strong> - Przykład architektury systemu ze skalowaniem poziomym warstwy backend oraz warstwy danych.</p>
+<p><img src="file:///c:\Users\Krzysztof\__projects\__uwm_aplikacje_www_wykład\wykład_#1\skalowanie_backend_i_baza_2.svg" alt=""><br>
+<strong>Rysunek 5</strong> - Przykład architektury systemu ze skalowaniem poziomym warstwy backend.</p>
+<p>Tu natomiast mamy do czynienia ze skalowaniem dwóch warstw - backendu oraz bazy danych. To rozwiązanie może być realizowane w kilku wariantach:</p>
+<ul>
+<li>serwer backend oraz oddzielny serwer bazy danych,</li>
+<li>serwer backend oraz bazy danych to jedna maszyna.</li>
+</ul>
+<p>Oba te rozwiązania wymagają mechanizmu replikacji między serwerami bazy danych, który wprowadza dodatkową komplikację, ale i opóźnienie w dostępnie do danych.</p>
+<p><strong>Skalowanie warstwy frontend</strong></p>
+<p>Dzięki takim mechanizmom jak <strong>pamięć podręczna (ang. cache)</strong> można znacznie zredukować obciążenie serwera w kontekście serwowania <strong>statycznej zawartości (pliki html, js, grafika, video)</strong> co powoduje, że frontend podlega skalowaniu rzadziej. Często są tu wykorzystywane tzw. <strong>CDN (Content Delivery Network)</strong>, które dzięki replikacji zawartości statycznej pomiędzy wiele lokalizacji rozsianych na świecie pozwalają &quot;skrócić drogę&quot; tych danych do klienta co skutkuje skróceniem czasu pobrania danych oraz wprowadza redundancję danych.</p>
+<h3 id="aplikacja-oparta-o-mikrousługi">Aplikacja oparta o mikrousługi</h3>
+<p>Jak zostało już wspomniane aplikacja oparta o mikrousługi oferuje możliwość wyodrębnienia pewnych części systemu (aplikacji) do mniejszego komponentu (mikrousługi), która następnie może zostać osadzona w postaci lekkiego kontenera i zwielokrotniana jeżeli obciążenie systemu tego wymaga. To podejście umożliwia zwiększanie wydajności aplikacji w miejscach, które tego wymagają, a nie dla całej aplikacji. Może akurat potrzeba większej wydajności obsługi pamięci podręcznej, a nie systemu uwierzytelniania?</p>
+<p>Takie podejście wymaga oczywiście nieco więcej pracy niż w przypadku monolitu, gdyż należy wyodrębnić i zaprojektować te części aplikacji, które do takich mikrousług należy migrować.</p>
+<blockquote>
+<p><strong>Zalety aplikacji opartych o mikrousługi:</strong></p>
+</blockquote>
+<ul>
+<li><strong>łatwość skalowania</strong> - jak już mikrousługi zostaną wyodrębnione i osadzone w postaci kontenerów w odpowiednim systemie ich orkiestracji to skalowanie można nawet zupełnie zautomatyzować określając pewne reguły tworzenia lub terminacji kolejnych instancji kontenerów,</li>
+<li><strong>aktualizacja technologiczna</strong> - wprowadzenie zmian w ramach jednej usługi nie musi nieść za sobą konieczności zmian w innych częściach aplikacji,</li>
+<li><strong>elastyczność aktualizacji</strong> - aktualizacje mogą być wdrażane stopniowo dla poszczególnych usług,</li>
+<li><strong>odporność na awarie</strong> - dzięki redundancji oraz odpowiedniej konfiguracji awaria jednej usługi nie musi nieść za sobą niedostępności całej aplikacji,</li>
+</ul>
+<blockquote>
+<p><strong>Wady aplikacji opartych o mikrousługi:</strong></p>
+</blockquote>
+<ul>
+<li><strong>stopień skomplikowania</strong> - takie aplikacje są zazwyczaj bardziej skomplikowane pod kątem architektury i wzajemnych powiązań i komunikacji między poszczególnymi usługami,</li>
+<li><strong>większe opóźnienia</strong> - przez konieczność komunikacji między wieloma usługami opóźnienia mogą być większe niż w przypadku aplikacji monolitycznej,</li>
+<li><strong>koszty</strong> - ze względu na większy stopień skomplikowania całej infrastruktury koszty wdrożenia oraz utrzymania takiej aplikacji mogą być wyższe, ale to zależy również tego czy skalowanie zostało odpowiednio zoptymalizowane względem podobnej wydajności aplikacji monolitycznej,</li>
+<li><strong>zarządzanie danymi</strong> - problem synchronizacji danych między wieloma usługami może być dość skomplikowany do wdrożenia.</li>
+</ul>
+<h3 id="4-kilka-ciekawostek">4. Kilka ciekawostek.</h3>
+<ol>
+<li>Jak wygląda aktualnie udział przeglądarek internetowych w rynku? Sprawdź: <a href="https://gs.statcounter.com/">https://gs.statcounter.com/</a></li>
+<li>Jaka technologia (oczywiście nie ma 100% pewności, że tylko te) została wykorzystana w danej stronie internetowej? Sprawdź: <a href="https://builtwith.com/">https://builtwith.com/</a></li>
+<li>Które strony internetowe są najczęściej odwiedzanymi na świecie? A w Polsce? Sprawdź: <a href="https://www.semrush.com/website/top/">https://www.semrush.com/website/top/</a> oraz <a href="https://www.similarweb.com/top-websites/">https://www.similarweb.com/top-websites/</a></li>
+<li>Milion dolarów! Wspomniana wcześniej strona: <a href="https://thehistoryoftheweb.com/the-power-of-the-pixel/">https://thehistoryoftheweb.com/the-power-of-the-pixel/</a> oraz nagroda za surfowanie po Internecie i wypełnianie formularzy: <a href="https://thehistoryoftheweb.com/they-offered-a-million-dollars-to-surf-the-web-somebody-won/">https://thehistoryoftheweb.com/they-offered-a-million-dollars-to-surf-the-web-somebody-won/</a></li>
+<li>Inne spojrzenie na historię aplikacji webowych: <a href="https://www.matthewgerstman.com/tech/history-of-the-web/">https://www.matthewgerstman.com/tech/history-of-the-web/</a></li>
+<li>Krótko o początkach całej historii prosto ze źródła: <a href="https://home.cern/science/computing/birth-web/short-history-web">https://home.cern/science/computing/birth-web/short-history-web</a></li>
+<li>Ankieta Stack Overflow odnośnie technologii webowych: <a href="https://survey.stackoverflow.co/2025/technology#1-web-frameworks-and-technologies">https://survey.stackoverflow.co/2025/technology#1-web-frameworks-and-technologies</a></li>
+<li>Nieco z innej beczki, ale warto wiedzieć skąd wziął się null pointer reference... <a href="https://en.wikipedia.org/wiki/Null_pointer#History">https://en.wikipedia.org/wiki/Null_pointer#History</a></li>
+</ol>
+<p><em>© Krzysztof Ropiak, 2025</em></p>
+
+            
+            
+        </body>
+        </html>
