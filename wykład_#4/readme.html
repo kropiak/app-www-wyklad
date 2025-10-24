@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Aplikacje WWW&period; Wyk&lstrok;ad &num;4</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h1 id="aplikacje-www-wykład-4">Aplikacje WWW. Wykład #4</h1>
+<h2 id="rest-representensional-state-transfer">REST (Representensional State Transfer)</h2>
+<h3 id="1-czym-jest-rest">1. Czym jest REST?</h3>
+<p>Zaproponowany przez Roya T. Fieldinga w roku 2000 styl architektoniczny oprogramowania w artykule <a href="https://ics.uci.edu/~taylor/documents/2002-REST-TOIT.pdf"> Principled Design of the Modern Web Architecture</a>. Początkowo to rozwiązanie było projektowanie w kontekście WWW, ale z czasem zostało zaadoptowane do szerszego zakresu zastosowań (np. IoT, środowiska chmurowe, internet mobilny).</p>
+<p>REST API (nazywany również RESTful API) to interfejs architektury REST służący do przesyłania informacji w architekturach klient-serwer oraz mikrousługach. Mówiąc inaczej jest to format wymiany danych, który rozumiany jest przez klienta oraz serwer.</p>
+<p>Aby powiedzieć, że aplikacja jest aplikacją RESTful musi ona spełniać zasady zdefiniowane w specyfikacji REST. Są to:</p>
+<ol>
+<li><strong>Jednolity interface (ang. Uniform interface)</strong></li>
+</ol>
+<p>API udostępniane przez serwer musi być rozumiane przez wszystkie aplikacji komunikujące się z nim, a dane mają ten sam format i zakres. Możliwa jest obsługa wielu urządzeń i aplikacji.</p>
+<ol start="2">
+<li><strong>Architektura klient-serwer</strong></li>
+</ol>
+<p>Aplikacje są rozdzielone na aplikację kliencką oraz aplikację serwerową, co pozwala na ich niezależny rozwój. Sprzyja to dobremu skalowaniu i przenośności. Ułatwia to również integrację z innymi usługami.</p>
+<ol start="3">
+<li><strong>Bezstanowość (ang. Stateless)</strong></li>
+</ol>
+<p>Sama specyfikacja REST nie definiuje możliwości utrzymywania sesji pomiędzy klientem a serwerem. Po stronie serwera nie powinniśmy więc przechowywać żadnych informacji od klienta, które są potrzebne do poprawnej obsługi wysyłanego przez niego żądania. Klient powinien dostarczać w tym żądaniu wszystkich niezbędnych informacji do jego poprawnego przetworzenia.</p>
+<p>Istnieje oczywiście możliwość realizacji mechanizmu weryfikującego czy użytkownik posiada uprawnienia do wykonania danego żądania i jest to realizowane poprzez przesyłanie w nagłówku informacji autoryzacyjnych za pośrednictwem tokena, np. JWT (ang. JSON Web Token).</p>
+<ol start="4">
+<li><strong>Pamięć podręczna (ang. Cacheability)</strong></li>
+</ol>
+<p>Pamięć podręczna to mechanizm pozwalający na zapamiętanie pewnych informacji, zasobów, które dla kolejnych żądań mogą być takie same, więc można zrezygnować z przetworzenia żądania i zamiast tego odczytać je z magazynu pamięci podręcznej zmniejszając obciążenie sieciowe i sprzętowe.</p>
+<p>Mechanizm pamięci podręcznej może być implementowany zarówno po stronie klienta jak i serwera.</p>
+<p>Przeglądarka internetowa może obsługiwać przechowywanie pamięci podręcznej lokalnie dla żądań typu GET oraz POST. Do obsługi tego mechanizmu wykorzystywane są nagłówki protokołu HTTP, które mogą definiowac czy zasób ma zostać przechowany i kiedy może zostać odświeżóny lub usnunięty.</p>
+<p>Przykładowa odpowiedź protokołu HTTP dla zapytania GET do serwera <a href="http://www.wp.pl">www.wp.pl</a></p>
+<pre><code class="language-sh">curl -I https://www.onet.pl
+
+...
+Cache-Control: s-maxage=0,stale-if-error=0,no-cache
+ETag: <span class="hljs-string">&quot;1489104-eec3cfe5d372e4e9&quot;</span>
+...
+<span class="hljs-comment"># s-maxage określa jak długo te dane pozostają świeże we współdzielonej pamięci podręcznej</span>
+<span class="hljs-comment"># ta dyrektywa jest ignorowana w przypadku prywatnej pamięci podręcznej</span>
+<span class="hljs-comment"># oraz nadpisuje dyrektywę max-age lub nagłówek Expires dla współdzielonej</span>
+<span class="hljs-comment"># pamięci podręcznej jeżeli jest ona obecna</span>
+<span class="hljs-comment"># ETag – unikalny identyfikator / token, bezpośrednio powiązany z </span>
+<span class="hljs-comment"># zapamiętanym zasobem. Zmienia się w momencie aktualizacji wartości.</span>
+
+curl -I https://www.google.pl
+
+...
+Expires: Wed, 22 Oct 2025 06:42:30 GMT
+Cache-Control: private
+...
+<span class="hljs-comment"># Expires – data wygaśnięcia danych. Kiedy termin upłynie, zasób musi zostać pobrany z serwera i może być ponownie zapamiętany.</span>
+<span class="hljs-comment"># cache może być przechowywany tylko lokalnie, np. w przeglądarce</span>
+<span class="hljs-comment"># Taki rodzaj pamięci podręcznej powinien być stosowany dla zawartości dostępnej po zalogowaniu, gdyż może służyć</span>
+<span class="hljs-comment"># do przechowywania wrażliwych danych, które w przypadku braku dyrektywy private</span>
+<span class="hljs-comment"># mogą zostać wykorzystane przez innych użytkowników i doprowadzić do wycieku danych</span>
+
+</code></pre>
+<p>Więcej o nagłowkach <code>Cache-Control</code> można przeczytać <a href="http://m.in">m.in</a>. tu: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control">https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Cache-Control</a></p>
+<p>W przypadku pamięci podręcznej po stronie serwera zazwyczaj jest to realizowane przez dedykowany cache serwer. Serwer ten sprawdza czy posiada zasów dla danego żądania i jeżeli tak oraz jego termin ważności nie wygasł to zwraca go do klienta bez ponownego przetwarzania API.</p>
+<p>Popularnymi serwerami tego typu są:</p>
+<ul>
+<li>Redis</li>
+<li>Memcached</li>
+<li>Nginx</li>
+<li>Varnish</li>
+<li>Squid</li>
+</ul>
+<ol start="5">
+<li><strong>Odseparowane warstwy (ang. Layered system)</strong></li>
+</ol>
+<p>Warstwy logiki oraz WWW są odseparowane. Przykładowy zbiór warstw aplikacji może wyglądać tak:</p>
+<ul>
+<li><strong>Żądanie klienta:</strong> Żądanie dociera do warstwy klienta (np. przeglądarki internetowej).</li>
+<li><strong>Warstwy pośrednie:</strong> np. CDN (Content Delivery Network) i load balancer.</li>
+<li><strong>API Gateway:</strong> może służyć jako punkt wejścia dla żądań, zajmując się <a href="http://m.in">m.in</a>. uwierzytelnianiem i autoryzacją.</li>
+<li><strong>Serwer aplikacji:</strong> Żądanie trafia do serwera aplikacji, który przetwarza logikę biznesową.</li>
+<li><strong>Baza danych:</strong> Serwer aplikacji komunikuje się z bazą danych w celu pobrania lub zapisu danych.</li>
+<li><strong>Odpowiedź:</strong> Odpowiedź jest przesyłana z powrotem, przechodząc przez te same warstwy, co żądanie.</li>
+</ul>
+<p>To pozwala na skalowanie aplikacji na każdej warstwie z osobna np. poprzez wykorzystanie mikroserwisów.</p>
+<ol start="6">
+<li><strong>Kod na żądanie (ang. Code on demand)</strong></li>
+</ol>
+<p>Jest to jedyna opcjonalna cecha, która nie musi być wykorzystana w aplikacji, aby nazwać ją aplikacją RESTful. Ta funkcjonalność daje możliwość wysyłania wykonywalnego kodu do klienta (np. JavaScript, dynamiczne komponenty,  aktualizacja aplikacji, aplety). Ma to swoje wady i zalety.</p>
+<p>Zalety kodu na żądanie:</p>
+<ul>
+<li>Możliwe jest wysłanie kodu do klienta, który zapewni wykonanie części logiki biznesowej po jego stronie odciążając w ten sposób serwer (np. wstępna walidacja).</li>
+<li>Zmniejszenie ilości żądań do obsługi funkcjonalności co może poprawić wydajność aplikacji (UX (ang. User Experience) - wrażenia użytkownika).</li>
+<li>Łatwiejsze aktualizacje - możliwe jest wykoanie aktualizacji aplikacji po stronie klienta z wykorzystaniem takiego rozwiązania.</li>
+</ul>
+<p>Wady takiego rozwiązania:</p>
+<ul>
+<li>Bezpieczeństwo: potrzebne jest zapewnienie mechanizmów, które uchronią aplikację kliencką przed wykonaniem złośliwego kodu. Wymagane jest dodanie zabezpieczeń przed atakami typu XSS (ang. Cross-Site-Scripting) oraz konfiguracja CORS (ang. Cross-Origin Resource Sharing).</li>
+</ul>
+<h3 id="2-dostępne-metody-żądań-protokołu-http-poprzez-api-rest">2. Dostępne metody żądań protokołu HTTP poprzez API REST</h3>
+<p><strong>Główne metody.</strong></p>
+<ul>
+<li><code>GET</code> – pobieranie zasobów,</li>
+<li><code>POST</code> – dodawanie nowych zasobów,</li>
+<li><code>PUT</code> – aktualizowanie istniejących danych,</li>
+<li><code>PATCH</code> - częściowa aktualizacaj zasobów,</li>
+<li><code>DELETE</code> – usuwanie zasobów.</li>
+</ul>
+<p><strong>Metody pomocnicze.</strong></p>
+<ul>
+<li><code>HEAD</code> - służy do pobierania metadanych zasobów, np. rozmiar,</li>
+<li><code>OPTIONS</code> - umożliwia uzyskanie listy dostępnych metod dla zasobu,</li>
+<li><code>TRACE</code> - może być wykorzystane jako narzędzie do debuggowania, może ujawniać wrażliwe dane, co powoduje, że jest podatny na ataki, np. atak Cross-Site Tracing (XST).</li>
+</ul>
+<p><strong>Podstawowe przykłady.</strong></p>
+<ul>
+<li>
+<p><strong>GET /orders</strong> – pobranie listy wszystkich zamówień.</p>
+</li>
+<li>
+<p><strong>GET /orders/1</strong> – pobranie informacji o konkretnym zamówieniu o ID 1.</p>
+</li>
+<li>
+<p><strong>GET /products?category=book</strong> – pobranie listy produktów z kategorii &quot;książki&quot; (z wykorzystaniem parametru zapytania).</p>
+</li>
+<li>
+<p><strong>POST /orders</strong> – utworzenie nowego zamówienia poprzez przesłanie jego danych w treści żądania (np. w formacie JSON).</p>
+</li>
+<li>
+<p><strong>PUT /orders/1</strong> – zaktualizowanie całego rekordu zamówienia o ID 1, wysyłając nowe dane w treści żądania.</p>
+</li>
+<li>
+<p><strong>PATCH /orders/5</strong> – częściowa aktualizacja zamówienia o ID 5 (np. zmiana statusu).</p>
+</li>
+<li>
+<p><strong>DELETE /orders/1</strong> – usunięcie zamówienia o ID 1.</p>
+</li>
+</ul>
+<p><strong>Dodatkowe elementy żądania.</strong></p>
+<ul>
+<li><strong>URL:</strong> Adres, pod który wysyłane jest żądanie, np. <a href="https://api.example.com/orders/1">https://api.example.com/orders/1</a>.</li>
+<li><strong>Metoda HTTP:</strong> Określa akcję, która ma zostać wykonana, np. GET, POST.</li>
+<li><strong>Nagłówki (Headers):</strong> Dodatkowe informacje o żądaniu, np. Content-Type: application/json lub nagłówek autoryzacji Authorization: Bearer <token>.</li>
+<li><strong>Treść żądania (Body):</strong> Dane przesyłane do serwera, najczęściej w przypadku metod POST i PUT, np. dane nowego zamówienia w formacie JSON.</li>
+<li><strong>Parametry zapytania (Query Parameters):</strong> Dodatkowe parametry dodawane do URL po znaku ?, np. ?page=2&amp;sort=desc</li>
+</ul>
+<p>Przykładowe wywołania powyższych żądań z wykorzystaniem narzędzia <code>curl</code>.</p>
+<pre><code class="language-sh"><span class="hljs-comment"># Pobranie listy wszystkich zamówień</span>
+curl -X GET https://api.example.com/orders
+
+<span class="hljs-comment"># Pobranie informacji o konkretnym zamówieniu o ID 1</span>
+curl -X GET https://api.example.com/orders/1
+
+<span class="hljs-comment"># Utworzenie nowego zamówienia</span>
+curl -X POST https://api.example.com/orders \
+     -H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span> \
+     -d <span class="hljs-string">&#x27;{&quot;product_id&quot;: 123, &quot;quantity&quot;: 2}&#x27;</span>   
+
+<span class="hljs-comment"># Zaktualizowanie całego rekordu zamówienia o ID 1</span>
+curl -X PUT https://api.example.com/orders/1 \
+     -H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span> \
+     -d <span class="hljs-string">&#x27;{&quot;product_id&quot;: 123, &quot;quantity&quot;: 3, &quot;status&quot;: &quot;shipped&quot;}&#x27;</span> 
+           
+<span class="hljs-comment"># Częściowa aktualizacja zamówienia o ID 5</span>
+curl -X PATCH https://api.example.com/orders/5 \
+     -H <span class="hljs-string">&quot;Content-Type: application/json&quot;</span> \
+     -d <span class="hljs-string">&#x27;{&quot;status&quot;: &quot;delivered&quot;}&#x27;</span> 
+
+<span class="hljs-comment"># Usunięcie zamówienia o ID 1</span>
+curl -X DELETE https://api.example.com/orders/1
+</code></pre>
+<p>Skoro jesteśmy juz przy żądaniach protokołu HTTP, warto wspomnieć o kodach odpowiedzi, które są zwracane przez serwer w odpowiedzi na żądania klienta. Najczęściej wykorzystywane kody to:</p>
+<p><strong>Pomyślne wykonanie:</strong></p>
+<ul>
+<li><strong>200 OK:</strong> Standardowa odpowiedź na pomyślne żądanie.</li>
+<li><strong>201 Created:</strong> Używane, gdy nowy zasób został pomyślnie utworzony na serwerze.</li>
+<li><strong>204 No Content:</strong> Odpowiedź, gdy żądanie zakończyło się sukcesem, ale nie ma nic do zwrócenia (np. po usunięciu zasobu).
+Błędy po stronie klienta:</li>
+<li><strong>400 Bad Request:</strong> Ogólny błąd, gdy serwer nie może przetworzyć zapytania z powodu błędnego formatu lub danych.</li>
+<li><strong>401 Unauthorized:</strong> Wskazuje, że żądanie wymaga uwierzytelnienia.</li>
+<li><strong>403 Forbidden:</strong> Oznacza, że serwer zrozumiał żądanie, ale odmawia jego realizacji (np. brak uprawnień).</li>
+<li><strong>404 Not Found:</strong> Zasób, o który zapytano, nie został znaleziony.</li>
+<li><strong>405 Method Not Allowed:</strong> Użyta metoda HTTP jest niedozwolona dla danego zasobu.</li>
+<li><strong>409 Conflict:</strong> Żądanie nie może zostać przetworzone z powodu konfliktu stanu z aktualnym stanem zasobu.</li>
+<li><strong>429 Too Many Requests:</strong> Klient przekroczył limit zapytań.
+Błędy po stronie serwera:</li>
+<li><strong>500 Internal Server Error:</strong> Ogólny błąd serwera.</li>
+<li><strong>503 Service Unavailable:</strong> Serwer jest tymczasowo niedostępny (np. przeciążony).</li>
+</ul>
+<h3 id="3-serializacja-danych">3. Serializacja danych</h3>
+<blockquote>
+<p>Serializacja – w programowaniu proces przekształcania obiektów, tj. instancji określonych klas, do postaci szeregowej, czyli w strumień bajtów lub postać tekstową (np. XML, JSON) z zachowaniem aktualnego stanu obiektu. Serializowany obiekt może zostać utrwalony w pliku dyskowym, przesłany do innego procesu lub innego komputera poprzez sieć. Procesem odwrotnym do serializacji jest deserializacja. Proces ten polega na odczytaniu wcześniej zapisanego strumienia danych i odtworzeniu na tej podstawie obiektu klasy wraz z jego stanem bezpośrednio sprzed serializacji.</p>
+<p><em>źródło</em>: Wikipedia</p>
+</blockquote>
+<p>Najbardziej typowymi zastosowaniami serializacji jest chęć zapisania stanu aplikacji w bazie lub pliku lub przesłanie danych/stanu przez sieć.</p>
+<p>W przypadku formatów binarnych problemem jest brak kompatybilności między rozwiązaniami co ogranicza znacznie ich zastosowanie. W przypadku języka Python serializację binarną możemy wykonać np. za pomocą modułu <code>pickle</code>.
+W przypadku takich rozwiązań jak REST API dużo lepszym rozwiązaniem jest wykorzystanie powszechnie dostępnego formatu zapisu danych, który umożliwi szersze jego wykorzystanie i integrację z innymi systemami, które mogą nie być jednorodne, ale &quot;dogadują&quot; się tym samym językiem (formatem) danych. Najczęściej wykorzystywanymi w praktyce formatami są <code>JSON</code> oraz <code>XML</code>.</p>
+<h4 id="format-json">Format JSON</h4>
+<p>JavaScript Object Notation (JSON) to otwarty, niezależny od języka programowania,  tekstowy format danych pozwalający na definiowanie par wartości klucz-wartość oraz tablic. Tu warto przytoczyć nazwisko Dougkasa Crockforda, który zdefiniował ten format na początku lat 2000.</p>
+<p>Specyfikację formatu (która pojawiła się dopiero w roku 2013) można zaleźć pod adresem <a href="https://www.rfc-editor.org/rfc/rfc7158">https://www.rfc-editor.org/rfc/rfc7158</a>.</p>
+<p>Dopuszczalne kodowanie znaków plików <code>.json</code> to UTF-8, UTF-16 oraz UTF-32, przy czym ten pierwszy jest formatem domyślnym.</p>
+<p><strong>Przykład zapisu w formacie JSON</strong><br>
+_źródło: <a href="https://en.wikipedia.org/wiki/JSON_">https://en.wikipedia.org/wiki/JSON_</a></p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;first_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;John&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;last_name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Smith&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;is_alive&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;age&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">27</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;street_address&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;21 2nd Street&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;city&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;New York&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;state&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;NY&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;postal_code&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;10021-3100&quot;</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;phone_numbers&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;home&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;212 555-1234&quot;</span>
+    <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;office&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;number&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;646 555-4567&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;children&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-string">&quot;Catherine&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-string">&quot;Thomas&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-string">&quot;Trevor&quot;</span>
+  <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;spouse&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">null</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>Odpowiadający powyższej strukturze zapis w formacie XML.</p>
+<pre><code class="language-xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">person</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">first_name</span>&gt;</span>John<span class="hljs-tag">&lt;/<span class="hljs-name">first_name</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">last_name</span>&gt;</span>Smith<span class="hljs-tag">&lt;/<span class="hljs-name">last_name</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">is_alive</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">is_alive</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">age</span>&gt;</span>27<span class="hljs-tag">&lt;/<span class="hljs-name">age</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">address</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">street_address</span>&gt;</span>21 2nd Street<span class="hljs-tag">&lt;/<span class="hljs-name">street_address</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">city</span>&gt;</span>New York<span class="hljs-tag">&lt;/<span class="hljs-name">city</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">state</span>&gt;</span>NY<span class="hljs-tag">&lt;/<span class="hljs-name">state</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">postal_code</span>&gt;</span>10021-3100<span class="hljs-tag">&lt;/<span class="hljs-name">postal_code</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">address</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">phone_numbers</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">phone</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>home<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">number</span>&gt;</span>212 555-1234<span class="hljs-tag">&lt;/<span class="hljs-name">number</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">phone</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">phone</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">type</span>&gt;</span>office<span class="hljs-tag">&lt;/<span class="hljs-name">type</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">number</span>&gt;</span>646 555-4567<span class="hljs-tag">&lt;/<span class="hljs-name">number</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">phone</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">phone_numbers</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">children</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">child</span>&gt;</span>Catherine<span class="hljs-tag">&lt;/<span class="hljs-name">child</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">child</span>&gt;</span>Thomas<span class="hljs-tag">&lt;/<span class="hljs-name">child</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">child</span>&gt;</span>Trevor<span class="hljs-tag">&lt;/<span class="hljs-name">child</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">children</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">spouse</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">person</span>&gt;</span>
+</code></pre>
+<p>Przykład wykonania serializacji oraz deserializacji danych w formacie JSON w języku Python z wykorzystaniem wbudowanego modułu <code>json</code>.</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> json
+<span class="hljs-comment"># Przykładowe dane do serializacji</span>
+data = {
+    <span class="hljs-string">&quot;first_name&quot;</span>: <span class="hljs-string">&quot;John&quot;</span>,
+    <span class="hljs-string">&quot;last_name&quot;</span>: <span class="hljs-string">&quot;Smith&quot;</span>,
+    <span class="hljs-string">&quot;is_alive&quot;</span>: <span class="hljs-literal">True</span>,
+    <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">27</span>,
+    <span class="hljs-string">&quot;address&quot;</span>: {
+        <span class="hljs-string">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;21 2nd Street&quot;</span>,
+        <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;New York&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;NY&quot;</span>,
+        <span class="hljs-string">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;10021-3100&quot;</span>
+    },
+    <span class="hljs-string">&quot;phone_numbers&quot;</span>: [
+        {
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;home&quot;</span>,
+            <span class="hljs-string">&quot;number&quot;</span>: <span class="hljs-string">&quot;212 555-1234&quot;</span>
+        },
+        {
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;office&quot;</span>,
+            <span class="hljs-string">&quot;number&quot;</span>: <span class="hljs-string">&quot;646 555-4567&quot;</span>
+        }
+    ],
+    <span class="hljs-string">&quot;children&quot;</span>: [
+        <span class="hljs-string">&quot;Catherine&quot;</span>,
+        <span class="hljs-string">&quot;Thomas&quot;</span>,
+        <span class="hljs-string">&quot;Trevor&quot;</span>
+    ],
+    <span class="hljs-string">&quot;spouse&quot;</span>: <span class="hljs-literal">None</span>
+}
+<span class="hljs-comment"># Serializacja do formatu JSON</span>
+json_data = json.dumps(data, indent=<span class="hljs-number">4</span>)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Zserializowane dane JSON:&quot;</span>)
+<span class="hljs-built_in">print</span>(json_data)
+
+<span class="hljs-comment"># Deserializacja z formatu JSON</span>
+deserialized_data = json.loads(json_data)
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\nDeserializowane dane:&quot;</span>)
+<span class="hljs-built_in">print</span>(deserialized_data)
+</code></pre>
+<p>Oraz przykład serializacji z wykorzystaniem modułu <code>pickle</code> do formatu binarnego.</p>
+<pre><code class="language-python"><span class="hljs-keyword">import</span> pickle
+<span class="hljs-comment"># Przykładowe dane do serializacji</span>
+data = {
+    <span class="hljs-string">&quot;first_name&quot;</span>: <span class="hljs-string">&quot;John&quot;</span>,
+    <span class="hljs-string">&quot;last_name&quot;</span>: <span class="hljs-string">&quot;Smith&quot;</span>,
+    <span class="hljs-string">&quot;is_alive&quot;</span>: <span class="hljs-literal">True</span>,
+    <span class="hljs-string">&quot;age&quot;</span>: <span class="hljs-number">27</span>,
+    <span class="hljs-string">&quot;address&quot;</span>: {
+        <span class="hljs-string">&quot;street_address&quot;</span>: <span class="hljs-string">&quot;21 2nd Street&quot;</span>,
+        <span class="hljs-string">&quot;city&quot;</span>: <span class="hljs-string">&quot;New York&quot;</span>,
+        <span class="hljs-string">&quot;state&quot;</span>: <span class="hljs-string">&quot;NY&quot;</span>,
+        <span class="hljs-string">&quot;postal_code&quot;</span>: <span class="hljs-string">&quot;10021-3100&quot;</span>
+    },
+    <span class="hljs-string">&quot;phone_numbers&quot;</span>: [
+        {
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;home&quot;</span>,
+            <span class="hljs-string">&quot;number&quot;</span>: <span class="hljs-string">&quot;212 555-1234&quot;</span>
+        },
+        {
+            <span class="hljs-string">&quot;type&quot;</span>: <span class="hljs-string">&quot;office&quot;</span>,
+            <span class="hljs-string">&quot;number&quot;</span>: <span class="hljs-string">&quot;646 555-4567&quot;</span>
+        }
+    ],
+    <span class="hljs-string">&quot;children&quot;</span>: [
+        <span class="hljs-string">&quot;Catherine&quot;</span>,
+        <span class="hljs-string">&quot;Thomas&quot;</span>,
+        <span class="hljs-string">&quot;Trevor&quot;</span>
+    ],
+    <span class="hljs-string">&quot;spouse&quot;</span>: <span class="hljs-literal">None</span>
+}
+<span class="hljs-comment"># Serializacja do formatu binarnego</span>
+binary_data = pickle.dumps(data)
+
+deserialized_data = pickle.loads(binary_data)
+<span class="hljs-comment"># typ deserializowanych danych</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-built_in">type</span>(deserialized_data))  <span class="hljs-comment"># &lt;class &#x27;dict&#x27;&gt;</span>
+<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;\nDeserializowane dane:&quot;</span>)    
+<span class="hljs-built_in">print</span>(deserialized_data)
+</code></pre>
+<h3 id="4-django-rest-framework">4. Django Rest Framework</h3>
+<p>Django Rest Framework (DRF) to potężny i elastyczny zestaw narzędzi do budowania interfejsów API w Django. Umożliwia szybkie tworzenie API RESTful, oferując wiele funkcji, takich jak serializacja danych, uwierzytelnianie, uprawnienia i obsługa żądań HTTP.</p>
+<h4 id="cykl-żądanie---odpowiedź-w-django">Cykl żądanie - odpowiedź w Django</h4>
+<p>Poniżej znajduje się schemat obrazujący cykl żądanie-odpowiedź w Django (bez DRF):</p>
+<p><img src="file:///c:\Users\Krzysztof\__projects\__uwm_aplikacje_www_wykład\wykład_#4\django_request_flow.gif" alt="Django request-response flow"></p>
+<p>źródło: <a href="https://medium.com/@praseeshprasee/django-request-response-cycle-explained-e3d707eed99c">https://medium.com/@praseeshprasee/django-request-response-cycle-explained-e3d707eed99c</a></p>
+<h4 id="cykl-żądanie---odpowiedź-w-django-rest-framework-drf">Cykl żądanie - odpowiedź w Django Rest Framework (DRF)</h4>
+<p><strong>Krok 1: Inicjalizacja żądania</strong></p>
+<p>Metoda <code>dispatch()</code> opakowuje standardowe żądanie <code>HttpRequest</code> Django w specjalny obiekt żądania DRF. Wybierane są parsery i autentykatory (poprzez <code>parser_classes</code> lub <code>DEFAULT_PARSER_CLASSES</code> oraz odpowiednio <code>authentication_classes</code> lub <code>DEFAULT_AUTHENTICATION_CLASSES</code>).</p>
+<p><strong>Krok 2: Uwierzytelnianie użytkownika</strong></p>
+<p>Metoda <code>dispatch()</code> próbuje uwierzytelnić użytkownika, wywołując metodę <code>perform_authentication()</code>.
+Wywoływane są tutaj klasy uwierzytelniające, które próbują zidentyfikować użytkownika. Jeśli żadna z nich nie powiedzie się, użytkownik jest ustawiany jako instancja <code>AnonymousUser</code>.</p>
+<p><strong>Krok 3: Sprawdzanie uprawnień</strong></p>
+<p>Metoda <code>dispatch()</code> sprawdza uprawnienia użytkownika, wywołując metodę <code>check_permissions()</code>.</p>
+<p>Jest to miejsce, w którym oceniane są klasy <code>permission_classes</code> zadeklarowane w widoku lub <code>DEFAULT_PERMISSION_CLASSES</code> zdefiniowane w ustawieniach. Tutaj zazwyczaj klasy uprawnień sprawdzają metodę żądania, tj. <code>GET</code>, <code>POST</code>, <code>DELETE</code> itp., i określają, czy użytkownik ma prawo do jego żądania. Zwracają odpowiednio <code>True</code> lub <code>False</code>.</p>
+<p>Jeżeli którakolwiek z klas uprawnień zwróci <code>False</code>, metoda <code>check_permissions()</code> zgłasza jedno z dwóch wyjątków:</p>
+<ul>
+<li><code>NotAuthenticated</code> exception (401) dla użytkowników anonimowych</li>
+<li><code>PermissionDenied</code> exception (403) w pozostałych przypadkach</li>
+</ul>
+<p><strong>Krok 4: Wybór handlera</strong></p>
+<p>Metoda <code>dispatch()</code> szuka odpowiedniego handlera dla metody żądania. To tutaj wywoływane są handlery <code>list()</code>, <code>create()</code>, <code>retrieve()</code>, <code>update()</code> i <code>destroy()</code>, tj. te, które najczęściej nadpisujesz. Jeżeli nie zostanie znaleziony odpowiedni handler, <code>dispatch()</code> zgłasza wyjątek <code>MethodNotAllowed</code> (błąd HTTP o kodzie 405).</p>
+<p><strong>Krok 5: Pobranie querysetu lub obiektu</strong></p>
+<p>Metoda handlera wywołuje metody <code>get_queryset()</code> i/lub <code>get_object()</code> w celu pobrania żądanych obiektów modelu.
+Zwróć uwagę, że żadna z tych metod nie jest wywoływana w <code>create()</code>, ponieważ nie są one potrzebne do tworzenia nowych obiektów. Warto również zauważyć, że metoda <code>get_object()</code> jest wywoływana tylko w trasach szczegółowych, takich jak <code>retrieve()</code>, <code>update()</code> i <code>destroy()</code>, gdzie podany jest parametr <code>PK</code>.</p>
+<p><strong>Krok 6: Inicjalizacja serializera</strong></p>
+<p>Metoda handlera tworzy instancję klasy <code>ModelSerializer</code> i przekazuje do niej dane żądania i/lub obiekt modelu. W tym momencie nie zachodzi jeszcze walidacja ani serializacja, ponieważ DRF wykonuje te operacje leniwie.</p>
+<p><strong>Krok 7: Walidacja</strong></p>
+<p>Metoda handlera wywołuje metodę <code>is_valid(raise_exception=True)</code> na serializatorze. Zauważ, że jest ona wywoływana tylko w <code>create()</code>, <code>update()</code> i <code>partial_update()</code>, ponieważ inne akcje nie przyjmują żadnych danych wejściowych.</p>
+<p>Wewnątrz metody <code>is_valid()</code> dzieje się kilka rzeczy:</p>
+<ul>
+<li>surowe dane są konwertowane na typy danych Pythona za pomocą metody <code>to_internal_value()</code>, która również uruchamia walidację modelu i pól. Jeśli wystąpią błędy na polu (np. wymagane pole jest puste), zostanie zgłoszony wyjątek i nie zostanie uruchomiona jego niestandardowa walidacja.</li>
+<li>logika sprawdza, czy istnieje niestandardowa metoda walidacji i uruchamia ją, jeśli tak. Tutaj uruchamiane są też niestandardowe metody walidacji definiowane przez programistę.</li>
+<li>na koniec logika uruchamia ogólną niestandardową metodę walidacji <code>validate()</code>.</li>
+<li>jeżeli walidacja się nie powiedzie, a handler przekazał <code>raise_exception=True</code> do <code>is_valid()</code>, zostanie zgłoszony wyjątek <code>ValidationError</code> (400).</li>
+<li>metoda <code>is_valid()</code> uruchamia walidację na wszystkich polach przed zgłoszeniem wyjątku, dzięki czemu użytkownik może otrzymać wiele komunikatów o błędach naraz.</li>
+</ul>
+<p><strong>Krok 8: Wykonanie akcji żądania</strong></p>
+<p>Metoda handlera wywołuje <code>perform_create()</code>, <code>perform_update()</code> lub <code>perform_destroy()</code> w zależności od typu metody żądania. To tutaj zachodzi zapytanie do bazy danych.</p>
+<p><strong>Krok 9: Generowanie odpowiedzi</strong></p>
+<p>Na koniec metoda handlera tworzy instancję odpowiedzi DRF.</p>
+<p>Wszystkie handlery, z wyjątkiem <code>destroy()</code>, zwracają reprezentację obiektu(ów) modelu. Oznacza to, że obiekt(ów) muszą być zserializowane, przekształcone w format JSON lub inne.</p>
+<p>W tym celu handler uzyskuje dostęp do właściwości <code>.data</code> na serializatorze. Z kolei wywołuje metodę <code>to_representation()</code>, która przekształca obiekt(y) modelu w kolekcję Pythona (tj. dict lub list).</p>
+<p>Później w cyklu ta kolekcja Pythona zostanie przekazana do klas renderujących, które zserializują ją do wymaganego formatu.</p>
+<p>Wewnątrz obiektu odpowiedzi DRF następuje konwersja kolekcji Pythona na format(y) zdefiniowane przez <code>renderer_classes</code> w widoku lub <code>DEFAULT_RENDERER_CLASSES</code> zdefiniowane w ustawieniach. Najczęściej jest to JSON.</p>
+<p>Następnie odpowiedź jest przesyłana w górę strumienia i przechodzi przez te same kroki, które miały miejsce na początku, ale w odwrotnej kolejności. To znaczy:</p>
+<p>Django przesyła odpowiedź przez middleware, a następnie wraca do serwera aplikacji.
+Serwer aplikacji (np. Gunicorn) przekazuje ją do serwera WWW (np. Apache lub Nginx).
+Serwer WWW wysyła odpowiedź z powrotem do użytkownika</p>
+<h4 id="przykład-serializatora-w-drf">Przykład serializatora w DRF</h4>
+<p>Zakładając, że mamy model <code>Product</code> zdefiniowany w pliku <code>models.py</code> naszej aplikacji Django:</p>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> django.db <span class="hljs-keyword">import</span> models
+<span class="hljs-keyword">from</span> django.contrib.auth.models <span class="hljs-keyword">import</span> User
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Category</span>(models.Model):
+    name = models.CharField(max_length=<span class="hljs-number">30</span>)
+    description = models.TextField(null=<span class="hljs-literal">True</span>, blank=<span class="hljs-literal">True</span>)
+    subcategory = models.ManyToManyField(<span class="hljs-string">&quot;self&quot;</span>, symmetrical=<span class="hljs-literal">False</span>)
+
+    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Meta</span>:
+        verbose_name_plural = <span class="hljs-string">&#x27;categories&#x27;</span>
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__str__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;<span class="hljs-subst">{self.name}</span>&quot;</span>
+
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">Product</span>(models.Model):
+    name = models.CharField(max_length=<span class="hljs-number">200</span>)
+    description = models.TextField(null=<span class="hljs-literal">True</span>, blank=<span class="hljs-literal">True</span>)
+    price = models.DecimalField(max_digits=<span class="hljs-number">6</span>, decimal_places=<span class="hljs-number">2</span>)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__str__</span>(<span class="hljs-params">self</span>):
+        <span class="hljs-keyword">return</span> self.name
+</code></pre>
+<p>Stworzenie serializatora od podstaw dla tego modelu w pliku <code>serializers.py</code> może wyglądać następująco:</p>
+<pre><code class="language-python"><span class="hljs-keyword">from</span> rest_framework <span class="hljs-keyword">import</span> serializers
+<span class="hljs-keyword">from</span> .models <span class="hljs-keyword">import</span> Product
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">ProductSerializer</span>(serializers.Serializer):
+    <span class="hljs-built_in">id</span> = serializers.IntegerField(read_only=<span class="hljs-literal">True</span>)
+    name = serializers.CharField(max_length=<span class="hljs-number">100</span>)
+    description = serializers.CharField(max_length=<span class="hljs-number">100</span>)
+    price = serializers.DecimalField(max_digits=<span class="hljs-number">10</span>, decimal_places=<span class="hljs-number">2</span>)
+    category = serializers.PrimaryKeyRelatedField(queryset=Category.objects.<span class="hljs-built_in">all</span>())
+
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">create</span>(<span class="hljs-params">self, validated_data</span>):
+        <span class="hljs-keyword">return</span> Product.objects.create(**validated_data)
+    
+    <span class="hljs-keyword">def</span> <span class="hljs-title function_">update</span>(<span class="hljs-params">self, instance, validated_data</span>):
+        instance.name = validated_data.get(<span class="hljs-string">&#x27;name&#x27;</span>, instance.name)
+        instance.description = validated_data.get(<span class="hljs-string">&#x27;description&#x27;</span>, instance.description)
+        instance.price = validated_data.get(<span class="hljs-string">&#x27;price&#x27;</span>, instance.price)
+        instance.category = validated_data.get(<span class="hljs-string">&#x27;category&#x27;</span>, instance.category)
+        instance.save()
+        <span class="hljs-keyword">return</span> instance
+</code></pre>
+<h3 id="5-frameworki-do-tworzenia-api-rest-w-pythonie">5. Frameworki do tworzenia API REST w Pythonie</h3>
+<ul>
+<li>Django REST Framework</li>
+<li>Flask RESTful</li>
+<li>FastAPI</li>
+<li>Pyramid</li>
+<li>Falcon</li>
+<li>Bottle</li>
+<li>Eve</li>
+<li>Sanic</li>
+<li>Tornado</li>
+<li>Hug</li>
+</ul>
+<p>Każdy z tych frameworków oferuje różne funkcje i możliwości, więc wybór odpowiedniego zależy od specyficznych potrzeb projektu.</p>
+<p>Wady i zalety wybranych z nich.</p>
+<p><strong>Django + Django REST Framework (DRF)</strong></p>
+<ul>
+<li>Zalety:
+<ul>
+<li>Bogaty zestaw funkcji, w tym serializacja, uwierzytelnianie i uprawnienia.</li>
+<li>Świetna dokumentacja i duża społeczność.</li>
+<li>Integracja z Django ORM.</li>
+</ul>
+</li>
+<li>Wady:
+<ul>
+<li>Może być zbyt ciężki dla prostych aplikacji.</li>
+<li>Wymaga dość dużej wiedzy o Django.</li>
+<li>Czasami może być wolniejszy niż lżejsze frameworki.</li>
+<li>Monolityczność</li>
+</ul>
+</li>
+</ul>
+<p><strong>Flask RESTful</strong></p>
+<ul>
+<li>Zalety:
+<ul>
+<li>Dokumentacja</li>
+<li>Skalowalność</li>
+<li>Lekkość</li>
+</ul>
+</li>
+<li>Wady:
+<ul>
+<li>Wysokie koszty utrzymania i wdrożenia</li>
+<li>Złożony stos technologiczny</li>
+<li>Ryzyka związane z bezpieczeństwem</li>
+</ul>
+</li>
+</ul>
+<p><strong>FastAPI</strong></p>
+<ul>
+<li>
+<p>Zalety:</p>
+<ul>
+<li>Nowoczesny i szybki</li>
+<li>Wbudowana walidacja danych</li>
+<li>Obsługa asynchroniczności</li>
+<li>Szybkość kodowania</li>
+<li>Łatwe tworzenie wtyczek</li>
+</ul>
+</li>
+<li>
+<p>Wady:</p>
+<ul>
+<li>Wsparcie społeczności</li>
+<li>Używa Pydantic do walidacji żądań, co czasami jest trudne do zrozumienia i wymaga napisania własnego walidatora.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Pyramid</strong></p>
+<ul>
+<li>
+<p>Zalety:</p>
+<ul>
+<li>Wykorzystanie żądań Ajax</li>
+<li>Elastyczność i łatwość konfiguracji</li>
+<li>Dobre dla projektów opartych na SQL</li>
+</ul>
+</li>
+<li>
+<p>Wady:</p>
+<ul>
+<li>Braki w dokumentacji</li>
+<li>Mniejsza społeczność w porównaniu do innych frameworków</li>
+<li>Trudności w konfiguracji szablonów</li>
+<li>Brak wbudowanej funkcjonalności zarządzania bazą danych</li>
+</ul>
+</li>
+</ul>
+<p>Kilka wybranych stron, które wykorzystują Django jako backend:</p>
+<ul>
+<li>Instagram: <a href="https://www.instagram.com/">https://www.instagram.com/</a></li>
+<li>Pinterest: <a href="https://www.pinterest.com/">https://www.pinterest.com/</a></li>
+<li>Disqus: <a href="https://disqus.com/">https://disqus.com/</a></li>
+<li>Mozilla: <a href="https://www.mozilla.org/">https://www.mozilla.org/</a></li>
+<li>The Washington Post: <a href="https://www.washingtonpost.com/">https://www.washingtonpost.com/</a></li>
+<li>Bitbucket: <a href="https://bitbucket.org/">https://bitbucket.org/</a></li>
+<li>Prezi: <a href="https://prezi.com/">https://prezi.com/</a></li>
+<li>National Geographic: <a href="https://www.nationalgeographic.com/">https://www.nationalgeographic.com/</a></li>
+<li>Udemy: <a href="https://www.udemy.com/">https://www.udemy.com/</a></li>
+<li>Spotify for Artists: <a href="https://artists.spotify.com/">https://artists.spotify.com/</a></li>
+<li>YouTube for Artists: <a href="https://artists.youtube.com/">https://artists.youtube.com/</a></li>
+<li>Dropbox: <a href="https://www.dropbox.com/">https://www.dropbox.com/</a></li>
+<li>Quora: <a href="https://www.quora.com/">https://www.quora.com/</a></li>
+<li>Reddit: <a href="https://www.reddit.com/">https://www.reddit.com/</a></li>
+</ul>
+<h3 id="6-dodatkowe-materiały-linki-ciekawostki">6. Dodatkowe materiały, linki, ciekawostki</h3>
+<ol>
+<li>Cykl żądanie-odpowiedź w Django (video): <a href="https://www.youtube.com/watch?v=P5gQmlrwLjc">https://www.youtube.com/watch?v=P5gQmlrwLjc</a></li>
+<li>Dość obszerne porównanie frameworków do tworzenia API REST w Pythonie: <a href="https://www.speakeasy.com/blog/choosing-your-framework-python">https://www.speakeasy.com/blog/choosing-your-framework-python</a></li>
+<li>Porówanie frameworków pod kątem mikroserwisów: <a href="https://www.planeks.net/best-python-microservices-framework/">https://www.planeks.net/best-python-microservices-framework/</a></li>
+<li>Dokumentacja Django REST Framework: <a href="https://www.django-rest-framework.org/">https://www.django-rest-framework.org/</a></li>
+<li>Jeden z przeglądów najbardziej popularnych frameworków backendowych: <a href="https://codeop.tech/key-backend-programming-languages-for-full-stack-devs-in-2024/">https://codeop.tech/key-backend-programming-languages-for-full-stack-devs-in-2024/</a></li>
+<li>A tu przegląd technologii z ankiety Stack Overflow 2025: <a href="https://survey.stackoverflow.co/2025/technology/">https://survey.stackoverflow.co/2025/technology/</a></li>
+<li>Film przedstawiający historię powstania Django: <a href="https://www.youtube.com/watch?v=YE_SXB7xkSw">https://www.youtube.com/watch?v=YE_SXB7xkSw</a></li>
+</ol>
+<p><strong>Ciekawostki:</strong></p>
+<p>Nazwa frameworka Django pochodzi od piosenkarza jazzowego Django Reinhardta, a to za sprawą Adriana Holovaty'ego, który był jego wielkim fanem i również grał na gitarze.</p>
+<p>Co roku organizowana jest konferencja DjangoCon, która gromadzi społeczność programistów Django z całego świata, aby dzielić się wiedzą i doświadczeniami związanymi z tym frameworkiem. Odbywa się ona w dwóch głównych edycjach: DjangoCon US i DjangoCon Europe. Więcej informacji można znaleźć na stronie: <a href="https://www.djangocon.org/">https://www.djangocon.org/</a></p>
+
+            
+            
+        </body>
+        </html>

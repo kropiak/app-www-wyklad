@@ -590,4 +590,4 @@ Kilka wybranych stron, które wykorzystują Django jako backend:
 
 Nazwa frameworka Django pochodzi od piosenkarza jazzowego Django Reinhardta, a to za sprawą Adriana Holovaty'ego, który był jego wielkim fanem i również grał na gitarze.
 
-Co roku organizowana jest konferencja DjangoCon, która gromadzi społeczność programistów Django z całego świata, aby dzielić się wiedzą i doświadczeniami związanymi z tym frameworkiem. Odbywa się ona w dwóch głównych edycjach: DjangoCon US i DjangoCon Europe. Więcej informacji można znaleźć na stronie: https://www.djangocon.org/
+Co roku organizowana jest konferencja DjangoCon, która gromadzi społeczność programistów Django z całego świata, aby dzielić się wiedzą i doświadczeniami związanymi z tym frameworkiem. Odbywa się ona w dwóch głównych edycjach: DjangoCon US i DjangoCon Europe. Więcej informacji można znaleźć na stronie: https://djangocon.eu/ oraz https://djangocon.us/
