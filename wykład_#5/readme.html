@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>readme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="aplikacje-www-wyk%C5%82ad-5">Aplikacje WWW. Wykład #5</h1>
+<p>Może jako ciekawostka udałoby się odpalić space invaders na SQLite?
+https://docs.sqlalchemy.org/en/20/orm/examples.html</p>
+<h2 id="1-orm">1. ORM</h2>
+<h3 id="11-czym-jest-orm">1.1 Czym jest ORM?</h3>
+<p>Czy ORM to*:</p>
+<ul>
+<li>Operational Risk Management?</li>
+<li>Object-Relational Mapping?</li>
+<li>Opóźnienie Rozwoju Mowy?</li>
+</ul>
+<hr>
+<p>Termin <strong>ORM</strong> oznacza mapowanie obiektowo-relacyjne (ang. Object-Relational Mapping), które służy do mapowania obiektów aplikacji (w różnych językach programowania) na relacyjne bazy danych. Każda instancja takiej klasy reprezentuje rekord w tabeli, a cecha kolumnę.</p>
+<p><strong>Cechy mechanizmu ORM</strong></p>
+<ul>
+<li><strong>mapowanie obiekt-tabela</strong>,</li>
+<li><strong>abstrakcja warstwy manipulacji danymi w bazie</strong>, zapewnienie operacji CRUD,</li>
+<li><strong>'identity map'</strong> - każdy wiersz w bazie reprezentowany jest przez unikalny obiekt w pamięci,</li>
+<li><strong>zarządzanie sesją</strong> - mechanizm zapewniający poprawne wykonanie operacji w bazie, zapewniający spójność często poprzez wykorzystanie mechanizmu transakcji,</li>
+<li><strong>zarządzanie relacjami</strong> - zapewnienie API pozwalającego reprezentować wszystkie dostępne typy relacji w postaci kodu w danym języku programowania,</li>
+<li><strong>jednostka pracy (ang. unity of work)</strong> - zmiany konieczne do wykonania w bazie danych w sposób spójny są zbierany i opakowane w transakcję, w celu zapewnienia zarówno spójności jak i wydajności,</li>
+<li><strong>leniwe ładowanie (ang. lazy loading)</strong> - pozwala na wczytywanie danych bez wszystkich rekordów potomnych z tabel relacyjnych wtedy kiedy nie jest to konieczne,</li>
+<li><strong>pamięć podręczna (ang. caching)</strong> - zazwyczaj jest to cache oparty o mechanizm sesji, może występować również w postaci pamięci podręcznej współdzielonej między sesjami.</li>
+</ul>
+<p>Za pierwszy ORM (chociaż wtedy się tak jeszcze tego mechanizmu nie nazywało) uznaje się ObjectiveSQL, stworzony pod koniec lat 80. XX wieku (Sega i Yosukawa). Systemy ORM znane nam dzisiaj zostały zapoczątkowane przez takie rozwiązania jak Hibernate oraz Entity Framework.</p>
+<p>Podstawą wielu współczesnych ORM-ów są dwa wzorce projektowe: <strong>Active Record</strong> oraz wzorzec <strong>Data Mapper</strong>.</p>
+<p>Active Record to wzorzec projektowy i framework używany w aplikacjach Ruby on Rails, który upraszcza interakcję z bazą danych dzięki Object Relational Mapping (ORM). Umożliwia reprezentowanie tabeli bazy danych jako klasy i jej wierszy jako obiektów, co pozwala na manipulowanie danymi za pomocą metod obiektowych zamiast pisania ręcznych zapytań SQL. Active Record działa z różnymi systemami baz danych, takimi jak MySQL, PostgreSQL, SQLite i MariaDB.</p>
+<p>Kluczowe cechy Active Record:</p>
+<ul>
+<li><strong>Object Relational Mapping (ORM):</strong> Mapuje obiekty Ruby na tabele w bazie danych, redukując potrzebę pisania kodu dostępu do bazy danych.</li>
+<li><strong>Reprezentacja tabeli jako klasy:</strong> Każda tabela bazy danych ma odpowiadającą jej klasę, a wiersze tabeli są obiektami tej klasy.</li>
+<li><strong>Prosta interakcja z bazą danych:</strong> Zamiast skomplikowanych zapytań SQL, można używać metod obiektowych do tworzenia, odczytywania, aktualizowania i usuwania danych (CRUD).</li>
+<li><strong>Kompatybilność z wieloma bazami danych:</strong> Działa z popularnymi systemami baz danych, zachowując ten sam interfejs zapytań.</li>
+<li><strong>Zoptymalizowane zapytania:</strong> Używa technik takich jak includes do ładowania powiązanych danych w jednym lub dwóch zapytaniach, zamiast wielu, co zapobiega problemowi N+1 zapytań.</li>
+</ul>
+<p>O wzorcu <strong>Data Mapper</strong> możesz poczytać u źródła, czyli na stronie jego twórcy, <strong>Martina Fowlera</strong>: https://www.martinfowler.com/eaaCatalog/dataMapper.html</p>
+<h3 id="12-wady-i-zalety-stosowania-orm">1.2 Wady i zalety stosowania ORM</h3>
+<p><strong>Zalety stosowania ORM</strong></p>
+<ul>
+<li>niezależny od silnika bazy danych,</li>
+<li>brak konieczności znajomości szczegółów języka SQL w celu wykorzystania bazy danych w aplikacji,</li>
+<li>większość systemów ORM posiada wbudowane zabezpieczenia np. przed atakami typu SQL Injection,</li>
+<li>łatwiejsze utrzymanie aplikacji bez konieczności aktualizacji poleceń SQL oraz zmiana silnika bazy danych na bardziej wydajny,</li>
+<li>wbudowane dodatkowe mechanizmy zapewniające spójność danych, np. mechanizm migracji w frameworku Django.</li>
+</ul>
+<p><strong>Wady/wyzwania stosowania ORM</strong></p>
+<ul>
+<li>niektóre funkcje specyficzne dla danego silnika bazy danych mogą nie być dostępne bezpośrednio poprzez API danego rozwiązania typu ORM, również specyficzne typy danych po stronie silnika bazy,</li>
+<li>część zapytań może nie być wygenerowana w sposób najbardziej optymalny,</li>
+<li>niewłaściwe wykorzystanie 'lazy loading' lub 'eager loading' może prowadzić do problemów wydajnościowych.</li>
+</ul>
+<h3 id="13-popularne-rozwi%C4%85zania-orm-dla-wybranych-technologii-backendowych">1.3 Popularne rozwiązania ORM dla wybranych technologii backendowych</h3>
+<h4 id="java">Java</h4>
+<p>W przypadku technologii Java należy najpierw wspomnieć o standardach, które zostały określone dla wielu elementów aplikacji wytwarzanych w tym języku. W szczególności chodzi tutaj o Java EE czyli Java Enterprise Edition. Pomijając większość jego elementów, tym, który jest podstawą rozwiązań typu ORM w tym języku jest standard JPA (Java Persistence API). Jedną z zaangażowanych osób w zdefiniowanie ram tego standardu jest Gavin King, twórca biblioteki Hibernate, która została wspomniania w dalszej części tego podpunktu.</p>
+<blockquote>
+<p>W przypadku Javy mamy od pewnego czasu dość skomplikowaną sytuację nazewniczą dla wielu standardów. W związku z przeniesieniem praw dla standardu JEE z firmy Oracle do Eclipse Foundation w roku 2017, ze względu na prawa autorskie do nazwy Java, które pozostały przy Oracle, postanowiono na zmianę członu nazw z Java ... na Jakarta .... I tak mamy teraz JPA jako Jakarta Persistence API, JEE - Jakarta Enterprise Edition itp. Więcej można doczytać m.in. tutaj: https://www.baeldung.com/java-enterprise-evolution.
+Reasumując. Oznaczają one te same technologie, ale w kolejnych wersjach.</p>
+</blockquote>
+<p>Standard JPA określa sposób manipulacji danymi.</p>
+<p>Poniżej przykład deklaracji encji, interfejsu repozytorium oraz usługi dostarczającej operacje CRUD dla tej encji w standardzie Java Persistence API.</p>
+<pre class="hljs"><code><div><span class="hljs-meta">@Entity</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Customer</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Serializable</span> </span>{
+    
+    <span class="hljs-meta">@Id</span>
+    <span class="hljs-meta">@GeneratedValue</span>(strategy = GenerationType.IDENTITY)
+    <span class="hljs-keyword">private</span> Long id;
+    <span class="hljs-keyword">private</span> String name;
+    <span class="hljs-keyword">private</span> String email;
+    
+    <span class="hljs-comment">// Getters and setters</span>
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">CustomerRepository</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">JpaRepository</span>&lt;<span class="hljs-title">Customer</span>, <span class="hljs-title">Long</span>&gt; </span>{
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CustomerService</span> </span>{
+<span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> CustomerRepository customerRepository;
+    
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Customer&gt; <span class="hljs-title">findAll</span><span class="hljs-params">()</span> </span>{
+        <span class="hljs-keyword">return</span> customerRepository.findAll();
+    }
+    
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Customer <span class="hljs-title">save</span><span class="hljs-params">(Customer customer)</span> </span>{
+        <span class="hljs-keyword">return</span> customerRepository.save(customer);
+    }
+    
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Optional&lt;Customer&gt; <span class="hljs-title">findById</span><span class="hljs-params">(Long id)</span> </span>{
+        <span class="hljs-keyword">return</span> customerRepository.findById(id);
+    }
+    
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">deleteById</span><span class="hljs-params">(Long id)</span> </span>{
+        customerRepository.deleteById(id);
+    }
+}
+</div></code></pre>
+<p>Wszystkie z powyższych przykładów pochodzą z: https://medium.com/@nagarjunmallesh/java-persistence-api-vs-jakarta-persistence-layer-a-comparative-study-with-code-implementation-4462b1abcfd1</p>
+<p>Najbardziej popularnym, i uznawanym za najbardziej dojrzały, rozwiązaniem typu ORM dla aplikacji webowych wytwarzanych w technologii Java jest <strong>Hibernate ORM</strong>.</p>
+<p><img src="data_access_layers.svg" alt="Hibernate data access layer"></p>
+<p><em>źródło: hibernate.org</em></p>
+<p>Zgodnie ze specyfikacją Jakarta Persistence API, które Hibernate również implementuje wykorzystywane są poniższe elementy niezbędne do obsługi manipulacji danymi w bazie.</p>
+<p><img src="JPA_Hibernate.svg" alt="JPA Hibernate"></p>
+<p><em>źródło: hibernate.org</em></p>
+<p>Krótkie wyjaśnienie.</p>
+<p><strong>SessionFactory (org.hibernate.SessionFactory)</strong></p>
+<p>Jest to reprezentacja mapowanie obiektu domenowego (encji) na model bazy danych dla danego dialektu (silnika bazy danych).
+<code>EntityManagerFactory</code> jest ekwiwalentem <code>SessionFactory</code> ze standardu Jakarta Persistence</p>
+<p>Tworzenie obiektu <code>SessionFactory</code> jest kosztowne i w ramach jednej aplikacji powinna istnieć tylko jedna instancja tej klasy. Służy ona do zarządzania pamięcią podręczną na poziomie warstwy dostepu do bazy danych, zarządzania pulą połączeń, transakcjami.</p>
+<p><strong>Session (org.hibernate.Session)</strong></p>
+<p>Obiekt, który reprezentuje wspomniany wcześniej 'Unit of work' i jest reprezentowany przez <code>EntityManager</code> w Jakarta Persistence. Działa jako fabryka instancji <code>org.hibernate.Transaction</code></p>
+<p><strong>Transaction (org.hibernate.Transaction)</strong></p>
+<p>Obiekt, który wyznacza granice pojedynczej transakcji. Jest to ekwiwalent klasy <code>EntityTransaction</code> specyfikacji Jakarta Persistence.</p>
+<p>Przykład deklaracji encji z wykorzystaniem biblioteki Hibernate.</p>
+<pre class="hljs"><code><div><span class="hljs-meta">@Entity</span>(name = <span class="hljs-string">"Contact"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Contact</span> </span>{
+
+	<span class="hljs-meta">@Id</span>
+	<span class="hljs-keyword">private</span> Integer id;
+
+	<span class="hljs-keyword">private</span> Name name;
+
+	<span class="hljs-keyword">private</span> String notes;
+
+	<span class="hljs-keyword">private</span> URL website;
+
+	<span class="hljs-keyword">private</span> <span class="hljs-keyword">boolean</span> starred;
+
+	<span class="hljs-comment">//Getters and setters are omitted for brevity</span>
+}
+
+<span class="hljs-meta">@Embeddable</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Name</span> </span>{
+
+	<span class="hljs-keyword">private</span> String firstName;
+
+	<span class="hljs-keyword">private</span> String middleName;
+
+	<span class="hljs-keyword">private</span> String lastName;
+
+	<span class="hljs-comment">// getters and setters omitted</span>
+}
+</div></code></pre>
+<p>Pomijając część szczegółów implementacji stworzenie i zapisanie do bazy nowej instancji encji może zostać wykonane jak na piniższym przykładzie.</p>
+<pre class="hljs"><code><div>doInJPA(<span class="hljs-keyword">this</span>::entityManagerFactory, entityManager -&gt; {
+	Name name = <span class="hljs-keyword">new</span> Name();
+    name.setFirstName(<span class="hljs-string">"John"</span>);
+    name.setMiddleName(<span class="hljs-string">"Robert"</span>);
+    name.setLastName(<span class="hljs-string">"Doe"</span>);
+
+    Contact contact = <span class="hljs-keyword">new</span> Contact();
+    contact.setId(<span class="hljs-number">1</span>);
+    contact.setName(name);
+    contact.setNotes(<span class="hljs-string">"Example contact"</span>);
+    contact.setWebsite(<span class="hljs-keyword">new</span> URL(<span class="hljs-string">"https://example.com"</span>));
+    contact.setStarred(<span class="hljs-keyword">false</span>);
+	entityManager.persist(concatc);
+});
+</div></code></pre>
+<p>Oprócz Hibernate dostępne są również inne rozwiązania typu ORM dla języka Java, ale nie są one tak popularne. Są to:</p>
+<ul>
+<li>Oracle TopLink (https://www.oracle.com/middleware/technologies/top-link.html)</li>
+<li>ObjectDB (https://www.objectdb.com/)</li>
+<li>EclipseLink (https://eclipse.dev/eclipselink/)</li>
+</ul>
+<h4 id="net-c">.NET (C#)</h4>
+<p>Najpopularniejszym rozwiązaniem typu ORM dla platformy .NET jest <strong>Entity Framework</strong> (patrz: https://learn.microsoft.com/pl-pl/ef/).</p>
+<p><img src="wd-efarchdiagram.gif" alt=""></p>
+<p><em>źródło: https://learn.microsoft.com/pl-pl/dotnet/framework/data/adonet/ef/overview</em></p>
+<p><strong>Zalety Entity Framework:</strong></p>
+<ul>
+<li>Wysoki poziom abstrakcji</li>
+<li>Wsparcie dla migracji bazy danych</li>
+<li>Bogaty zestaw narzędzi LINQ do zapytań</li>
+<li>Automatyczne śledzenie zmian obiektów</li>
+<li>Wsparcie dla transakcji</li>
+</ul>
+<p>Jest to obecnie najpopularniejsze rozwiązanie ORM dla platformy .NET, aktywnie rozwijane przez Microsoft i społeczność open source.</p>
+<p><strong>Podejścia do modelowania</strong></p>
+<ul>
+<li><strong>Code First</strong> - tworzenie modelu w kodzie C#, a następnie generowanie bazy</li>
+<li><strong>Database First</strong> - generowanie klas na podstawie istniejącej bazy danych</li>
+<li><strong>Model First</strong> - tworzenie modelu wizualnie i generowanie bazy oraz klas</li>
+</ul>
+<p>Przykładowa implementacja encji oraz operacji bazodanowych z wykorzystaniem Entity Framework.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Contact</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> Id { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> FirstName { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> LastName { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> Email { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+}
+
+<span class="hljs-comment">// filepath: Data/ApplicationDbContext.cs</span>
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">ApplicationDbContext</span> : <span class="hljs-title">DbContext</span>
+{
+    <span class="hljs-keyword">public</span> DbSet&lt;Contact&gt; Contacts { <span class="hljs-keyword">get</span>; <span class="hljs-keyword">set</span>; }
+
+    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">override</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnConfiguring</span>(<span class="hljs-params">DbContextOptionsBuilder options</span>)</span>
+        =&gt; options.UseSqlServer(<span class="hljs-string">"Connection_String_Here"</span>);
+}
+</div></code></pre>
+<pre class="hljs"><code><div><span class="hljs-comment">// Dodawanie rekordu</span>
+<span class="hljs-keyword">using</span> (<span class="hljs-keyword">var</span> context = <span class="hljs-keyword">new</span> ApplicationDbContext())
+{
+    <span class="hljs-keyword">var</span> contact = <span class="hljs-keyword">new</span> Contact 
+    { 
+        FirstName = <span class="hljs-string">"John"</span>,
+        LastName = <span class="hljs-string">"Doe"</span>,
+        Email = <span class="hljs-string">"john@example.com"</span>
+    };
+    context.Contacts.Add(contact);
+    context.SaveChanges();
+}
+
+<span class="hljs-comment">// Pobieranie danych</span>
+<span class="hljs-keyword">var</span> contacts = context.Contacts.Where(c =&gt; c.LastName == <span class="hljs-string">"Doe"</span>).ToList();
+</div></code></pre>
+<p>Więcej przykładów oraz sposobów deklaracji klas encji (np. z użyciem adnotacji) można znaleźć w oficjalnej dokumentacji: https://learn.microsoft.com/pl-pl/ef/core/modeling/</p>
+<p>Entity Framework jest niewątpliwie najbardziej popularnym rozwiązaniem typu ORM dla .NET, jednak nie jedynym. Oto kilka wybranych dostępnych dla tej platformy.</p>
+<p><strong>Dapper</strong></p>
+<p>Lekki framework zapewniający bezpośrednią kontrolę nad SQL, nierzadko uznawany za najlepszy ORM dla języka C#.</p>
+<p>Najważniejsze cechy:</p>
+<ul>
+<li>skoncentrowany na wydajności,</li>
+<li>minimalny narzut,</li>
+<li>kontrola nad surowym SQL-em,</li>
+<li>wsparcie dla asynchroniczności.</li>
+</ul>
+<p><strong>NHibernate</strong></p>
+<p>Bardzo dojrzały (jak sam Hibernate) framework ORM klasy enterprise. Oferuje zaawansowane opcje oraz wsparcie dla wielu typów bazy danych. Minusem może być dość wysoki stopień trudności w nauce i braki w dokumentacji.</p>
+<p>Najważniejsze cechy:</p>
+<ul>
+<li>zaawansowane możliwości mapowania,</li>
+<li>bardzo duża liczba wspieranych silników baz danych,</li>
+<li>mechanizm pamięci podręcznej,</li>
+<li>implementacja mechanizmu 'unit of work',</li>
+<li>dojrzały ekosystem.</li>
+</ul>
+<p><strong>Marten</strong></p>
+<p>Rozwiązanie ORM skoncentrowane głównie dla silnika PostgreSQL, chociaż posiada również wsparcie dla przechowywania dokumentów w stylu NoSQL.</p>
+<p>Najważniejsze cechy:</p>
+<ul>
+<li>przechowywanie dokumentów JSON (wykorzystuje wbudowane możliwości PostgreSQL),</li>
+<li>wspiera model relacyjny, model klucz-wartość oraz przechowywanie dokumentów w jednej bazie danych,</li>
+<li>zoptymalizowane zapytania, testy pokazują przewagę wydajności nad ORM LINQ w tym aspekcie.</li>
+</ul>
+<p><strong>LinqConnect</strong></p>
+<p>LinqConnect by Devart to ORM rozszerzający możliwości LINQ. Wspiera silniki takie jak SQL Server, Oracle, MySQL, PostgreSQL oraz SQLite.</p>
+<p>Najważniejsze cechy:</p>
+<ul>
+<li>jest to dostawca LINQ (ang. LINQ provider), co zapewnia lepszą wydajność oraz wsparcie dla LINQ bez warstw pośredniczących między LINQ a SQL,</li>
+<li>wspiera modelowanie code-first, database-first, model-first oraz kombinacje database-first i model-first,</li>
+<li>zintegrowany z innymi technologiami firmy Microsoft takimi jak: Windows Forms, ASP.NET, WPF czy WCF RIA,</li>
+<li>wspiera lazy-loading oraz eager-loading na poziomie pojedynczego zapytania.</li>
+</ul>
+<p>Warto również zwrócić uwagę na:</p>
+<ul>
+<li><strong>RepoDB</strong></li>
+<li><strong>OrmLite</strong></li>
+<li><strong>PetaPOCO</strong></li>
+<li><strong>XPO</strong></li>
+</ul>
+<h4 id="php">PHP</h4>
+<p>W przypadku języka PHP wybór systemu ORM jest nieco trudniejszy ze względu na brak takich standardów jak chociażby dla języka Java (JPA) czy .NET. Rozwiązanie ORM jest często już częścią konkretnego frameworka PHP. Istnieje jednak kilka autonomicznych bibliotek ORM.</p>
+<p>Kilka wybranych, najbardziej popularnych rozwiązań ORM (również wbudowanych w ramach frameworka) dla języka PHP:</p>
+<hr>
+<h2 id="doctrine-httpswwwdoctrine-projectorgprojectsormhtml"><strong>Doctrine</strong> (https://www.doctrine-project.org/projects/orm.html)</h2>
+<p>To rozbudowana biblioteka zapewniająca szerokie wsparcie dla silników baz danych oraz rozbudowane możliwości mapowania. Wymaga jednak dość dużej ilości kodu do stworzenia.</p>
+<p>Poniżej przykład, dla zobrazowanie różnic i podobieństw dla wybranych języków programowania, implementacji obsługi ORM poprzez Doctrine.</p>
+<p>(Wszystkie przykłady pochodzą z oficjalnej dokumentacji projektu: https://www.doctrine-project.org/projects/doctrine-orm/en/3.5/tutorials/getting-started.html)</p>
+<p>Deklaracja menadżera encji dla projektu.</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// bootstrap.php</span>
+<span class="hljs-keyword">use</span> <span class="hljs-title">Doctrine</span>\<span class="hljs-title">DBAL</span>\<span class="hljs-title">DriverManager</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Doctrine</span>\<span class="hljs-title">ORM</span>\<span class="hljs-title">EntityManager</span>;
+<span class="hljs-keyword">use</span> <span class="hljs-title">Doctrine</span>\<span class="hljs-title">ORM</span>\<span class="hljs-title">ORMSetup</span>;
+<span class="hljs-keyword">require_once</span> <span class="hljs-string">"vendor/autoload.php"</span>;
+<span class="hljs-comment">// Create a simple "default" Doctrine ORM configuration for Attributes</span>
+$config = ORMSetup::createAttributeMetadataConfig( <span class="hljs-comment">// on PHP &lt; 8.4, use ORMSetup::createAttributeMetadataConfiguration()</span>
+    paths: [<span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">'/src'</span>],
+    isDevMode: <span class="hljs-keyword">true</span>,
+);
+<span class="hljs-comment">// or if you prefer XML</span>
+<span class="hljs-comment">// $config = ORMSetup::createXMLMetadataConfig( // on PHP &lt; 8.4, use ORMSetup::createXMLMetadataConfiguration()</span>
+<span class="hljs-comment">//    paths: [__DIR__ . '/config/xml'],</span>
+<span class="hljs-comment">//    isDevMode: true,</span>
+<span class="hljs-comment">//);</span>
+<span class="hljs-comment">// configuring the database connection</span>
+$connection = DriverManager::getConnection([
+    <span class="hljs-string">'driver'</span> =&gt; <span class="hljs-string">'pdo_sqlite'</span>,
+    <span class="hljs-string">'path'</span> =&gt; <span class="hljs-keyword">__DIR__</span> . <span class="hljs-string">'/db.sqlite'</span>,
+], $config);
+<span class="hljs-comment">// obtaining the entity manager</span>
+$entityManager = <span class="hljs-keyword">new</span> EntityManager($connection, $config);
+</div></code></pre>
+<p>Implementacja encji zależy od przyjętej strategii. Możliwe jest zdefiniowanie tzw. <code>anemic entities</code> oraz <code>rich entities</code>. Pierwsze z nich to klasy definiujące pola oraz zapewniające odpowiednie gettery oraz settery. Te drugie to encje implementowane w stylu DDD (Data Driven Development), które oprócz pól posiadają metody, które bardziej odpowiadają akcjom reprezentującym logikę biznesową, którą aplikacja ma realizować. Poniżej dwa prykłady (również z oficjalnej dokumentacji).</p>
+<p>Encja typu <code>anemic</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>
+</span>{
+    <span class="hljs-keyword">private</span> $username;
+    <span class="hljs-keyword">private</span> $passwordHash;
+    <span class="hljs-keyword">private</span> $bans;
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getUsername</span><span class="hljs-params">()</span>: <span class="hljs-title">string</span>
+    </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;username;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setUsername</span><span class="hljs-params">(string $username)</span>: <span class="hljs-title">void</span>
+    </span>{
+        <span class="hljs-keyword">$this</span>-&gt;username = $username;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getPasswordHash</span><span class="hljs-params">()</span>: <span class="hljs-title">string</span>
+    </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;passwordHash;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setPasswordHash</span><span class="hljs-params">(string $passwordHash)</span>: <span class="hljs-title">void</span>
+    </span>{
+        <span class="hljs-keyword">$this</span>-&gt;passwordHash = $passwordHash;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getBans</span><span class="hljs-params">()</span>: <span class="hljs-title">array</span>
+    </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;bans;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addBan</span><span class="hljs-params">(Ban $ban)</span>: <span class="hljs-title">void</span>
+    </span>{
+        <span class="hljs-keyword">$this</span>-&gt;bans[] = $ban;
+    }
+}
+</div></code></pre>
+<p>Encja typu <code>rich</code> (DDD).</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>
+</span>{
+    <span class="hljs-keyword">private</span> $banned;
+    <span class="hljs-keyword">private</span> $username;
+    <span class="hljs-keyword">private</span> $passwordHash;
+    <span class="hljs-keyword">private</span> $bans;
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">toNickname</span><span class="hljs-params">()</span>: <span class="hljs-title">string</span>
+    </span>{
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">$this</span>-&gt;username;
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">authenticate</span><span class="hljs-params">(string $password, callable $checkHash)</span>: <span class="hljs-title">bool</span>
+    </span>{
+        <span class="hljs-keyword">return</span> $checkHash($password, <span class="hljs-keyword">$this</span>-&gt;passwordHash) &amp;&amp; ! <span class="hljs-keyword">$this</span>-&gt;hasActiveBans();
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changePassword</span><span class="hljs-params">(string $password, callable $hash)</span>: <span class="hljs-title">void</span>
+    </span>{
+        <span class="hljs-keyword">$this</span>-&gt;passwordHash = $hash($password);
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ban</span><span class="hljs-params">(\DateInterval $duration)</span>: <span class="hljs-title">void</span>
+    </span>{
+        assert($duration-&gt;invert !== <span class="hljs-number">1</span>);
+        <span class="hljs-keyword">$this</span>-&gt;bans[] = <span class="hljs-keyword">new</span> Ban(<span class="hljs-keyword">$this</span>);
+    }
+}
+</div></code></pre>
+<p>Do zarządzania samymi encjami wykorzystywane są natomiast obiekty typu DTO.</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span>
+</span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">updateFromProfile</span><span class="hljs-params">(ProfileEditingDTO $profileFormDTO)</span>: <span class="hljs-title">void</span>
+    </span>{
+        <span class="hljs-comment">// kod aktualizujący encję</span>
+    }
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">createFromRegistration</span><span class="hljs-params">(UserRegistrationDTO $registrationDTO)</span>: <span class="hljs-title">self</span>
+    </span>{
+        <span class="hljs-comment">// kod tworzący encję np. z formularza rejestracji</span>
+    }
+}
+</div></code></pre>
+<p>Możliwe jest również wykorzystanie metajęzyka do definiowania encji poprzez Doctrine.</p>
+<p>Przykład:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// src/Product.php</span>
+<span class="hljs-keyword">use</span> <span class="hljs-title">Doctrine</span>\<span class="hljs-title">ORM</span>\<span class="hljs-title">Mapping</span> <span class="hljs-title">as</span> <span class="hljs-title">ORM</span>;
+<span class="hljs-comment">#[ORM\Entity]</span>
+<span class="hljs-comment">#[ORM\Table(name: 'products')]</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Product</span>
+</span>{
+    <span class="hljs-comment">#[ORM\Id]</span>
+    <span class="hljs-comment">#[ORM\Column(type: 'integer')]</span>
+    <span class="hljs-comment">#[ORM\GeneratedValue]</span>
+    <span class="hljs-keyword">private</span> int|<span class="hljs-keyword">null</span> $id = <span class="hljs-keyword">null</span>;
+    <span class="hljs-comment">#[ORM\Column(type: 'string')]</span>
+    <span class="hljs-keyword">private</span> string $name;
+    <span class="hljs-comment">// .. (other code)</span>
+}
+</div></code></pre>
+<p>I ostatecznie wykorzystanie Entity Managera do wykonania operacji na encji i bazie danych.</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment">// create_product.php &lt;name&gt;</span>
+<span class="hljs-keyword">require_once</span> <span class="hljs-string">"bootstrap.php"</span>;
+$newProductName = $argv[<span class="hljs-number">1</span>];
+$product = <span class="hljs-keyword">new</span> Product();
+$product-&gt;setName($newProductName);
+$entityManager-&gt;persist($product);
+$entityManager-&gt;flush();
+<span class="hljs-keyword">echo</span> <span class="hljs-string">"Created Product with ID "</span> . $product-&gt;getId() . <span class="hljs-string">"\n"</span>;
+</div></code></pre>
+<hr>
+<h2 id="redbeanphp-httpsredbeanphpcomindexphp"><strong>RedBeanPHP</strong> (https://redbeanphp.com/index.php)</h2>
+<p>Biblioteka, która zawiera się w jednym pliku i nie wymaga definicji encji, gdyż te są generowane w locie, na podstawie schematu bazy danych. Ma to swoje zalety (szybkość uruchomienia projektu, ilość niezbędnego do napisania kodu) oraz wady (polegamy na poprawnie zdefiniowanym schemacie bazy, definiuje konwencje nazw, których musimy się trzymać aby automatyczne mapowanie działało poprawnie).</p>
+<p>Przykład z oficjalnej strony, który wystarczy do bardzo prostej operacji:</p>
+<ul>
+<li>importu biblioteki,</li>
+<li>wykonania połączenia (do metody <code>setup</code> należałoby podać konfigurację połączenia do bazy),</li>
+<li>deklaracji i stworzenia nowej tabeli o nazwie <code>post</code> z kolumną <code>text</code> jeżeli nie istnieje,</li>
+<li>wstawienie rekordu do tabeli i zwrócenie wygenerowanego <code>id</code>,</li>
+<li>wczytanie utworzonego rekordu dla danego id,</li>
+<li>usunięcie tego rekordu.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">require</span> <span class="hljs-string">'rb.php'</span>;
+    R::setup();
+
+    <span class="hljs-comment">//for version 5.3 and higher</span>
+    <span class="hljs-comment">//optional but recommended</span>
+    R::useFeatureSet( <span class="hljs-string">'novice/latest'</span> );
+
+    $post = R::dispense( <span class="hljs-string">'post'</span> );
+    $post-&gt;text = <span class="hljs-string">'Hello World'</span>;
+
+    <span class="hljs-comment">//create or update</span>
+    $id = R::store( $post );
+
+    <span class="hljs-comment">//retrieve</span>
+    $post = R::load( <span class="hljs-string">'post'</span>, $id );
+    
+    <span class="hljs-comment">//delete</span>
+    R::trash( $post );
+
+</div></code></pre>
+<hr>
+<h2 id="propel-httpspropelormorg"><strong>Propel</strong> (https://propelorm.org/)</h2>
+<p>Główne cechy:</p>
+<ul>
+<li>wydajność,</li>
+<li>wsparcie dla MySQL, SQLite oraz PostgreSQL,</li>
+<li>inżynieria wsteczna,</li>
+<li>generowanie metod dostępowych dla wszystkich kolumn oraz relacji,</li>
+<li>implementacja unit of work,</li>
+<li>wysoce konfigurowalny,</li>
+<li>dobra dokumentacja.</li>
+</ul>
+<hr>
+<h2 id="eloquent-komponent-frameworka-laravel-httpslaravelcomdocs12xeloquent"><strong>Eloquent (komponent frameworka Laravel)</strong> (https://laravel.com/docs/12.x/eloquent)</h2>
+<p><strong>Zalety:</strong></p>
+<ul>
+<li>bardziej czytelny kod w porównaniu do QueryBuilder,</li>
+<li>wsparcie dla soft-delete - zamiast usuwać dane, zostanie ustawiona flaga z datą usunięcia, a dane faktycznie pozostaną w bazie, nie będą widoczne w standardowych zapytaniach,</li>
+<li>wsparcie dla zdarzeń modeli - można zdefiniować operacje, które wykonają się przed lub po wskazanej operacji, jak triggery w bazie, ale tutaj osadzone w logice aplikacji.</li>
+</ul>
+<p><strong>Wady:</strong></p>
+<ul>
+<li>wolniejszy od QueryBuilder (większy narzut),</li>
+<li>nie tak elastyczny jak QueryBuilder,</li>
+<li>może być trudny w debuggingu.</li>
+</ul>
+<hr>
+<h2 id="cake-php-framework-z-wbudowanym-modu%C5%82em-orm-httpsbookcakephporg5enormhtml"><strong>Cake PHP (framework) z wbudowanym modułem ORM</strong> (https://book.cakephp.org/5/en/orm.html)</h2>
+<p>Wbudowanu moduł ORM zapewnia abstrakcję warstwy dostępu do danych w postaci repozytoriów, które zapewniają operacje manipulacji danymi, oraz encji, które definiują właściwości tabeli/rekordu.</p>
+<h4 id="javascript">JavaScript</h4>
+<p>Dla języka JavaScript możemy znaleźć takie rozwiązania ORM jak:</p>
+<ul>
+<li>Knex.js: SQL Query Builder</li>
+<li>Sequelize</li>
+<li>Bookshelf</li>
+<li>Waterline</li>
+<li>Objection.js</li>
+<li>Mongoose</li>
+<li>Typegoose</li>
+<li>TypeORM</li>
+<li>MikroORM</li>
+<li>Prisma</li>
+</ul>
+<p>Z racji dość ograniczonego wykorzystania technik frontendowych w ramach realizowanego przedmiotu postanowiłem bardzo krótko przedstawić tylko jeden z nich, a mianowicie Sequelize (https://sequelize.org/).</p>
+<p>Ta biblioteka może być wykorzystana dla języka TypeScript (typowana JavaScript) oraz biblioteki Node.js współpracująca z takimi bazami jak Oracle, PostgreSQL, MySQL, MariaDB, SQLite, SQL Server. Oferuje transakcje, relacje, lazy loading, eager loading oraz replikację.</p>
+<p>Powielony przykład z głównej strony biblioteki:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> { Sequelize, DataTypes } <span class="hljs-keyword">from</span> <span class="hljs-string">'sequelize'</span>;
+
+<span class="hljs-comment">// inicjalizacja</span>
+<span class="hljs-keyword">const</span> sequelize = <span class="hljs-keyword">new</span> Sequelize(<span class="hljs-string">'sqlite::memory:'</span>);
+
+<span class="hljs-comment">// deklaracja encji</span>
+<span class="hljs-keyword">const</span> User = sequelize.define(<span class="hljs-string">'User'</span>, {
+  <span class="hljs-attr">username</span>: DataTypes.STRING,
+  <span class="hljs-attr">birthday</span>: DataTypes.DATE,
+});
+
+<span class="hljs-comment">// stworzenie instancji encji</span>
+<span class="hljs-keyword">const</span> jane = <span class="hljs-keyword">await</span> User.create({
+  <span class="hljs-attr">username</span>: <span class="hljs-string">'janedoe'</span>,
+  <span class="hljs-attr">birthday</span>: <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-number">1980</span>, <span class="hljs-number">6</span>, <span class="hljs-number">20</span>),
+});
+
+<span class="hljs-comment">// pobranie instancji encji</span>
+<span class="hljs-keyword">const</span> users = <span class="hljs-keyword">await</span> User.findAll();
+</div></code></pre>
+<h4 id="python">Python</h4>
+<p>W przypadku Pythona najbardziej popularne rozwiązania typu ORM to:</p>
+<ul>
+<li>SQLAlchemy (https://www.sqlalchemy.org/)</li>
+<li>Django ORM (https://docs.djangoproject.com/en/5.2/topics/db/)</li>
+<li>Peewee (https://peewee.readthedocs.io/en/latest/)</li>
+<li>Pony ORM (https://ponyorm.org/)</li>
+</ul>
+<h2 id="sqlalchemy"><strong>SQLAlchemy</strong></h2>
+<p>SQLAlchemy jest biblioteką oferującą mechanizm mapowania obiektowo relacyjnego (ORM) oraz dodatkowe narzędzia pozwalające na zaawansowaną pracę z bazami danych poprzez kod języka Python. Jest też często wykorzytywana jako moduł ORM w frameworkach, które nie oferują własnego modułu ORM np. Flask.</p>
+<p>Poniżej obrazowo przedstawione są komponenty tego frameworka.</p>
+<p><img src="sqla_arch_small.png" alt="">
+<em>źródło: https://docs.sqlalchemy.org/en/20/intro.html#overview</em></p>
+<p>Poniżej przykład kilku operacji, począwszy od połączenia do bazy danych (lub jej stworzenia w przypadku poniższego silnika SQLite), stworzenia tabel, wstawienia danych, pobrania ich poprzez stworzenie encji ORM i kilku operacji z ich udziałem.</p>
+<p>Kod częściowo pochodzi z oficjalnej dokuemntacji SQLAlchemy, a częściowo został stworzony przez prowadzącego.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> sqlalchemy <span class="hljs-keyword">import</span> create_engine
+<span class="hljs-keyword">from</span> sqlalchemy <span class="hljs-keyword">import</span> text
+
+<span class="hljs-comment"># inicjalizacja silnika bazy danych dla wybranego dialektu</span>
+engine = create_engine(<span class="hljs-string">"sqlite:///.\\db.sqlite"</span>, echo=<span class="hljs-literal">True</span>)
+
+<span class="hljs-comment"># dummy zapytanie, nawet nie do bazy</span>
+<span class="hljs-keyword">with</span> engine.connect() <span class="hljs-keyword">as</span> conn:
+    result = conn.execute(text(<span class="hljs-string">"select 'hello world'"</span>))
+    print(result.all())
+
+<span class="hljs-comment"># przykład zapytania w postaci surowego SQL-a</span>
+<span class="hljs-keyword">with</span> engine.connect() <span class="hljs-keyword">as</span> conn:
+    conn.execute(text(<span class="hljs-string">"""CREATE TABLE IF NOT EXISTS student(
+            indeks INTEGER PRIMARY KEY AUTOINCREMENT, 
+            imie varchar(50), 
+            nazwisko varchar(100))"""</span>))
+    conn.execute(
+        text(<span class="hljs-string">"INSERT INTO student (imie, nazwisko) VALUES ( :imie, :nazwisko)"</span>),
+        [{<span class="hljs-string">"imie"</span>: <span class="hljs-string">"Adam"</span>, <span class="hljs-string">"nazwisko"</span>: <span class="hljs-string">"Mickiewicz"</span>},
+                    {<span class="hljs-string">"imie"</span>: <span class="hljs-string">"Jan"</span>, <span class="hljs-string">"nazwisko"</span>: <span class="hljs-string">"Kowalski"</span>}],
+         )
+
+    conn.commit()
+    result = conn.execute(text(<span class="hljs-string">"SELECT * FROM student"</span>))
+    print(result.all())
+
+    <span class="hljs-comment"># lub</span>
+    result = conn.execute(text(<span class="hljs-string">"SELECT * FROM student"</span>))
+    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> result:
+        print(row, sep=<span class="hljs-string">','</span>)
+
+    <span class="hljs-comment"># można również</span>
+    result = conn.execute(text(<span class="hljs-string">"SELECT * FROM student"</span>))
+    <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> result.mappings():
+        print(row)
+
+
+<span class="hljs-comment"># teraz wykorzystanie modułu ORM SQLAlchemy</span>
+
+<span class="hljs-keyword">from</span> sqlalchemy <span class="hljs-keyword">import</span> MetaData, insert, select
+<span class="hljs-keyword">from</span> sqlalchemy <span class="hljs-keyword">import</span> Table, Column, Integer, String, ForeignKey
+
+metadata_obj = MetaData()
+
+<span class="hljs-comment"># deklarujemy pierwszą tabelę</span>
+user_table = Table(
+    <span class="hljs-string">"user_account"</span>,
+    metadata_obj,
+    Column(<span class="hljs-string">"id"</span>, Integer, primary_key=<span class="hljs-literal">True</span>),
+    Column(<span class="hljs-string">"name"</span>, String(<span class="hljs-number">30</span>)),
+    Column(<span class="hljs-string">"fullname"</span>, String),
+)
+
+<span class="hljs-comment"># deklarujemy drugą tabelę</span>
+
+address_table = Table(
+    <span class="hljs-string">"address"</span>,
+    metadata_obj,
+    Column(<span class="hljs-string">"id"</span>, Integer, primary_key=<span class="hljs-literal">True</span>),
+    Column(<span class="hljs-string">"user_id"</span>, ForeignKey(<span class="hljs-string">"user_account.id"</span>), nullable=<span class="hljs-literal">False</span>),
+    Column(<span class="hljs-string">"email_address"</span>, String, nullable=<span class="hljs-literal">False</span>),
+)
+
+<span class="hljs-comment"># wykonanie operacji tworzenia schematu w wybranym silniku bazy danych</span>
+metadata_obj.create_all(engine)
+<span class="hljs-comment"># wyświetlamy listę dostępnych tabel (dla tego zbioru metadanych)</span>
+metadata_obj.tables.keys()
+
+<span class="hljs-comment"># wstawienie danych do takiej tabeli</span>
+
+stmt = insert(user_table).values(name=<span class="hljs-string">"spongebob"</span>, fullname=<span class="hljs-string">"Spongebob Squarepants"</span>)
+print(stmt)
+compiled = stmt.compile()
+<span class="hljs-keyword">with</span> engine.connect() <span class="hljs-keyword">as</span> conn:
+    result = conn.execute(stmt)
+    conn.commit()
+
+print(result.inserted_primary_key)
+
+<span class="hljs-comment"># pobieramy dane</span>
+
+<span class="hljs-comment"># same polecenie</span>
+print(select(user_table))
+
+<span class="hljs-comment"># wykonanie</span>
+<span class="hljs-keyword">with</span> engine.connect() <span class="hljs-keyword">as</span> conn:
+    result = conn.execute(select(user_table).compile())
+    conn.commit()
+    print(result.all())
+
+</div></code></pre>
+<p>Możliwa jest również deklaracja encjji w sposób, który jest bardziej zbliżony do przykładów z przedstawionych wcześniej frameworków oraz Django ORM.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> List
+<span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> Optional
+<span class="hljs-keyword">from</span> sqlalchemy.orm <span class="hljs-keyword">import</span> Mapped
+<span class="hljs-keyword">from</span> sqlalchemy.orm <span class="hljs-keyword">import</span> mapped_column
+<span class="hljs-keyword">from</span> sqlalchemy.orm <span class="hljs-keyword">import</span> relationship
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span><span class="hljs-params">(Base)</span>:</span>
+    __tablename__ = <span class="hljs-string">"user_account"</span>
+    id: Mapped[int] = mapped_column(primary_key=<span class="hljs-literal">True</span>)
+    name: Mapped[str] = mapped_column(String(<span class="hljs-number">30</span>))
+    fullname: Mapped[Optional[str]]
+    addresses: Mapped[List[<span class="hljs-string">"Address"</span>]] = relationship(back_populates=<span class="hljs-string">"user"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span> -&gt; str:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">f"User(id=<span class="hljs-subst">{self.id!r}</span>, name=<span class="hljs-subst">{self.name!r}</span>, fullname=<span class="hljs-subst">{self.fullname!r}</span>)"</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Address</span><span class="hljs-params">(Base)</span>:</span>
+    __tablename__ = <span class="hljs-string">"address"</span>
+    id: Mapped[int] = mapped_column(primary_key=<span class="hljs-literal">True</span>)
+    email_address: Mapped[str]
+    user_id = mapped_column(ForeignKey(<span class="hljs-string">"user_account.id"</span>))
+    user: Mapped[User] = relationship(back_populates=<span class="hljs-string">"addresses"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span> -&gt; str:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">f"Address(id=<span class="hljs-subst">{self.id!r}</span>, email_address=<span class="hljs-subst">{self.email_address!r}</span>)"</span>
+</div></code></pre>
+<p><em>źródło: https://docs.sqlalchemy.org/en/20/tutorial/metadata.html</em></p>
+<h2 id="django-orm"><strong>Django ORM</strong></h2>
+<p>Moduł ORM wbudowany w framework Django zapewnia możliwość definiowania modeli (encji) oraz operacji na bazie danych. Encje deklarujemy poprzez rozszerzanie bazowej klasy <code>django.db.models.Model</code>, która zapewnia również dostęp do metod CRUD poprzez klasę <code>django.db.models.manager.Manager</code>. Zapytania wybierające wykonywane za pośrednictwem menedżera zwracają obiekt typu <code>QuerySet</code>, który jest koklekcją encji.</p>
+<p>Każdy model zawiera przynajmniej jeden domyślny menedżer, który dostępne jest poprzez własność <code>objects</code> danej encji, np. <code>Post.objects.all()</code> wywołuje akcję <code>all()</code> domyślnego menedżera i zwraca obiekt typu <code>QuerySet</code> zawierającego wszystkie krotki modelu <code>Post</code> z bazy danych (kolekcja może też być pusta).</p>
+<p>Obiekty typu <code>QuerySet</code> są domyślnie leniwe, co oznacza, że ich utworzenie nie wywołuje jeszcze żadnej akcji na bazie danych. Dopiero, kiedy faktycznie potrzebne są dane określone przez zapytanie, jest ono przygotowywane, optymalizowane oraz wykonywane.</p>
+<p>Poniższy przykład:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&gt;&gt;&gt; </span>q = Post.objects.filter(text__contains=<span class="hljs-string">"Kebab"</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q = q.filter(created_at__lte=datetime.date.today())
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(q)
+</div></code></pre>
+<p>utworzy obiekt typu <code>QuerySet</code>, ale żadna operacja na bazie danych nie zostanie wykonana do linii, w której zostanie wywołana funkcja <code>print()</code> na tym obiekcie. Całość zostanie wykonana jako jedno zapytanie do bazy.</p>
+<p>Należy tutaj wspomnieć również o pewnym wyjątku, gdyż wywołanie <code>Post.objects.get(1)</code> zwróci instancję modelu, a nie obiekt typu <code>QuerySet</code>.</p>
+<p>Obiekty <code>QuerySet</code> wykorzystują pamięć podręczną, jednak nie w każdej sytuacji. Kiedy wyniki zapytania są pobierane po raz pierwszy trafiają one do pamięci podręcznej, ale jeżeli nie zapisujemy wyników zapytania w postaci zmiennej, możemy generować dużo więcej zapytań do bazy niż jest to potrzebne.</p>
+<p>Przykłady pochodzą głównie z oficjalnej dokumentacji: https://docs.djangoproject.com/en/5.2/topics/db/queries/)</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># dwa oddzielne zapytania do bazy</span>
+print([e.headline <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> Entry.objects.all()])
+print([e.pub_date <span class="hljs-keyword">for</span> e <span class="hljs-keyword">in</span> Entry.objects.all()])
+
+<span class="hljs-comment"># jedno zapytanie, kolejne z wykorzystaniem pamięci podręcznej</span>
+queryset = Entry.objects.all()
+print([p.headline <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> queryset])  <span class="hljs-comment"># Evaluate the query set.</span>
+print([p.pub_date <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> queryset])  <span class="hljs-comment"># Reuse the cache from the evaluation.</span>
+</div></code></pre>
+<p>Nie wszystkie zapytania będą jednak przechowywane w pamięci podręcznej. Poniżej przykład, gdzie przy ograniczeniu wyników zapytania, np. poprzez slice (który zostanie wykonany z użyciem SQL-owego wyrażenia <code>LIMIT</code>) spowoduje ponowne odpytanie bazy danych. Taka sytuacja ma miejsce, jeżeli nie wszystkie elementy <code>QuerySet</code> nie zostały faktycznie pobrane i przetworzone.</p>
+<pre class="hljs"><code><div>queryset = Entry.objects.all()
+print(queryset[<span class="hljs-number">5</span>])  <span class="hljs-comment"># Queries the database</span>
+print(queryset[<span class="hljs-number">5</span>])  <span class="hljs-comment"># Queries the database again</span>
+</div></code></pre>
+<p>A tu już zostanie odpytany cache.</p>
+<pre class="hljs"><code><div>queryset = Entry.objects.all()
+[entry <span class="hljs-keyword">for</span> entry <span class="hljs-keyword">in</span> queryset]  <span class="hljs-comment"># Queries the database</span>
+print(queryset[<span class="hljs-number">5</span>])  <span class="hljs-comment"># Uses cache</span>
+print(queryset[<span class="hljs-number">5</span>])  <span class="hljs-comment"># Uses cache</span>
+</div></code></pre>
+<h2 id="django-orm-oferuje-r%C3%B3wnie%C5%BC">Django ORM oferuje również:</h2>
+<ul>
+<li><strong>wsparcie dla zapytań asynchronicznych</strong> - zostały zapewnione odpowiedniki metod synchronicznych takich jak <code>get</code> czy <code>delete</code> w postaci metod <code>aget</code> czy <code>adelete</code> (więcej tutaj: https://docs.djangoproject.com/en/5.2/topics/db/queries/#asynchronous-queries oraz https://docs.djangoproject.com/en/5.2/topics/async/)</li>
+<li><strong>możliwość budowania bardziej skomplikowanych zapytań</strong> poprzez wykorzystanie dedykowanej klasy <code>Q</code> pozwalającej na określanie warunku i następnie użycie operatorów logicznych dla tych warunków.
+Przykład:</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> django.db.models <span class="hljs-keyword">import</span> Q
+
+<span class="hljs-comment"># deklaracja warunków z użyciem Q może być łączona z dotychczasowymi</span>
+<span class="hljs-comment"># warunkami, ale musi zostać przekazana jako wcześniejsze argumenty</span>
+<span class="hljs-comment"># możemy je łączyć również z exclude, filter</span>
+Post.objects.get(
+    Q(text__startswith=<span class="hljs-string">"Who"</span>) | Q(text__startswith=<span class="hljs-string">"What"</span>), created_by=<span class="hljs-number">1</span>
+)
+</div></code></pre>
+<p>więcej: https://docs.djangoproject.com/en/5.2/ref/models/querysets/#django.db.models.Q</p>
+<ul>
+<li><strong>wsparcie dla wielu baz w jednym projekcie</strong> - zobacz przykłady wykorzystania tu: https://docs.djangoproject.com/en/5.2/topics/db/multi-db/</li>
+<li><strong>wsparcie dla zaawansowanego wyszukiwania w tekście,</strong> np. z wykorzystaniem wbudowanych możliwości silnika bazy PostgreSQL (stop words i inne). Zobacz: https://docs.djangoproject.com/en/5.2/topics/db/search/</li>
+<li><strong>wykonania surowego zapytania SQL jeżeli jest to konieczne</strong>: https://docs.djangoproject.com/en/5.2/topics/db/sql/</li>
+<li><strong>wsparcie dla transakcji</strong> - Django ORM domyślnie działa w trybie <code>autocommit</code> i oczywiście wspiera obsługę transakcji na poziomie silnika bazy danych. Jednak ta funkcjonalność idzie trochę dalej oferując możliwość opakowania widoku (czyli akcji wykonywanej dla danego żądania, tak w dużym uproszczeniu) w transakcję. Można to zrobić ustawiając globalnie parametr <code>ATOMIC_REQUESTS = True</code> dla każdej bazy danych, albo adnotując każde żądanie zgodnie z przykładami zawartymi w dokumentacji: https://docs.djangoproject.com/en/5.2/topics/db/transactions/</li>
+<li><strong>obsługę sygnałów</strong>, które można wysyłać lub nasłuchiwać np. dla operacji usunięcia wybranego modelu i wielu innych domyślnych sygnałów. Więcej: https://docs.djangoproject.com/en/5.2/ref/signals/</li>
+<li><strong>możliwość wywołania popularnych funkcji bazodanowych</strong> poprzez ich wrappery zawarte w pakiecie <code>django.db.models.functions</code></li>
+</ul>
+<h3 id="14-ciekawostki-i-zadania">1.4 Ciekawostki i zadania</h3>
+<ol>
+<li>* Wszystkie odpowiedzi są prawidłowe.</li>
+<li><strong>Zadanie do wykonania</strong><br>
+Znajdź w kodzie źródłowym frameworka Django (zainstalowanego w Twoim projekcie z laboratorium) funkcję odpowiedzialną za porównanie instancji dwóch modeli Django ORM (encji). Pierwsza osoba, która zgłosi się i wskaże odpowiedni fragment w kodzie źródłowym otrzyma <code>+</code> do oceny z projektu.</li>
+<li>Spróbuj uruchomić przykład spod adresu: https://docs.sqlalchemy.org/en/20/orm/examples.html#module-examples.space_invaders</li>
+</ol>
+
+</body>
+</html>
