@@ -1,11 +1,5 @@
 # Aplikacje WWW. Wykład #5
 
-
-Może jako ciekawostka udałoby się odpalić space invaders na SQLite?
-https://docs.sqlalchemy.org/en/20/orm/examples.html
-
-
-
 ## 1. ORM
 
 ### 1.1 Czym jest ORM?
