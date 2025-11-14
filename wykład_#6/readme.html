@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>readme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="aplikacje-www-wyk%C5%82ad-6">Aplikacje WWW. Wykład #6</h1>
+<h2 id="1-graphql">1. GraphQL</h2>
+<h3 id="11-wst%C4%99p">1.1 Wstęp</h3>
+<p>GraphQL jest językiem (technologią) zapytań i manipulacji danych, który jest alternatywą dla REST API.</p>
+<p>Prace nad tą technologią rozpoczęły się w roku 2012 w firmie Facebook, a jednym z powodów była chęć stworzenia rozwiązania, które będzie charakteryzowało się mniejszą ilością danych niezbędną do przesłania w stosunku do REST API. Innym problemem, który chciano rozwiązać była niska elastyczność w kontekście danych możliwych do pobrania z danego andpointu REST, co prowadziło często do efektu eksplozji wystawionych endpointów lub dużej nadmiarowości danych zwracanych do klienta.</p>
+<p>W roku 2015 ukazała się specyfikacja i przykładowa implementacja już jako projekt open source. Od roku 2018 powstała GraphQL Foundation, która znajduje się pod skrzydłami Linux Foundation.</p>
+<blockquote>
+<p>Projekt jest utrzymywany w formie repozytorium w serwisie Github: https://github.com/graphql</p>
+</blockquote>
+<blockquote>
+<p>Dokumentacja: https://graphql.org/</p>
+</blockquote>
+<blockquote>
+<p>Specyfikacja: https://spec.graphql.org/</p>
+</blockquote>
+<h3 id="12-rest-api-vs-graphql">1.2 REST API vs GraphQL</h3>
+<p>Przywołując główne powody powstania GraphQL, czyli redukcję ilości danych, które należy wymienić między aplikacją kliencką a serwerem, możemy wskazać, że jednymi z wad REST API są <strong>overfetching</strong> oraz <strong>underfetching</strong> danych.</p>
+<p><strong>Overfetching</strong> występuje wtedy, kiedy serwer zwraca więcej danych niż aktualnie klient potrzebuje, np. potrzeban jest tylko nazwa użytkownika, a endpoint zwraca instancję całej encji reprezentującej obiekt użytkownika systemu.<br>
+<strong>Underfetching</strong> z kolei to sytuacja, w której ilość danych z jednego endpointu jest niewystarczająca dla obsługi danego widoku, więc konieczne jest wykonanie wielu żądań do serwera.<br>
+Można oczywiście rozwiązać ten problem poprzez stworzenie dedykowanych endpointów dla każdego widoku po stronie frontendu, ale doprowadza to do efektu <strong>eksplozji endpointów</strong>, który doprowadza do sytuacji, w której utrzymanie takiej aplikacji staje się bardzo kosztowne, skomplikowane i potencjalnie mniej bezpieczne. Takie podejście wymaga również ciągłej współpracy zespołu frontend i backend we wdrażaniu zmian.</p>
+<p>W przypadku GraphQL tworzy się zazwyczaj jeden endpoint, który dostarcza możliwość pobierania dowolnych danych, które zostały zdefiniowane w schemacie GraphQL (w powiązaniu z np. encjami samej aplikacji oczywiście). Dodatkowo język zapytań GraphQL pozwala na osadzanie filtrów oraz innych funkcji, podobnych do tych z klasycznego SQL-a, w zapytaniach po stronie klienta.</p>
+<p>Jako przykład opisanych powyżej wad REST API oraz przewagi GraphQL w tym względzie niech posłuży poniższy przykład na podstawie implementacji z wykorzystaniem Django oraz Django Rest Framework.</p>
+<p><strong>Zadanie: pobranie imienia i nazwiska użytkownika oraz wszystkich powiązanych z nim tytułów postów wraz z nazwami topików.</strong></p>
+<p>Definicja modeli zostanie tutaj pominięta, a dotyczy modeli zdefiniowanych w aplikacji rozwijanej w ramach laboratorium.</p>
+<p>Mamy więc modele: wbudowany model <code>django.contrib.auth.models.User</code>, <code>Category</code>, <code>Topic</code>, <code>Post</code>.</p>
+<p>Zakładając, że nie posiadamy dedykowanego endpointu do obsługi takiego żądania, lista niezbędnych do wykorzystania endpointów może wyglądać tak:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># plik api_url.py</span>
+<span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> include, path
+<span class="hljs-keyword">from</span> . <span class="hljs-keyword">import</span> api_views
+
+
+urlpatterns = [
+    <span class="hljs-comment"># endpoint do odpytania o podstawowe dane użytkownika (imię, nazwisko, ale pobiera też inne dane)</span>
+    path(<span class="hljs-string">'users/&lt;int:pk&gt;/'</span>, api_views.get_user_data, name=<span class="hljs-string">'get_user_data'</span>),
+    <span class="hljs-comment"># endpoint pobierający wszystkie posty danego użytkownika</span>
+    path(<span class="hljs-string">'users/&lt;int:pk&gt;/posts/'</span>, api_views.get_user_posts, name=<span class="hljs-string">'get_user_posts'</span>),
+
+    <span class="hljs-comment"># pozostałe endpointy</span>
+    path(<span class="hljs-string">'posts/'</span>, api_views.post_list, name=<span class="hljs-string">'post_list'</span>),
+    path(<span class="hljs-string">'posts/&lt;int:pk&gt;/'</span>, api_views.post_detail, name=<span class="hljs-string">'post_detail'</span>),
+    path(<span class="hljs-string">'posts/by_keyword/&lt;keyword&gt;/'</span>, api_views.post_list_by_keyword, name=<span class="hljs-string">'post_list_by_keyword'</span>),
+]
+</div></code></pre>
+<p>Teraz definicja widoków wymaganych do realizacji zadania.</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># plik api_views.py</span>
+
+<span class="hljs-meta">@api_view(['GET'])</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_user_data</span><span class="hljs-params">(request, pk, format=None)</span>:</span>
+    <span class="hljs-string">"""
+    Pobiera dane użytkownika na podstawie jego ID.
+    """</span>
+    <span class="hljs-keyword">try</span>:
+        user = User.objects.get(pk=pk)
+    <span class="hljs-keyword">except</span> User.DoesNotExist:
+        <span class="hljs-keyword">return</span> Response(status=status.HTTP_404_NOT_FOUND)
+
+    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">'GET'</span>:
+        serializer = UserSerializer(user)
+        <span class="hljs-keyword">return</span> Response(serializer.data)
+
+
+<span class="hljs-meta">@api_view(['GET'])</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_user_posts</span><span class="hljs-params">(request, pk, format=None)</span>:</span>
+    <span class="hljs-string">"""
+    Pobiera posty stworzone przez użytkownika o podanym ID.
+    """</span>
+    <span class="hljs-keyword">try</span>:
+        user = User.objects.get(pk=pk)
+    <span class="hljs-keyword">except</span> User.DoesNotExist:
+        <span class="hljs-keyword">return</span> Response(status=status.HTTP_404_NOT_FOUND)
+
+    <span class="hljs-keyword">if</span> request.method == <span class="hljs-string">'GET'</span>:
+        posts = Post.objects.filter(created_by=user)
+        serializer = PostModelSerializer(posts, many=<span class="hljs-literal">True</span>)
+        <span class="hljs-keyword">return</span> Response(serializer.data)
+</div></code></pre>
+<p>I delikatna zmiana definicji serializatora dla modelu <code>Post</code>.</p>
+<pre class="hljs"><code><div><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostModelSerializer</span><span class="hljs-params">(serializers.ModelSerializer)</span>:</span>
+    <span class="hljs-comment"># pole topic nie będzie przechowywało tylko id topiku, ale cały zserializowany obiekt</span>
+    <span class="hljs-comment"># również przy tworzeniu/aktualizacji obiektu Post należy przekazywać JSON w</span>
+    <span class="hljs-comment"># odpowiednim formacie</span>
+    topic = TopicSerializer()
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+        model = Post
+        fields = [<span class="hljs-string">'id'</span>, <span class="hljs-string">'text'</span>, <span class="hljs-string">'title'</span>, <span class="hljs-string">'topic'</span>]
+        read_only_fields = [<span class="hljs-string">'id'</span>, <span class="hljs-string">'created_at'</span>, <span class="hljs-string">'updated_at'</span>]
+</div></code></pre>
+<p>I teraz przykładowe żądania.</p>
+<p>Aby pobrać imię i nazwisko dla użytkownika o id 1 wysyłamy żądanie na endpoint <code>http://127.0.0.1:8000/blog/users/1/</code> i otrzymujemy:</p>
+<pre class="hljs"><code><div>{
+    <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"username"</span>: <span class="hljs-string">"jan.kowalski"</span>,
+    <span class="hljs-attr">"last_name"</span>: <span class="hljs-string">"Kowalski"</span>,
+    <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Jan"</span>
+}
+</div></code></pre>
+<p>Aby dostarczyć wszystkie niezbędne dane z endpointów, które mamy, odpytujemy adres <code>http://127.0.0.1:8000/blog/users/1/posts/</code> dostajemy przykładowo poniższe dane:</p>
+<pre class="hljs"><code><div>[
+    {
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"Jakiś tekst posta."</span>,
+        <span class="hljs-string">"title"</span>: <span class="hljs-string">"test"</span>,
+        <span class="hljs-string">"topic"</span>: {
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Test"</span>,
+            <span class="hljs-string">"category"</span>: <span class="hljs-number">1</span>
+        }
+    },
+    {
+        <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">"text"</span>: <span class="hljs-string">"nowy tekst"</span>,
+        <span class="hljs-string">"title"</span>: <span class="hljs-string">"test"</span>,
+        <span class="hljs-string">"topic"</span>: {
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Test"</span>,
+            <span class="hljs-string">"category"</span>: <span class="hljs-number">1</span>
+        }
+    }
+]
+</div></code></pre>
+<p>Biorąc pod uwagę, że potrzebowaliśmy tylko <code>User.first_name</code>, <code>User.last_name</code> oraz <code>Post.title</code> i <code>Post.topic.name</code> to nadmiarowość danych jest duża.</p>
+<p>I teraz przykład pobrania tych samych danych z wykorzystaniem GraphQL.</p>
+<p>Ograniczę się tutaj tylko do niewielkiej części konfiguracji GraphQL po stronie Django (moduł <code>graphene</code>), wskazując podobne punkty dostępu do danych jak w poprzednim przykładzie.
+Pozostałe elementy specyfikacji GraphQL zostaną przedstawione w dalszej części wykładu.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> graphene
+<span class="hljs-keyword">from</span> graphene_django <span class="hljs-keyword">import</span> DjangoObjectType
+<span class="hljs-keyword">from</span> posts.models <span class="hljs-keyword">import</span> Topic, Post
+<span class="hljs-keyword">from</span> django.contrib.auth.models <span class="hljs-keyword">import</span> User
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserType</span><span class="hljs-params">(DjangoObjectType)</span>:</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+        model = User
+        fields = [<span class="hljs-string">'id'</span>, <span class="hljs-string">'username'</span>, <span class="hljs-string">'first_name'</span>, <span class="hljs-string">'last_name'</span>]
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TopicType</span><span class="hljs-params">(DjangoObjectType)</span>:</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+        model = Topic
+        fields = [<span class="hljs-string">'id'</span>, <span class="hljs-string">'name'</span>, <span class="hljs-string">'category'</span>, <span class="hljs-string">'created'</span>, <span class="hljs-string">'post_set'</span>]
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostType</span><span class="hljs-params">(DjangoObjectType)</span>:</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+        model = Post
+        fields = [<span class="hljs-string">'id'</span>, <span class="hljs-string">'title'</span>, <span class="hljs-string">'text'</span>, <span class="hljs-string">'topic'</span>, <span class="hljs-string">'slug'</span>, <span class="hljs-string">'created_at'</span>, <span class="hljs-string">'updated_at'</span>, <span class="hljs-string">'created_by'</span>]
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Query</span><span class="hljs-params">(graphene.ObjectType)</span>:</span>
+    
+    <span class="hljs-comment"># Posty danego topiku</span>
+    posts_by_user = graphene.List(PostType, created_by=graphene.Int(required=<span class="hljs-literal">True</span>))
+    
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">resolve_posts_by_user</span><span class="hljs-params">(self, info, id)</span>:</span>
+        <span class="hljs-keyword">return</span> Post.objects.filter(created_by=id)
+
+
+schema = graphene.Schema(query=Query)
+</div></code></pre>
+<p>Następnie zapytanie do schemy o potrzebne nam dane.</p>
+<pre class="hljs"><code><div>{
+  postsByUser (createdBy: 1) {
+    id
+    title
+    topic {
+      name
+    }
+    user: createdBy {
+      firstName
+      lastName
+    }
+    
+  }
+}
+</div></code></pre>
+<p>I dane, które zostały zwrócone. W powyższym zapytaniu zostały użyte aliasy, aby pole <code>createdBy</code> z modelu <code>Post</code> było zwracane jako <code>user</code>.</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"postsByUser"</span>: [
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"2"</span>,
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"test"</span>,
+        <span class="hljs-attr">"topic"</span>: {
+          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Test"</span>
+        },
+        <span class="hljs-attr">"user"</span>: {
+          <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">""</span>,
+          <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">""</span>
+        }
+      },
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"test"</span>,
+        <span class="hljs-attr">"topic"</span>: {
+          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Test"</span>
+        },
+        <span class="hljs-attr">"user"</span>: {
+          <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">""</span>,
+          <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">""</span>
+        }
+      }
+    ]
+  }
+}
+</div></code></pre>
+<p>W przypadku prezentowanego przykładu zapytanie zostało wykonane poprzez dostarczony frontend ze strony modułu graphene dla django.</p>
+<p>Zapytanie można wysłać poprzez np. narzędzie curl jak poniżej.</p>
+<pre class="hljs"><code><div>curl -H <span class="hljs-string">"Content-Type: application/json"</span> -X POST -d <span class="hljs-string">"{\"query\": \"query {postsByUser(createdBy:1){id}}\"}"</span> http://127.0.0.1:8000/graphql/
+
+<span class="hljs-comment"># output</span>
+{<span class="hljs-string">"data"</span>:{<span class="hljs-string">"postsByUser"</span>:[{<span class="hljs-string">"id"</span>:<span class="hljs-string">"2"</span>},{<span class="hljs-string">"id"</span>:<span class="hljs-string">"1"</span>}]}}
+</div></code></pre>
+<h3 id="13-schemat-danych-w-graphql">1.3 Schemat danych w GraphQL</h3>
+<p>GraphQL składa się z kilku kluczowych komponentów, które współpracują ze sobą, aby umożliwić efektywne zapytania i manipulacje danymi. Oto główne składniki:</p>
+<ul>
+<li>
+<p><strong>Schema:</strong></p>
+<p>Definiuje strukturę danych, które są dostępne w API. Określa typy obiektów, ich pola oraz relacje między nimi.</p>
+</li>
+<li>
+<p><strong>Types:</strong></p>
+<p>Typy definiują strukturę danych. Mogą to być typy obiektowe (np. <code>Post</code>, <code>User</code>), typy skalara (np. <code>String</code>, <code>Int</code>) oraz typy wyliczeniowe (<code>enum</code>).</p>
+</li>
+<li>
+<p><strong>Queries:</strong></p>
+<p>Zapytania (queries) służą do pobierania danych. Użytkownicy mogą określić, jakie pola chcą otrzymać w odpowiedzi.</p>
+</li>
+<li>
+<p><strong>Mutations:</strong></p>
+<p>Mutacje (mutations) są używane do modyfikacji danych, takich jak tworzenie, aktualizowanie lub usuwanie obiektów.</p>
+</li>
+<li>
+<p><strong>Resolvers:</strong></p>
+<p>Funkcje, które odpowiadają na zapytania i mutacje. Odpowiadają za pobieranie danych z bazy danych lub innego źródła.</p>
+</li>
+<li>
+<p><strong>Subscriptions:</strong></p>
+<p>Umożliwiają klientom subskrybowanie zmian w danych, co pozwala na otrzymywanie aktualizacji w czasie rzeczywistym.</p>
+</li>
+<li>
+<p><strong>Introspection:</strong></p>
+<p>Mechanizm, który pozwala na zapytania o strukturę API, co umożliwia klientom odkrywanie dostępnych typów i operacji.</p>
+</li>
+</ul>
+<p>Te komponenty współpracują, aby umożliwić elastyczne i wydajne interakcje z danymi w aplikacjach opartych na GraphQL.</p>
+<h4 id="graphql-schema">GraphQL schema</h4>
+<blockquote>
+<p>Dokumentacja: https://graphql.org/learn/schema/</p>
+</blockquote>
+<p><strong>Schema Definition Language (SDL)</strong> w GraphQL to specjalny język służący do definiowania struktury danych i typów dostępnych w API GraphQL.</p>
+<p>Główne cechy SDL:</p>
+<ul>
+<li><strong>Definiowanie typów</strong> - opisuje strukturę danych, które mogą być pobierane lub modyfikowane</li>
+<li><strong>Definiowanie pól</strong> - każdy typ zawiera pola z określonymi typami danych</li>
+<li><strong>Definiowanie operacji</strong> - <code>Query</code> (pobieranie danych), <code>Mutation</code> (modyfikacja danych), <code>Subscription</code> (subskrypcje)
+Przykład prostego schematu GraphQL SDL:</li>
+</ul>
+<pre class="hljs"><code><div># zwykły komentarz
+
+&quot;&quot;&quot;
+Typ User, który reprezentuje użytkownika w systemie.
+&quot;&quot;&quot;
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  age: Int
+}
+
+&quot;&quot;&quot;
+Topic reprezentuje tematykę postów.
+&quot;&quot;&quot;
+type Topic {
+  id: ID!
+  name: String!
+}
+
+&quot;&quot;&quot;
+Post reprezentuje wpis na blogu lub forum.
+&quot;&quot;&quot;
+type Post {
+  id: ID!
+  title: String!
+  &quot;Póki co zakładamy, że content to zwykły tekst.&quot;
+  content: String!
+  author: User!
+  topic: Topic!
+}
+</div></code></pre>
+<p>Wyjaśnienie składni:</p>
+<ul>
+<li><code>!</code> - pole wymagane (non-nullable)</li>
+<li><code>[ ]</code> - tablica/lista</li>
+<li><code>String, Int, ID, Boolean</code> - wbudowane typy skalarne</li>
+</ul>
+<p>Możliwe jest również osadzanie dokumentacji w postaci komentarzy opisujących typy oraz pola.</p>
+<blockquote>
+<p>Wszystkie dostępne typy w GraphQL są opisane tutaj: https://spec.graphql.org/draft/#sec-Types</p>
+</blockquote>
+<h5 id="typy-skalarne">Typy skalarne</h5>
+<p>W GraphQL mamy zdefiniowane następujące <strong>typy skalarne</strong>:</p>
+<ul>
+<li><strong>Int:</strong> liczba całkowita ze znakiem (32 bity).</li>
+<li><strong>Float:</strong> liczba zmiennoprzecinkowa ze znakiem podwójnej precyzji.</li>
+<li><strong>String:</strong> ciąg znaków w kodowaniu UTF‑8.</li>
+<li><strong>Boolean:</strong> wartość logiczna — true lub false.</li>
+<li><strong>ID:</strong> unikalny identyfikator, często używany do ponownego pobrania obiektu lub jako klucz w pamięci podręcznej. Typ ID jest serializowany tak samo jak String, jednak oznaczenie pola jako ID sygnalizuje, że nie jest przeznaczone do czytania przez człowieka.</li>
+</ul>
+<h5 id="typy-wyliczeniowe-enum">Typy wyliczeniowe (enum)</h5>
+<p>Typy <strong>wyliczeniowe (enum)</strong> w GraphQL pozwalają na definiowanie zestawu stałych wartości, które pole może przyjmować.</p>
+<p>Przykład:</p>
+<pre class="hljs"><code><div>enum Role {
+  ADMIN
+  USER
+  GUEST
+}
+</div></code></pre>
+<p>W przypadku pozostałych typów odsyłam do dokumentacji.</p>
+<h5 id="argumenty-w-graphql">Argumenty w GraphQL</h5>
+<p>Możliwe jest również definiowanie argumentów przy definicji typów danych (później rówiwnież przy zapytaniach).</p>
+<p>Przykład za dokumentacją:</p>
+<pre class="hljs"><code><div>type Starship {
+  id: ID!
+  name: String!
+  length(unit: LengthUnit = METER): Float
+}
+</div></code></pre>
+<p>Powyżej mamy zdefiniowane pole <code>length</code>, które przyjmuje argument <code>unit</code> typu <code>LengthUnit</code> z wartością domyślną <code>METER</code>. Wszystkie argumenty są określone przez nazwę i typ.</p>
+<h5 id="dyrektywy">Dyrektywy</h5>
+<p>Dyrektywy w GraphQL to specjalne instrukcje, które można dołączyć do pól lub fragmentów zapytań, aby zmienić sposób ich wykonywania. Dyrektywy pozwalają na dynamiczne dostosowywanie zapytań w zależności od określonych warunków.</p>
+<blockquote>
+<p>Specyfikacja dyrektyw: https://spec.graphql.org/draft/#sec-Type-System.Directives</p>
+</blockquote>
+<p>Poniżej przykład wykorzystania dyrektywy <code>@deprecated</code>, która służy do oznaczania pól lub typów jako przestarzałych.:</p>
+<pre class="hljs"><code><div>type User {
+  fullName: String
+  name: String @deprecated(reason: &quot;Use `fullName`.&quot;)
+}
+</div></code></pre>
+<p>Inne dwie wbudowane dyrektywy to <code>@include</code> oraz <code>@skip</code>, które pozwalają na warunkowe uwzględnianie lub pomijanie pól w zapytaniach.</p>
+<ul>
+<li><strong>@include(if: Boolean)</strong> - dołącz to pole do wyniku tylko wtedy, gdy argument jest prawdziwy.</li>
+<li><strong>@skip(if: Boolean)</strong> - pomiń to pole w wyniku, jeśli argument jest prawdziwy.</li>
+</ul>
+<hr>
+<h4 id="graphql-queries---definicja-i-zapytania">GraphQL Queries - definicja i zapytania</h4>
+<p>W GraphQL dostępne są trzy główne typy operacji: <strong>zapytania (queries)</strong>, <strong>mutacje (mutations)</strong> oraz <strong>subskrypcje (subscriptions)</strong>.</p>
+<p>Zapytania służą tylko do pobierania danych, bez ich modyfikacji.</p>
+<p>Aby wykonać zapytanie o dane, należy najpierw zdefiniować operację <code>Query</code> w schemacie GraphQL, a następnie wysłać zapytanie do serwera GraphQL.</p>
+<p>Przykład definicji operacji <code>Query</code> w schemacie GraphQL:</p>
+<pre class="hljs"><code><div>type Query {
+  &quot;Zapytanie z wymaganym argumentem&quot;
+  user(id: ID!): User
+  users: [User!]!
+  post(id: ID!): Post
+  posts: [Post!]!
+}
+</div></code></pre>
+<p>W najprostrzej formie zapytanie to po prostu wskazanie pól, które chcemy pobrać z określonego typu.</p>
+<p>Zapytanie po stronie klienta może wyglądać tak:</p>
+<pre class="hljs"><code><div>{
+  user(id: &quot;1&quot;) {
+    firstName
+    lastName
+    email
+  }
+}
+</div></code></pre>
+<p>Taka forma zapytania jest nazywana <strong>operacją anonimową</strong>, ponieważ nie posiada nazwy. Możliwe jest również nadanie nazwy zapytaniu, co jest przydatne w przypadku bardziej złożonych zapytań lub gdy chcemy mieć lepszą identyfikację zapytań w logach. Przykład z nazwą operacji:</p>
+<pre class="hljs"><code><div>type Query {
+  GetUserById(id: ID!): User
+}
+
+# i zapytanie po stronie klienta
+query GetUserById {
+  user(id: &quot;1&quot;) {
+    firstName
+    lastName
+    email
+  }
+}
+</div></code></pre>
+<p>Podanie nazwy operacji jest wymagane dla operacji mutacji oraz subskrypcji.</p>
+<p>Wszystkie te przykłady wymagają podania wartości argumentów w samym zapytaniu, co wymaga manipulacji tekstem zapytania po stronie klienta. Alternatywnie można zdefiniować zmienne zapytania, które pozwalają na przekazywanie wartości argumentów w sposób bardziej elastyczny. Przykład z wykorzystaniem zmiennych zapytania:</p>
+<pre class="hljs"><code><div># zapytanie z wykorzystaniem zmiennych
+query GetUserById($userId: ID!) {
+  user(id: $userId) {
+    firstName
+    lastName
+    email
+  }
+}
+
+# i wartości zmiennych przekazywane oddzielnie
+variables: {
+  &quot;userId&quot;: &quot;1&quot;
+}
+</div></code></pre>
+<p>Zapytania GraphQL oferują jeszcze możliwość stosowania <strong>fragmentów</strong>, które pozwalają na ponowne wykorzystanie zestawów pól w różnych zapytaniach oraz metadanych, takich jak dyrektywy czy zapytanie o typ <code>__typename</code>. Odsyłam do dokumentacji w celu zapoznania się z tymi zagadnieniami.</p>
+<h4 id="graphql-mutations---definicja-i-zapytania">GraphQL Mutations - definicja i zapytania</h4>
+<p>Mutacje to operacje w GraphQL służące do modyfikacji danych na serwerze, takie jak tworzenie, aktualizowanie lub usuwanie zasobów. Podobnie jak zapytania (queries), mutacje są definiowane w schemacie GraphQL i wykonywane przez klienta.</p>
+<p>Przykład definicji operacji <code>Mutation</code> dla obiektu <code>User</code> w schemacie GraphQL:</p>
+<pre class="hljs"><code><div># Definiowanie operacji Mutation (modyfikacja danych)
+type Mutation {
+  createUser(firstName: String!, lastName: String!, email: String!): User!
+  updateUser(id: ID!, firstName: String, lastName: String): User
+  deleteUser(id: ID!): Boolean!
+}
+</div></code></pre>
+<p>Wywołanie powyższych mutacji po stronie klienta może wyglądać tak:</p>
+<pre class="hljs"><code><div>mutation CreateUser {
+  createUser(firstName: &quot;Jan&quot;, lastName: &quot;Kowalski&quot;, email: &quot;jan.kowalski@example.com&quot;) {
+    id
+    firstName
+    lastName
+    email
+  }
+}
+
+mutation UpdateUser {
+  updateUser(id: &quot;1&quot;, firstName: &quot;Janusz&quot;) {
+    id
+    firstName
+    lastName
+    email
+  }
+}
+
+mutation DeleteUser {
+  deleteUser(id: &quot;1&quot;)
+}
+</div></code></pre>
+<p>Podobnie jak w przypadku zapytań, mutacje mogą również korzystać ze zmiennych, co pozwala na bardziej elastyczne przekazywanie danych. Przykład z wykorzystaniem zmiennych w mutacji:</p>
+<pre class="hljs"><code><div>mutation CreateUser($firstName: String!, $lastName: String!, $email: String!) {
+  createUser(firstName: $firstName, lastName: $lastName, email: $email) {
+    id
+    firstName
+    lastName
+    email
+  }
+}
+</div></code></pre>
+<p>Jedną z różnic między zapytaniami a mutacjami jest to, że mutacje są wykonywane sekwencyjnie, co oznacza, że każda mutacja musi zakończyć się przed rozpoczęciem następnej. Zapewnia to spójność danych podczas modyfikacji.</p>
+<h4 id="graphql-subscriptions">GraphQL Subscriptions</h4>
+<p>Subskrypcje w GraphQL to mechanizm umożliwiający klientom otrzymywanie aktualizacji danych w czasie rzeczywistym. Dzięki subskrypcjom, klient może &quot;subskrybować&quot; określone zdarzenia lub zmiany danych na serwerze i otrzymywać powiadomienia, gdy te zmiany wystąpią.</p>
+<p>Przykład definicji operacji <code>Subscription</code> w schemacie GraphQL:</p>
+<pre class="hljs"><code><div>type Subscription {
+  userCreated: User!
+  postAdded: Post!
+}
+</div></code></pre>
+<p>Wywołanie subskrypcji po stronie klienta może wyglądać tak:</p>
+<pre class="hljs"><code><div>subscription OnUserCreated {
+  userCreated {
+    id
+    firstName
+    lastName
+    email
+  }
+}
+</div></code></pre>
+<p>Faktycznie subskrypcje działają na zasadzie utrzymywania otwartego połączenia między klientem a serwerem, często za pomocą WebSocketów. Gdy na serwerze wystąpi zdarzenie, które klient subskrybuje (np. utworzenie nowego użytkownika), serwer wysyła odpowiednie dane do klienta/-ów.</p>
+<p>Ten mechanizm jest szczególnie przydatny w aplikacjach wymagających aktualizacji w czasie rzeczywistym, takich jak czaty, powiadomienia czy aplikacje monitorujące.</p>
+<p>Obsługa subskrypcji jest bardziej złożona niż zapytań i mutacji, ponieważ wymaga utrzymania stanu połączenia oraz zarządzania sesjami subskrypcji.</p>
+<h4 id="graphql-resolvers">GraphQL Resolvers</h4>
+<p>Resolvers to funkcje w GraphQL, które odpowiadają na zapytania, mutacje i subskrypcje, pobierając lub modyfikując dane zgodnie z definicją schematu. Każde pole w schemacie GraphQL może mieć przypisany resolver, który określa, jak uzyskać wartość tego pola.</p>
+<p>Resolver działa jako most między zapytaniem GraphQL a źródłem danych, takim jak baza danych, API lub inny system. Kiedy klient wysyła zapytanie, GraphQL wywołuje odpowiednie resolvery dla każdego pola w zapytaniu, aby zebrać wymagane dane. Jeśli pole nie ma przypisanego resolvera, GraphQL używa domyślnego zachowania, które zazwyczaj polega na bezpośrednim zwróceniu wartości z obiektu źródłowego. W przypadku typów skalarnych, takich jak <code>String</code> czy <code>Int</code>, domyślny resolver zwraca wartość bezpośrednio. W przypadku typów obiektowych, domyślny resolver zwraca obiekt, z którego można dalej pobierać pola, następnie wywołując kolejne resolvery dla tych pól aż do momentu osiągnięcia wartości skalarnych lub enumów.</p>
+<p>Implementacja resolverów zależy od używanej biblioteki lub frameworka GraphQL.</p>
+<p>W kolejnych częściach wykładu zostaną przedstawione przykłady implementacji resolverów w kontekście aplikacji Django z wykorzystaniem biblioteki <code>graphene-django</code>.</p>
+<h4 id="introspekcja-w-graphql">Introspekcja w GraphQL</h4>
+<p>Introspekcja w GraphQL to mechanizm, który pozwala klientom na zapytania o strukturę i możliwości API GraphQL. Dzięki introspekcji, klienci mogą odkrywać dostępne typy, pola, operacje (zapytania, mutacje, subskrypcje) oraz inne informacje o schemacie GraphQL bez konieczności posiadania zewnętrznej dokumentacji. Introspekcja jest szczególnie przydatna podczas tworzenia narzędzi do eksploracji API, takich jak GraphiQL czy Apollo Studio, które umożliwiają programistom interaktywne badanie i testowanie zapytań GraphQL.</p>
+<p>W środowiskach produkcyjnych introspekcja może być wyłączona ze względów bezpieczeństwa, aby zapobiec ujawnianiu szczegółów implementacji API osobom nieuprawnionym.</p>
+<h4 id="podsumowanie">Podsumowanie</h4>
+<p>Główne różnice między GraphQL a REST API to:</p>
+<ul>
+<li>Elastyczność zapytań: GraphQL pozwala klientom precyzyjnie określić, jakie dane chcą otrzymać, podczas gdy REST API ma sztywno zdefiniowane endpointy.</li>
+<li>Redukcja nadmiarowości danych: GraphQL minimalizuje overfetching i underfetching danych, co może prowadzić do bardziej efektywnej komunikacji między klientem a serwerem.</li>
+<li>Jeden endpoint: GraphQL zazwyczaj korzysta z jednego endpointu do obsługi wszystkich zapytań i mutacji, podczas gdy REST API wymaga wielu endpointów dla różnych zasobów.</li>
+<li>Typy i schemat: GraphQL posiada silnie typowany schemat, który definiuje strukturę danych i operacji, co ułatwia rozwój i utrzymanie API.</li>
+</ul>
+<h3 id="14-wdra%C5%BCanie-graphql-w-aplikacji-django">1.4 Wdrażanie GraphQL w aplikacji Django</h3>
+<p>Częsciowa implementacja GraphQL w aplikacji Django została już przedsatwiona w części 1.2 tego wykładu. Bardziej szczegółowa implementacja bez pomijania szczegółów zostanie przedstawiona poniżej.</p>
+<h4 id="instalacja-wymaganych-pakiet%C3%B3w">Instalacja wymaganych pakietów</h4>
+<p>Aby dodać obsługę GraphQL do aplikacji Django, należy zainstalować odpowiednie pakiety. Najpopularniejszą biblioteką do integracji GraphQL z Django jest <code>graphene-django</code>.</p>
+<pre class="hljs"><code><div>pip install graphene-django
+</div></code></pre>
+<h4 id="konfiguracja-django-do-obs%C5%82ugi-graphql">Konfiguracja Django do obsługi GraphQL</h4>
+<p>W pliku <code>settings.py</code> należy dodać <code>graphene_django</code> do listy zainstalowanych aplikacji:</p>
+<pre class="hljs"><code><div>INSTALLED_APPS = [
+    ...
+    <span class="hljs-string">'graphene_django'</span>,
+    ...
+]
+</div></code></pre>
+<p>Następnie należy skonfigurować schemat GraphQL w pliku <code>settings.py</code> i przyjmujemy, że nasza aplikacja nazywa sie <code>blog</code>. W tym przypadku schemat będzie zdefiniowany w pliku <code>blog/schema.py</code>. Trzeba tutaj zaznaczyć, że to rozwiązanie nie jest zbyt elastyczne, gdyż wymaga albo reedycji tego schematu dla każdej nowej aplikacji, albo stworzenia jednego pliku <code>schema.py</code>, który będzie importował schematy z poszczególnych aplikacji.</p>
+<pre class="hljs"><code><div>GRAPHENE = {
+    <span class="hljs-string">'SCHEMA'</span>: <span class="hljs-string">'blog.schema.schema'</span>  <span class="hljs-comment"># Ścieżka do schematu GraphQL</span>
+}
+</div></code></pre>
+<h4 id="definiowanie-schematu-graphql">Definiowanie schematu GraphQL</h4>
+<p>W pliku <code>blog/schema.py</code> definiujemy typy, zapytania oraz mutacje. Poniżej znajduje się przykładowa implementacja:</p>
+<pre class="hljs"><code><div>
+</div></code></pre>
+<h4 id="definiowanie-widoku-graphql">Definiowanie widoku GraphQL</h4>
+<p>W pliku <code>urls.py</code> głównego katalogu projektu Django należy dodać ścieżkę do widoku GraphQL:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> django.urls <span class="hljs-keyword">import</span> path
+<span class="hljs-keyword">from</span> graphene_django.views <span class="hljs-keyword">import</span> GraphQLView
+
+urlpatterns = [
+    <span class="hljs-comment"># ...</span>
+    path(<span class="hljs-string">"graphql"</span>, GraphQLView.as_view(graphiql=<span class="hljs-literal">True</span>)),
+]
+
+<span class="hljs-comment"># a jeżeli chcemy dodać obsługę CSRF</span>
+<span class="hljs-keyword">from</span> django.views.decorators.csrf <span class="hljs-keyword">import</span> csrf_exempt
+
+urlpatterns = [
+    <span class="hljs-comment"># ...</span>
+    path(<span class="hljs-string">"graphql"</span>, csrf_exempt(GraphQLView.as_view(graphiql=<span class="hljs-literal">True</span>))),
+]
+</div></code></pre>
+<p>Atrybut <code>graphiql=True</code> włącza interfejs graficzny GraphiQL, który umożliwia testowanie zapytań GraphQL bezpośrednio z okna przeglądarki internetowej.</p>
+<h4 id="definicja-schematu-graphql-dla-aplikacji-blog">Definicja schematu GraphQL dla aplikacji blog</h4>
+<p>W pliku <code>blog/schema.py</code> definiujemy typy, zapytania oraz mutacje. Poniżej znajduje się przykładowa implementacja:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">import</span> graphene
+<span class="hljs-keyword">from</span> graphene_django <span class="hljs-keyword">import</span> DjangoObjectType
+<span class="hljs-keyword">from</span> posts.models <span class="hljs-keyword">import</span> Category, Topic, Post
+<span class="hljs-keyword">from</span> django.contrib.auth.models <span class="hljs-keyword">import</span> User
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CategoryType</span><span class="hljs-params">(DjangoObjectType)</span>:</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+        model = Category
+        fields = [<span class="hljs-string">'id'</span>, <span class="hljs-string">'name'</span>]
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserType</span><span class="hljs-params">(DjangoObjectType)</span>:</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+        model = User
+        fields = [<span class="hljs-string">'id'</span>, <span class="hljs-string">'username'</span>, <span class="hljs-string">'first_name'</span>, <span class="hljs-string">'last_name'</span>]
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TopicType</span><span class="hljs-params">(DjangoObjectType)</span>:</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+        model = Topic
+        fields = [<span class="hljs-string">'id'</span>, <span class="hljs-string">'name'</span>, <span class="hljs-string">'category'</span>, <span class="hljs-string">'created'</span>, <span class="hljs-string">'post_set'</span>]
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PostType</span><span class="hljs-params">(DjangoObjectType)</span>:</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+        model = Post
+        fields = [<span class="hljs-string">'id'</span>, <span class="hljs-string">'title'</span>, <span class="hljs-string">'text'</span>, <span class="hljs-string">'topic'</span>, <span class="hljs-string">'slug'</span>, <span class="hljs-string">'created_at'</span>, <span class="hljs-string">'updated_at'</span>, <span class="hljs-string">'created_by'</span>]
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Query</span><span class="hljs-params">(graphene.ObjectType)</span>:</span>
+    
+    <span class="hljs-comment"># Wszystkie tematy</span>
+    all_topics = graphene.List(TopicType)
+    
+    <span class="hljs-comment"># Wszystkie posty</span>
+    all_posts = graphene.List(PostType)
+    
+    <span class="hljs-comment"># Posty danego użytkownika</span>
+    posts_by_user = graphene.List(PostType, created_by_id=graphene.Int(required=<span class="hljs-literal">True</span>))
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">resolve_all_topics</span><span class="hljs-params">(self, info)</span>:</span>
+        <span class="hljs-keyword">return</span> Topic.objects.all()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">resolve_all_posts</span><span class="hljs-params">(self, info)</span>:</span>
+        <span class="hljs-keyword">return</span> Post.objects.all()
+    
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">resolve_posts_by_user</span><span class="hljs-params">(self, info, created_by_id)</span>:</span>
+        <span class="hljs-keyword">return</span> Post.objects.filter(created_by=created_by_id)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CreatePost</span><span class="hljs-params">(graphene.Mutation)</span>:</span>
+    post = graphene.Field(PostType)
+    success = graphene.Boolean()
+    message = graphene.String()
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Arguments</span>:</span>
+        title = graphene.String(required=<span class="hljs-literal">True</span>)
+        text = graphene.String(required=<span class="hljs-literal">True</span>)
+        topic_id = graphene.Int(required=<span class="hljs-literal">True</span>)
+        slug = graphene.String(required=<span class="hljs-literal">True</span>)
+        created_by_id = graphene.Int(required=<span class="hljs-literal">True</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mutate</span><span class="hljs-params">(self, info, title, text, topic_id, slug, created_by_id)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            post = Post.objects.create(
+                title=title,
+                text=text,
+                topic_id=topic_id,
+                slug=slug,
+                created_by_id=created_by_id
+            )
+            <span class="hljs-keyword">return</span> CreatePost(post=post, success=<span class="hljs-literal">True</span>, message=<span class="hljs-string">"Post created successfully"</span>)
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            <span class="hljs-keyword">return</span> CreatePost(post=<span class="hljs-literal">None</span>, success=<span class="hljs-literal">False</span>, message=str(e))
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UpdatePost</span><span class="hljs-params">(graphene.Mutation)</span>:</span>
+    post = graphene.Field(PostType)
+    success = graphene.Boolean()
+    message = graphene.String()
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Arguments</span>:</span>
+        id = graphene.Int(required=<span class="hljs-literal">True</span>)
+        title = graphene.String()
+        text = graphene.String()
+        topic_id = graphene.Int()
+        slug = graphene.String()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mutate</span><span class="hljs-params">(self, info, id, title=None, text=None, topic_id=None, slug=None)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            post = Post.objects.get(id=id)
+            <span class="hljs-keyword">if</span> title:
+                post.title = title
+            <span class="hljs-keyword">if</span> text:
+                post.text = text
+            <span class="hljs-keyword">if</span> topic_id:
+                post.topic_id = topic_id
+            <span class="hljs-keyword">if</span> slug:
+                post.slug = slug
+            post.save()
+            <span class="hljs-keyword">return</span> UpdatePost(post=post, success=<span class="hljs-literal">True</span>, message=<span class="hljs-string">"Post updated successfully"</span>)
+        <span class="hljs-keyword">except</span> Post.DoesNotExist:
+            <span class="hljs-keyword">return</span> UpdatePost(post=<span class="hljs-literal">None</span>, success=<span class="hljs-literal">False</span>, message=<span class="hljs-string">"Post not found"</span>)
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            <span class="hljs-keyword">return</span> UpdatePost(post=<span class="hljs-literal">None</span>, success=<span class="hljs-literal">False</span>, message=str(e))
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeletePost</span><span class="hljs-params">(graphene.Mutation)</span>:</span>
+    success = graphene.Boolean()
+    message = graphene.String()
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Arguments</span>:</span>
+        id = graphene.Int(required=<span class="hljs-literal">True</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">mutate</span><span class="hljs-params">(self, info, id)</span>:</span>
+        <span class="hljs-keyword">try</span>:
+            post = Post.objects.get(id=id)
+            post.delete()
+            <span class="hljs-keyword">return</span> DeletePost(success=<span class="hljs-literal">True</span>, message=<span class="hljs-string">"Post deleted successfully"</span>)
+        <span class="hljs-keyword">except</span> Post.DoesNotExist:
+            <span class="hljs-keyword">return</span> DeletePost(success=<span class="hljs-literal">False</span>, message=<span class="hljs-string">"Post not found"</span>)
+        <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+            <span class="hljs-keyword">return</span> DeletePost(success=<span class="hljs-literal">False</span>, message=str(e))
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mutation</span><span class="hljs-params">(graphene.ObjectType)</span>:</span>
+    create_post = CreatePost.Field()
+    update_post = UpdatePost.Field()
+    delete_post = DeletePost.Field()
+
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
+</div></code></pre>
+<h4 id="wywo%C5%82anie-przyk%C5%82adowych-zapyta%C5%84-i-mutacji">Wywołanie przykładowych zapytań i mutacji</h4>
+<p>Przykład zapytania tworzącego nowy <code>Post</code> z poziomu GraphiQL:</p>
+<pre class="hljs"><code><div>mutation {
+  createPost(
+    title: &quot;Nowy post z GraphQL&quot;
+    text: &quot;To jest zawartość mojego posta&quot;
+    topicId: 1
+    slug: &quot;moj-pierwszy-post&quot;
+    createdById: 1
+  ) {
+    post {
+      id
+      title
+      text
+      topic {
+        id
+        name
+      }
+      createdBy {
+        id
+        username
+      }
+      createdAt
+    }
+    success
+    message
+  }
+}
+</div></code></pre>
+<p>I zwrócona wartość:</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"createPost"</span>: {
+      <span class="hljs-attr">"post"</span>: {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"3"</span>,
+        <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Nowy post z GraphQL"</span>,
+        <span class="hljs-attr">"text"</span>: <span class="hljs-string">"To jest zawartość mojego posta"</span>,
+        <span class="hljs-attr">"topic"</span>: {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
+          <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Test"</span>
+        },
+        <span class="hljs-attr">"createdBy"</span>: {
+          <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1"</span>,
+          <span class="hljs-attr">"username"</span>: <span class="hljs-string">"kropiak"</span>
+        },
+        <span class="hljs-attr">"createdAt"</span>: <span class="hljs-string">"2025-11-13T18:20:39.529703+00:00"</span>
+      },
+      <span class="hljs-attr">"success"</span>: <span class="hljs-literal">true</span>,
+      <span class="hljs-attr">"message"</span>: <span class="hljs-string">"Post created successfully"</span>
+    }
+  }
+}
+</div></code></pre>
+<p>Innym sposobem na deklarację mutacji jest wykorzystanie istniejących serializatorów Django Rest Framework jako bazy dla mutacji GraphQL. Poniżej przykład takiego podejścia.</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">from</span> graphene_django.rest_framework.mutation <span class="hljs-keyword">import</span> SerializerMutation
+<span class="hljs-keyword">from</span> posts.serializers <span class="hljs-keyword">import</span> CategorySerializer
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CategoryMutation</span><span class="hljs-params">(SerializerMutation)</span>:</span>
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span>
+        serializer_class = CategorySerializer
+        model_operations = [<span class="hljs-string">'create'</span>, <span class="hljs-string">'update'</span>]
+        lookup_field = <span class="hljs-string">'id'</span>
+
+<span class="hljs-comment"># i jeszcze rejestracja mutacji w klasie Mutation</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Mutation</span><span class="hljs-params">(graphene.ObjectType)</span>:</span>
+    create_post = CreatePost.Field()
+    update_post = UpdatePost.Field()
+    delete_post = DeletePost.Field()
+    update_category = CategoryMutation.Field()
+</div></code></pre>
+<p>Teraz wywołanie mutacji aktualizującej obiekt <code>Category</code> może wyglądać następująco.</p>
+<pre class="hljs"><code><div>mutation UpdateCategory { 
+		updateCategory (input: {
+      id: 1
+      name: &quot;Nowa nazwa&quot;
+    }
+    ) {
+    id
+    name
+    errors {
+            field
+            messages
+        }
+  }
+}
+</div></code></pre>
+<p>I zwrócona wartość:</p>
+<pre class="hljs"><code><div>{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"updateCategory"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-number">1</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Nowa nazwa"</span>,
+      <span class="hljs-attr">"errors"</span>: <span class="hljs-literal">null</span>
+    }
+  }
+}
+</div></code></pre>
+<p>Mimo dość licznych przykładów, temat GraphQL jest bardzo obszerny i wymaga dalszego zgłębiania, zwłaszcza w kontekście bardziej zaawansowanych funkcji, takich jak subskrypcje, optymalizacja zapytań (np. DataLoader), zabezpieczenia (autoryzacja i uwierzytelnianie) oraz integracja z różnymi źródłami danych.</p>
+<p>W tym celu odsyłam czytelnika do oficjalnej dokumentacji GraphQL oraz bibliotek używanych w ekosystemie Django (tu <code>graphene-django</code>: https://docs.graphene-python.org/).</p>
+
+</body>
+</html>
