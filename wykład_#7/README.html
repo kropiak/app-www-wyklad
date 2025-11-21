@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>README.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="aplikacje-www-wyk%C5%82ad-7">Aplikacje WWW. Wykład #7</h1>
+<h2 id="bezpiecze%C5%84stwo-i-niebezpiecze%C5%84stwo-w-aplikacjach-webowych">Bezpieczeństwo (i niebezpieczeństwo) w aplikacjach webowych</h2>
+<h3 id="1-atak-typu-distributed-denial-of-service-ddos">1. Atak typu Distributed Denial of Service (DDoS)</h3>
+<p>Atak <strong>DDoS (Distributed Denial of Service)</strong> to cyberatak, który ma na celu przeciążenie serwera lub sieci ogromną ilością fałszywego ruchu z wielu źródeł, aby zablokować dostęp do usług dla zwykłych użytkowników. Atak ten wykorzystuje sieć zainfekowanych komputerów i urządzeń (botnet) i może prowadzić do spowolnienia, a nawet całkowitego wyłączenia atakowanej usługi, powodując straty finansowe i wizerunkowe dla ofiary.</p>
+<p>Nie jest to atak typowy tylko dla aplikacji webowych, ale również dla wszelkiego rodzaju usług sieciowych.</p>
+<p><strong>Jak działa atak DDoS?</strong></p>
+<ul>
+<li><strong>Sieć botnet:</strong> Atakujący przejmuje kontrolę nad dużą liczbą urządzeń (komputery, smartfony, kamery IP), tworząc sieć zainfekowanych maszyn zwanych botnetem.</li>
+<li><strong>Synchronizacja:</strong> W zsynchronizowanym momencie wszystkie zainfekowane urządzenia wysyłają jednocześnie żądania do celu ataku, zasypując go fałszywym ruchem.</li>
+<li><strong>Przeciążenie:</strong> Atakowany serwer lub sieć nie jest w stanie obsłużyć tak dużej liczby żądań, co prowadzi do wyczerpania jego zasobów (np. mocy obliczeniowej, pasma sieciowego).</li>
+<li><strong>Skutek:</strong> Zwykli użytkownicy nie mogą uzyskać dostępu do usługi, ponieważ staje się ona niedostępna lub działa bardzo wolno.</li>
+</ul>
+<p><strong>Cele i motywy ataków DDoS</strong></p>
+<ul>
+<li><strong>Konkurencja:</strong> Atak może być przeprowadzony przez konkurencję, aby zaszkodzić reputacji i biznesowi ofiary, szczególnie w okresach wzmożonego ruchu.</li>
+<li><strong>Motywacje polityczne lub ideologiczne:</strong> Ataki mogą być przeprowadzane przez grupy haktywistyczne lub aktywistów w ramach protestu przeciwko działaniom rządu lub firm.</li>
+<li><strong>Wyłudzenie środków finansowych:</strong> Atak DDoS może być wykorzystywany jako narzędzie do szantażu lub próby wyłudzenia pieniędzy.
+Odwrócenie uwagi: Atak może być przeprowadzony jako dywersja, aby odwrócić uwagę od innej, bardziej złożonej operacji, takiej jak kradzież danych.</li>
+</ul>
+<p><strong>Rodzaje ataków DDoS</strong></p>
+<ul>
+<li><strong>Ataki wolumetryczne:</strong> Mają na celu &quot;zalanie&quot; celu ogromną ilością danych, wyczerpując dostępne pasmo sieciowe.</li>
+<li><strong>Ataki na protokoły:</strong> Wykorzystują luki w protokołach sieciowych, aby przeciążyć serwer.</li>
+<li><strong>Ataki na warstwę aplikacji:</strong> Skierowane są na konkretne aplikacje lub usługi, próbując wykorzystać ich słabości, aby zablokować ich działanie.</li>
+</ul>
+<p><strong>Jaka jest różnica między atakiem DoS a DDos?</strong></p>
+<p>Główna różnica jest taka, że atak typu DoS pochodzi z jednej maszyny, a nie z sieci maszyn (najczęściej botnetu).</p>
+<h3 id="2-podatno%C5%9B%C4%87-cross-site-scripting-xss">2. Podatność Cross Site Scripting (XSS)</h3>
+<p>Podatność XSS jest jedną z najczęściej wykorzystywanych metod do przeprowadzania ataków na serwisy WWW. Polega ona na możliwości osadzenia kodu pochodzącego z zewnątrz np. poprzez formularz osadzony na atakowanej stronie, który nie jest zabezpieczony w odpowiedni sposób. Taki kod może być przekazany przez dowolne żądanie protokołu HTTP akceptowane po stronie serwera, również w postaci spreparowanego linku.</p>
+<p>Ten rodzaj ataku można podzielić na kilka rodzajów.</p>
+<p><strong>Reflected XSS</strong> polega na &quot;odbiciu&quot; przez serwer treści przekazanej przez użytkownika/atakującego bez jego weryfikacji i wykonanie na stronie serwera lub klienta (np. JavaScript).</p>
+<p>Inny rodzaj to <strong>stored XSS lub persistent XSS</strong>, który polega na zapisaniu złośliwego kodu w bazie danych lub systemie zewnętrznym licząc na to, że użytkownik odwiedzi podstronę, która ten kod z bazy wczyta i uruchomi. Wszędzie tam gdzie użytkownicy mogą tworzyć treść (np. blog, komunikator) taka podatność może wystąpić. Jednym ze sposobów na obronę jest wykorzystanie oprogramowania typu Web Application Firewall (WAF).</p>
+<p>Istnieje kolejny typ ataku XSS, który nosi nazwę <strong>DOM XSS</strong>, a polega on na wstrzyknięciu złośliwego kodu bez wysyłania żądania do serwera, więc tylko po stronie przeglądarki klienta z wykorzystaniem języka JavaScript. Może się tak zdarzyć, jeżeli w źródle strony osadzony jest kod JavaScript, który wykorzystuje takie funkcje jak <code>eval</code>, <code>document.write</code> czy <code>innerHTML</code>, do których kod można wstrzyknąć np. poprzez wykorzystanie zdarzenia <code>hashchange</code> w połączeniu z przekazywaniem wartości poprzez treść żądania.</p>
+<p>Zdarzenie <code>hashchange</code> działa tak, że nasłuchuje zmiany wartości w polu URL przeglądarki po znaku <code>#</code> (stąd jego nazwa) i w momencie jego zmiany wykonuje kod osadzony na tym evencie (takie nazwy noszą zdarzenia w języku JavaScript).</p>
+<p>Skutki wykorzystania takiego ataku są już do przewidzenia. Można wykorzystać możliwość wydobycia danych, których twórca aplikacji na pewno nie chciał udostępniać, takich jak klucz api umożliwiający wykonanie dowolnej akcji w systemie, którą mógłby wykonać użytkownik posiadający ten klucz API. Dzięki odpowiednio spreparowanemu kodowi JavaScript możliwe jest zarówno odczytanie danych sesji, jak i ich wysłanie do zewnętrznego hosta - tu zapewne atakującego w celu przechwycenia tych danych.</p>
+<p>Możliwe jest też poznanie działania elementów takiego serwisu i spreparowanie linku, podesłanie go do użytkownika, który jeżeli bezmyślnie w niego kliknie, pozwoli wykonać akcję w kontekście zalogowanego użytkownika, np. kliknięcie (poprzez kod JavaScript) odkrytego przycisku do usuwania ważnych danych.</p>
+<p><strong>Ujmując rzecz ogólnie, podatność XSS pozwala na wykonanie dowolnego kodu JavaScript, który ma dzisiaj dość duże możliwości.</strong></p>
+<p>Podstawowe metody obrony (krótko):</p>
+<ul>
+<li>Automatyczne zamienianie znaków specjanych na encje na wszystkich warstwach (HTML, JS, CSS, URL).</li>
+<li>Używanie bezpiecznych API (textContent zamiast innerHTML), unikanie <code>eval</code> i <code>document.write</code>.</li>
+<li><strong>Content Security Policy (CSP)</strong>, HttpOnly i Secure dla ciasteczek.</li>
+<li>Walidacja i dezynfekcja (sanitizacja) danych po stronie serwera oraz biblioteki sanitizujące dla HTML.</li>
+<li>Wykorzystywanie systemu szablonów, który automatycznie zamienia wszystkie potencjalnie nieporządane znaki na encje i uniemożliwia zmianę treści szablonów z poziomu użytkownika.</li>
+<li>Regularne testy bezpieczeństwa i przegląd ścieżek wejścia.</li>
+</ul>
+<p><strong>Czym jest dezynfekcja danych?</strong></p>
+<p>Jest to proces usuwania nieporządanych jego części, w tym kontekście elementów dokumentu HTML, które uznane są za potencjalnie niebezpieczne.</p>
+<p>Więcej: https://en.wikipedia.org/wiki/HTML_sanitization</p>
+<p><strong>Na czym polega Content Security Policy (CSP)?</strong></p>
+<p>Content Security Policy (CSP) to mechanizm bezpieczeństwa, który chroni strony internetowe przed niektóre typami ataków, takimi jak ataki XSS, poprzez kontrolę zasobów, które przeglądarka może ładować i wykonywać. Działa on na podstawie zestawu reguł zdefiniowanych przez administratora strony, które określają, skąd mogą pochodzić poszczególne zasoby (np. skrypty, arkusze stylów, obrazy). CSP jest implementowane poprzez ustawienie nagłówka Content-Security-Policy w odpowiedziach HTTP z serwera.</p>
+<ul>
+<li><strong>Określanie dozwolonych źródeł:</strong> CSP pozwala określić, z jakich domen przeglądarka może pobierać np. skrypty, arkusze stylów czy obrazy, blokując wszystkie inne. Na przykład, dyrektywa script-src może zezwalać na ładowanie skryptów tylko z konkretnych, zaufanych domen, jak w przykładzie: script-src static.strona.tld https://inna-strona.tld;.</li>
+<li><strong>Blokowanie nieautoryzowanych zasobów:</strong> Jeśli zasób (np. skrypt) próbuje zostać załadowany ze źródła, które nie jest wymienione w polityce, przeglądarka go nie załaduje. Nawet jeśli złośliwy kod zostanie wstrzyknięty na stronę, CSP może uniemożliwić jego wykonanie, jeśli nie pochodzi z dozwolonego źródła.</li>
+<li><strong>Ochrona przed clickjackingiem:</strong> Można skonfigurować CSP, aby zapobiec osadzaniu strony w ramkach na innych witrynach, używając dyrektywy frame-ancestors 'none', co chroni przed atakami clickjacking.</li>
+<li><strong>Tryb raportowania:</strong> Istnieje również tryb raportowania (Content-Security-Policy-Report-Only), który nie blokuje zasobów, ale wysyła raporty o naruszeniach. Jest to przydatne do testowania polityki przed jej pełnym wdrożeniem.</li>
+</ul>
+<p><strong>Więcej na temat XSS:</strong></p>
+<ul>
+<li>https://sekurak.pl/czym-jest-xss/</li>
+<li>https://sekurak.pl/do-czego-mozna-wykorzystac-xss-czyli-czym-jest-beef/</li>
+<li>https://owasp.org/www-community/attacks/xss/</li>
+</ul>
+<h3 id="3-podatno%C5%9B%C4%87-cross-site-request-forgery-csrf">3. Podatność Cross-Site Request Forgery (CSRF)</h3>
+<p>Ten rodzaj ataku nazywany jest też czasem atakiem XSRF, Sea Surf, Session Riding czy one-click attack.</p>
+<p>Jest to atak, który odbywa się po stronie przeglądarki i polega na wykonaniu akcji (żądania HTTP) przez zalogowanego użytkownika, która wykonywana jest przez niego nieświadomie, nie była zamierzona.</p>
+<p><strong>Przykład 1 (za &quot;Bezpieczeństwo Aplikacji Webowych&quot; strona 374, Securitum, Wydanie I poprawione, Kraków 2021)</strong></p>
+<ol>
+<li>Użytkownik posiadający konto w serwisie forum umieszcza komentarz, którego część może wyglądać tak: <code>&lt;img src=&quot;http://forum.jakas.domena.pl/admin/user/add?login=newadmin&amp;pass=1234&amp;type=adm&quot;&gt;</code> i jest on następnie zapisywany do bazy danych. Oczywiście zakładamy, że po drodze nie odbywa się dezynfekcja danych, która mogłaby ten problem zneutralizować. Nie byłoby to jednak takie proste, gdyż musiałoby to się odbyć poprzez analizę wartości atrybutu <code>src</code>.</li>
+<li>Administrator loguje się do panelu i wyświetla listę komentarzy w celu moderacji.</li>
+<li>Dane ładowane są z bazy, a przeglądarka podczas próby rendorowania obrazu wysyła nieautoryzowane żądanie typu <code>GET</code> do serwera. Należy również zwrócić uwagę, że ten rodzaj ataku wymaga, aby atakujący znał nieco architekturę atakowanego systemu.</li>
+</ol>
+<p>Atak odbył się z komputera administratora, więc w logach będzie widoczny jego adres IP, a nie atakującego. Atak nastąpił z tej samej domeny (używa się czasem nazwy takiego ataku jako On-site Request Forgery OSRF), więc to również mogłoby nie zostać zablokowane np. przez CORS.</p>
+<p><strong>Innym atakiem</strong>, który można przeprowadzić poprzez podatność CSRF jest atak z wykorzystaniem żądania HTTP typu POST oraz różnych domen.</p>
+<ol>
+<li>Użytkownik loguje się do np. bankowości internetowej.</li>
+<li>Atakujący ma przygotowaną domenę ze stroną zawierającą kod z formularzem, który zawiera pola pozwalające na wykonanie akcji w tym samym serwisie co użytkownik, np. wysłanie przelewu, ale formularz jest wysyłany na adres serwisu, z którego korzysta użytkownik bankowości internetowej.</li>
+<li>Do osiągnięcia celu wymagane jest, aby w trakcie trwania sesji użytkownik odwiedził stronę, której kod natychmiast wyśle spreparowany formularz.</li>
+</ol>
+<p>Jest to oczywiście dość naiwny przykład w dzisiejszych czasach, gdyż musi zajść wiele czynników jednocześnie:</p>
+<ul>
+<li>nieuwaga użytkownika,</li>
+<li>brak zabezpieczenia wykonywania żądania między domenami, które nie są wzajemnie zaufane,</li>
+<li>brak potwierdzenia realizacji zlecenia,</li>
+<li>brak zabezpieczeń CSRF.</li>
+</ul>
+<p>Oczywiście większość dzisiejszych serwisów posiada już zabezpieczenia, które takie ataki skutecznie blokują.</p>
+<p>Jako ciekawostkę można tutaj podać magiczny parametr formularza o nazwie <code>_method</code>, który umożliwia wywołanie innych niż <code>GET, POST</code> żądań za pomocą formularza. Zachęcam do samodzielnego sprawdzenia.</p>
+<p>Wśród innych podatności typu CSRF można również wymienić możliwość wywołania żądania, które wykorzystuje metodę uwierzytelniania typu <code>HTTP Basic Authentication</code> i wysyła je na urządzenie w sieci lokalnej.</p>
+<p>Przykład:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://admin:admin@192.168.1.1/reboot/"</span>&gt;</span>
+</div></code></pre>
+<h4 id="ochrona-przez-csrf">Ochrona przez CSRF</h4>
+<ol>
+<li>
+<p>Zabezpieczenie miejsc aplikacji, które umożliwiają zmianę ważnych parametrów systemu.</p>
+</li>
+<li>
+<p>Losowe tokeny. Jest to zalecana przez OWASP metoda (Synchronized Token Pattern), która polega na generowaniu pseudolosowego tokena po stronie serwera i przekazywania go do klienta, a następnie osadzanie w formularzu i weryfikacja po stronie serwera, czy token jest prawidłowy i przypisany do danego użytkownika. Atakujący nie znając tokena, nie może przygotować działającego formularza, ale wyciek tokena pozwala obejść to zabezpieczenie.</p>
+</li>
+<li>
+<p>Zmiana wszystkich żądań typu <code>GET</code>, które zmieniają stan aplikacji, na żądania typu <code>POST</code>. Chronimy w ten sposób część interfejsu aplikacji poprzez ukrycie parametrów żądania (<code>GET</code> przekazuje je przez URL, więc są widoczne i w logach, ale również np. poprzez nagłówek <code>Referer</code> (a nie <code>Referrer</code> - patrz materiały, ciekawostki), który może doprowadzić do wycieku tokena). Możliwe jest również uzyskanie dostępu do tokena CSRF poprzez podatność XSS, która może go zarówno odczytać jak i przygotować spreparowane żądanie i je wysłać.</p>
+</li>
+<li>
+<p>Korzystanie z rozwiązań np. frameworków, dodatkowych bibliotek, które dostarczają zebezpieczenia podatności CSRF. Należy jednak dobrze to zweryfikować.</p>
+</li>
+<li>
+<p>Atrybut <code>SameSite</code> w ciasteczkach. Takie rozwiązanie powoduje wysłanie żądania do aplikacji, ale jest traktowane jako nieuwierzytelnione i nie zmienia stanu aplikacji.</p>
+</li>
+<li>
+<p>Należy również zabezpieczyć formularz logowania przed atakiem tego typu. Istniała historycznie podatność w serwisie Google, która polegała na przekazaniu przez (ponownie) podstawioną stronę z automatycznie wysyłającym się żądaniem uwierzytelnienia danymi włamywacza (nowe konto), a następnie wszystkie odwiedzane adresy (jeżeli ofiara się nie zorientowała, że nie jest zalogowana na swoim koncie) były zapisywane w historii konta Google, gdzie atakujący mógł szukać takich, które warto zaatakować.</p>
+</li>
+</ol>
+<p>Warto tu zaznaczyć, że zagrożenia typu CSRF nie są już aktualnie na liście najczęściej przeprowadzanych ataków na aplikacje webowe wg. OWASP Top10.</p>
+<p><strong>Więcej na temat CSRF:</strong></p>
+<ul>
+<li>https://owasp.org/www-community/attacks/csrf</li>
+</ul>
+<h3 id="4-podatno%C5%9B%C4%87-sql-injection">4. Podatność SQL Injection</h3>
+<p>Definicja tej podatności za Wikipedia (https://pl.wikipedia.org/wiki/SQL_injection):</p>
+<blockquote>
+<p>&quot;SQL injection (z ang.) – metoda cyberataku wykorzystująca lukę w zabezpieczeniach aplikacji polegającą na nieodpowiednim filtrowaniu lub niedostatecznym typowaniu danych użytkownika, które to dane są później wykorzystywane przy wykonaniu zapytań (SQL) do bazy danych. Podatne są na nią wszystkie systemy przyjmujące dane od użytkownika i dynamicznie generujące zapytania do bazy danych&quot;</p>
+</blockquote>
+<p>Wiadomo, że jeżeli pozwolimy użytkownikowi na przekazywanie dowolnych zapytań typu <code>SELECT</code> SQL do naszej bazy danych to nie możemy mówić o istnieniu zabezpieczeń. Nawet jeżeli możliwości użytkownika kończą się na możliwości przekazania wartości pola do zapytania <code>SELECT</code> polegającego na filtrowaniu, wciąż możliwe jest przekazanie fragmentów, które zupełnie zmieniając sposób działania całego zapytania. Poniżej przykład bazujący na przykładzie z Wikipedii.</p>
+<p><strong>Przykład 1:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># kod prezentujący możliwy wektor ataku z podatnością SQL injection</span>
+
+<span class="hljs-comment"># user_id pobrane z formularza albo np. z URL</span>
+<span class="hljs-comment"># /users?user_id=1</span>
+user_id = <span class="hljs-string">'1'</span>
+query = <span class="hljs-string">f"SELECT * FROM users WHERE USER_ID=<span class="hljs-subst">{user_id}</span>;"</span>
+print(query)
+
+<span class="hljs-comment"># a jeżeli przekażemy wartość np. tak</span>
+<span class="hljs-comment"># /users?user_id=1 OR 1=1</span>
+user_id = <span class="hljs-string">'1 OR 1=1'</span>
+query = <span class="hljs-string">f"SELECT * FROM users WHERE USER_ID=<span class="hljs-subst">{user_id}</span>;"</span>
+print(query)
+
+<span class="hljs-comment"># wyjście</span>
+SELECT * FROM users WHERE USER_ID=<span class="hljs-number">1</span>;
+SELECT * FROM users WHERE USER_ID=<span class="hljs-number">1</span> OR <span class="hljs-number">1</span>=<span class="hljs-number">1</span>;
+</div></code></pre>
+<p>Bez odpowiedniego mechanizmu np. kontroli typu, łatwo jest wykorzystać taką podatność, mimo tego, że dane tylko jednego pola są wprowadzane np. przez formularz. W tym przypadku drugie zapytanie zwróci wszystkie dane z tabeli users, co można z powodzeniem nazwać wyciekiem danych.</p>
+<p>Oczywiście atakujący nie wie jak wygląda faktyczne zapytanie uruchamiane po stronie serwera, więc początkowy etap polega na sprawdzeniu czy podatność występuje.</p>
+<p>Można więc dodatkowo dodać do wstrzykiwanego zapytania fragment, który zakomentuje ewentualną dalszą część zapytania. Jest to też przykład &quot;ucieczki&quot; ze stringa samego zapytania, aby dodać swój własny kod zapytania.</p>
+<p><strong>Przykład 2:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># możliwy adres URL aplikacji</span>
+/search?phrase=szukam'<span class="hljs-comment">--</span>
+
+<span class="hljs-comment"># możliwa postać zapytania SQL</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> posts <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">content</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'%szukam'</span><span class="hljs-comment">--%' AND published = 1</span>
+</div></code></pre>
+<p>Część zapytania za znakami <code>--</code> zostanie potraktowana jako komentarz, więc nie zostanie wykonana.
+To już wykonuje zapytanie niezgodnie z przeznaczeniem, czyli zwraca wszystkie posty, ktorych treść kończy się słowem <code>test</code>, ale może być jeszcze gorzej, jeżeli dodamy fragment polecenia zaprezentowanego w przykładzie numer 1.</p>
+<p><strong>Przykład 3:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># możliwy adres URL aplikacji</span>
+/search?phrase=szukam' OR 1=1<span class="hljs-comment">--</span>
+
+<span class="hljs-comment"># możliwa postać zapytania SQL</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> posts <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">content</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'%szukam'</span> <span class="hljs-keyword">OR</span> <span class="hljs-number">1</span>=<span class="hljs-number">1</span><span class="hljs-comment">--%' AND published = 1</span>
+</div></code></pre>
+<p>Teraz zwrócone zostaną wszystkie rekordy z tabeli <code>posts</code> gdyż warunek <code>1=1</code> jest zawsze prawdziwy!</p>
+<h4 id="wykorzystanie-sql-injection">Wykorzystanie SQL injection</h4>
+<hr>
+<p><strong>Wykorzystanie sposobu UNION-based</strong></p>
+<p>Jest to sposób, który polega na wstrzykiwaniu (poprzez doklejanie/konkatenację łańcuchów zapytania) do istniejącego zapytania zapytania rozpoczynającego się od <code>UNION</code>, które ma wydobyć dane zupełnie nie związane z oryginalnym zapytaniem.</p>
+<p>Główną kwestią do rozwiązania z poziomu atakującego jest zdobycie wiedzy na temat liczby kolumn, które oryginalne zapytanie zwraca. W przypadku silników baz danych Oracle, SQL Server, PostgreSQL muszą zgadzać się również typy danych, ale w przypadku MySQL/MariaDB już nie.</p>
+<p>Najpopularniejszym sposobem jest stopniowe odpytywanie poprzez zwiększanie liczby kolumn, które zwraca wstrzyknięte zapytanie UNION. Nie wiem zapewne na początka jakie typy danych mogą być określone dla każdej z kolumn, ale to można na razie obejść poprzez wykorzystanie wartość <code>null</code> w zapytaniu.</p>
+<p><strong>Przykład 4:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># możliwy adres URL aplikacji</span>
+/search?phrase=szukam' UNION <span class="hljs-keyword">SELECT</span> <span class="hljs-literal">null</span><span class="hljs-comment">--</span>
+
+<span class="hljs-comment"># możliwa postać zapytania SQL</span>
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> posts <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">content</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'%szukam'</span> <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">SELECT</span> <span class="hljs-literal">null</span><span class="hljs-comment">--</span>
+</div></code></pre>
+<p>Kolejne próby polegają na dodawaniu kolejnych wartości <code>null</code>, aż zapytanie wykona się poprawnie i dowiemy się ile kolumn znajduje się w zapytaniu oryginalnym.</p>
+<p>Innym sposobem na zdobycie wiedzy o liczbie kolumn jest wykorzystanie klauzuli <code>ORDER BY</code> oraz możliwości określenia numeru kolumny, po której następuje sortowanie, wykorzystując zasadę &quot;dziel i zwyciężaj&quot;.</p>
+<p>Jak zdobędziemy już wiedzę na temat liczby kolumn, to można przystąpić do budowy docelowego zapytania, którego celem jest wydobycie cennych dla atakującego informacji.</p>
+<p>Takie zapytanie mogloby wyglądać tak:</p>
+<p><strong>Przykład 5:</strong></p>
+<pre class="hljs"><code><div>/search?phrase=szukam' UNION <span class="hljs-keyword">SELECT</span> <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, table_name <span class="hljs-keyword">FROM</span> information_schema.tables<span class="hljs-comment">--</span>
+
+<span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> posts <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">content</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'%szukam'</span> <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">SELECT</span> <span class="hljs-literal">null</span>, <span class="hljs-literal">null</span>, table_name <span class="hljs-keyword">FROM</span> information_schema.tables<span class="hljs-comment">--</span>
+</div></code></pre>
+<p>I tu widzimy już jakie możliwości daje taka podatność. Dalej możemy już włączyć funkcje konkatenacji po stronie silnika bazy danych, aby wybierać więcej danych zachowująć porządaną liczbę kolumn w zapytaniu <code>UNION</code> i wyciągnąć z bazy wszystkie dane, do których dostęp ma użytkownik bazodanowy wywołujący to zapytanie.</p>
+<p>Ograniczeniami takiego podejścia jest ograniczenie ataku tylko do zapytań typu <code>SELECT</code> oraz fakt, że jeżeli zapytanie posiada ciąg dalszy za wstrzykiwanym fragmentem z <code>UNION</code> to całość nie zadziała, pojawi się błąd składniowy.</p>
+<p>Można więc spróbować wykorzystać inne podejście.</p>
+<p><strong>Wykorzystanie sposobu ERROR-based</strong></p>
+<p>Tu należy zaznaczyć, że sposób jest możliwy do wykorzystania pod warunkiem, że do klienta zwracana jest dokładna treść błędu po stronie bazy danych to można nim w pewnym zakresie sterować.</p>
+<p>Jako przykład można wykorzystać wbudowaną funkcję, która odbija do komunikatu błędu wartość do niej przekazaną (czyli np. zwróconą wartość zmiennej, czy poprawnego zapytania SQL), np. funkcja <code>CAST</code> dla PostgreSQL.</p>
+<p><strong>Przykład 6:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># PostgreSQL</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">cast</span>(<span class="hljs-keyword">version</span>()) <span class="hljs-keyword">as</span> <span class="hljs-built_in">integer</span>);
+
+<span class="hljs-comment"># przykładowe wyjście</span>
+error: invalid input syntax for integer: "PostgreSQL 10.0 on x86_64-pc-linux-gnu ... "
+
+<span class="hljs-comment"># MySQL/MariaDB</span>
+<span class="hljs-keyword">select</span> extractvalue(<span class="hljs-number">1</span>, <span class="hljs-keyword">concat</span>(<span class="hljs-string">'!'</span>, <span class="hljs-keyword">version</span>()));
+
+<span class="hljs-comment"># przykładowe wyjście</span>
+Error Code: 1105. XPATH syntax error: '!8.0.22'
+</div></code></pre>
+<p>Dalsza faza polega na przekazywaniu do tych funkcji zapytań, które faktycznie mają wyciągnąć jakieś przydatne dla atakującego dane, wykorzystując między innymi konkatenację, aby do funkcji przekazana została porządana liczba argumentów (tu 1).</p>
+<p>Większość popularnych silników SQL jest podatna na tego typu atak, jeżeli nie została poprawnie skonfigurowana w kontekście obsługi komunikatów o błędach.</p>
+<h4 id="atak-na-%C5%9Blepo-ang-blind-sql-injection">Atak na ślepo (ang. BLIND SQL injection)</h4>
+<p>Tutaj można wyróżnić dwa podejścia:</p>
+<ul>
+<li>atak na ślepo oparty o treść</li>
+<li>atak na ślepo oparty o czas</li>
+</ul>
+<p>Atak na ślepo oparty o content polega na wykorzystaniu własności zapytania SQL, które po wstrzyknięciu dodatkowego warunku np. <code>OR 1=1</code> lub <code>OR 1=2</code> pozwoli nam na sprawdzenie czy oryginalne zapytanie zwraca prawdę czy fałsz (ale to już będziemy wiedzieć z &quot;normalnej&quot; pracy aplikacji), ale przede wszystkim możemy dowiedzieć się, jaką wartość logiczną zwraca wstrzykiwany fragment.</p>
+<p>Często przytaczanym przykładem jest wykorzystanie funkcji typu <code>SUBSTRING</code>, które mogą być wykorzystane do wydobywania informacji o np. schemacie bazy danych w pierwszym etapie, a później o dowolnych danych w kolejnych krokach. Takie podejście wymaga jednak wielu prób, żądań i czasu, więc mimo swojej uniwersalności może zostać jednak zablokowane np. przez mechanizmy dławiące.</p>
+<p><strong>Przykład 7:</strong></p>
+<pre class="hljs"><code><div>&lt;oryginalne zapytanie&gt; AND substring(name, 1, 1) = 'a'
+...
+<span class="hljs-comment"># można wykorzystać również kody znaków ASCII, co powoli na wdrożenie</span>
+<span class="hljs-comment"># strategii dziel i zwyciężaj</span>
+&lt;oryginalne zapytanie&gt; and ascii(AND substring(name, 1, 1)) &lt; 128
+<span class="hljs-comment"># itd.</span>
+</div></code></pre>
+<p>Atak na ślepo oparty o czas ma podobny cel, stworzyć zapytanie logiczne, które serią pytań zamkniętych (Prawda lub Fałsz) pozwoli nam na zdobycie odpowiedzi na nurtujące nas pytania, np. jaką nazwę nosi dana tabela (poczynając od np. od kolejnych liter), później jakie kolumny w niej występują, a finalnie już same dane.</p>
+<p>Sposób polega na wykorzystaniu wbudowanych funkcji pozwlających na wstrzymanie wykonania zapytania o określony czas np. funkcja <code>SLEEP()</code> w silniku MySQL/MariaDB oraz wdrożonego sposobu rozwiązywania wyrażeń logicznych, który zazwyczaj bazuje na <code>short-circuit evaluation</code>. Obserwując więc czas wykonania zapytania może stwierdzić, czy osadzony warunek jest prawdziwy czy nie.</p>
+<p><strong>Przykład 8:</strong></p>
+<pre class="hljs"><code><div>&lt;oryginalne zapytanie&gt; AND 1=1 AND SLEEP(3) = 1
+&lt;oryginalne zapytanie&gt; AND 1=2 AND SLEEP(3) = 1
+</div></code></pre>
+<p>Jeżeli w miejsce warunków <code>1=1</code> oraz <code>1=2</code> wstawimy dowolny warunek, którego sprawdzenie nas interesuje to w zależności od logiki całego warunku albo jego ostatnia część wykorzystująca funkcję <code>SLEEP</code> będzie ewaluowana albo nie, co będzie miało bezpośredni włyp na wydłużenie czasu wykonania zapytania.</p>
+<h4 id="wiele-zapyta%C5%84-przy-jednym-wywo%C5%82aniu-stacked-queries">Wiele zapytań przy jednym wywołaniu (stacked queries)</h4>
+<p>Inną możliwością wykorzystania podatności SQL injection jest umożliwienie wykonania wielu niezależnych zapytań przy jednym wywołaniu. Jeżeli wiemy już, że można wstrzykiwać zapytania to może być możliwe wykonanie chociażby poniższego polecenia SQL.</p>
+<p><strong>Przykład 9:</strong></p>
+<pre class="hljs"><code><div>/search?phrase=szukam'; DROP database blog--
+
+SELECT * FROM posts WHERE content LIKE '%szukam'; DROP database blog--
+</div></code></pre>
+<p>Dzięki tej podatności możliwe jest wykonanie ataków opisanych poniżej.</p>
+<p><strong>Wydobycie dowolnych danych z bazy</strong> (dane osobowe, dane logowania, dane medyczne, pytania pomocnicze w przypadku zagubienia hasła, itp.).</p>
+<p><strong>Ominięcie ekranu logowania.</strong><br>
+Jeżeli w systemie zaimplementowano dość naiwną metodę sprawdzenia czy poświadcznienia logowania (nazwa użytkownika, hasło) zwracają jakiś wynik (zliczanie) to wstrzykując polecenie SQL zgodnie z wcześniejszymi zasadami, czyli np. preprarując takie zapytanie <code>SELECT * FROM users WHERE login='admin' OR 1=1'-- AND password='adminadmin'</code></p>
+<p>Jeżeli jednak w systemie wykorzystywany jest mechanizm, który polega na pobraniu hasha hasła z bazy i porówanie go na poziomie backendu aplikacji to wciąż można przeprowadzić atak.</p>
+<p>Zakładając, że zapytanie wybierające hash hasła z bazy ma postać:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># dane w formularzu</span>
+<span class="hljs-comment"># username: admin</span>
+<span class="hljs-comment"># password: adminadmin</span>
+
+<span class="hljs-keyword">SELECT</span> password_hash <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">users</span> <span class="hljs-keyword">WHERE</span> username=<span class="hljs-string">'admin'</span>;
+</div></code></pre>
+<p>możemy spróbować je spreparować w poniższy sposób, przy założeniu, że wiemy lub sprawdziliśmy metodą prób i błędów, że algorytm hashujący to SHA1:</p>
+<pre class="hljs"><code><div><span class="hljs-comment"># dane w formularzu</span>
+<span class="hljs-comment"># username: admin' AND 1=2 UNION SELECT 'dd94709528bb1c83d08f3088d4043f4742891f4f'--</span>
+<span class="hljs-comment"># password: adminadmin</span>
+<span class="hljs-comment"># wyliczony przez nas hash hasła adminadmin: dd94709528bb1c83d08f3088d4043f4742891f4f</span>
+
+<span class="hljs-keyword">SELECT</span> password_hash <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">users</span> <span class="hljs-keyword">WHERE</span> username=<span class="hljs-string">'admin'</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">1</span>=<span class="hljs-number">2</span> <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">SELECT</span> <span class="hljs-string">'dd94709528bb1c83d08f3088d4043f4742891f4f'</span><span class="hljs-comment">--;</span>
+</div></code></pre>
+<p>Analizując zapytanie dojdziemy do wniosku, że warunkek <code>username='admin' AND 1=2</code> jest zawsze fałszywy, więc zapytanie zwróci wstrzyknięty przez nas hash, a ten będzie równy hashowi hasła podanego w formularzu co będzie logicznie prawdziwe i zostaniemy zalogowani do aplikacji!</p>
+<p>Poprzez podatność <strong>SQL injection stacked queries</strong> możliwe są jeszcze takie operacje jak:</p>
+<ul>
+<li>modyfikacja danych w bazie np. aktualizacja hasła dowolnego użytkownika,</li>
+<li>odczyt dowolnego pliku z serwera bazy danych np. poprzez przechowywanie ścieżek do plików w niezmienionej formie w bazie danych, co pozwala np. na wykorzystanie podatności o nazwie <strong>path traversal</strong> poprzez wstawienie chociażby takiej ścieżki jak '../../../../../../../../etc/passwd' pod wybrany przez siebie wpis w tabeli z plikami, a następnie odwołanie się żądaniem <code>GET</code> do tego pliku i zwróceniem jego zawartości do przeglądarki,</li>
+<li>wykonanie kodu, jeżeli korzystamy np. z systemu CMS, który umożliwia przechowywanie np. szablonów czy innych elementów w postaci kodu źródłowego do wykonania,</li>
+<li>odczyt plików z dysku poprzez wbudowane funkcje silników SQL pozwalające na ich odczyt, np. <code>load_file</code> w MySQL,</li>
+<li>zapis plików na dysku serwera,</li>
+<li>wykonanie poleceń systemu operacyjnego.</li>
+</ul>
+<p>Jak widać ta podatność jest bardzo niebezpieczna i bez wykorzystania odpowiednich mechanizmów trudna do wykrycia bez dogłędnej analizy.</p>
+<h4 id="obrona-przed-sql-injection">Obrona przed SQL injection</h4>
+<ol>
+<li>Zapytania parametryzowane.</li>
+</ol>
+<p>Zapytania parametryzowane polegają na stworzeniu szablonu zapytania z wyróżnieniem pól, które zostaną do takiego zapytania wstawione w miejsce specjalnie zdefiniowanych zmiennych. Przykład takiego zapytania z wykorzystaniem języka PHP oraz fraemworka Doctrine:</p>
+<p><em>źródło: https://www.doctrine-project.org/projects/doctrine-dbal/en/4.3/reference/data-retrieval-and-manipulation.html</em></p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?php</span>
+<span class="hljs-comment"># wykorzystując funkcję do zapisania wartości zmiennej jako łańcuch znaków</span>
+<span class="hljs-comment"># który ograniczy możliwości SQL injection</span>
+$sql = <span class="hljs-string">"SELECT * FROM articles WHERE id = '"</span> . mysql_real_escape_string($id, $link) . <span class="hljs-string">"'"</span>;
+$rs = mysql_query($sql);
+
+<span class="hljs-comment"># albo z zapytaniem parametrycznym</span>
+<span class="hljs-comment">// $conn instanceof Doctrine\DBAL\Connection</span>
+$sql = <span class="hljs-string">"SELECT * FROM articles WHERE id = ? AND status = ?"</span>;
+$stmt = $conn-&gt;prepare($sql);
+$stmt-&gt;bindValue(<span class="hljs-number">1</span>, $id);
+$stmt-&gt;bindValue(<span class="hljs-number">2</span>, $status);
+$resultSet = $stmt-&gt;executeQuery();
+
+<span class="hljs-comment"># można też określić typ wartości</span>
+$date = <span class="hljs-keyword">new</span> \DateTime(<span class="hljs-string">"2011-03-05 14:00:21"</span>);
+$stmt = $conn-&gt;prepare(<span class="hljs-string">"SELECT * FROM articles WHERE publish_date &gt; ?"</span>);
+$stmt-&gt;bindValue(<span class="hljs-number">1</span>, $date, <span class="hljs-string">"datetime"</span>);
+$resultSet = $stmt-&gt;executeQuery();
+</div></code></pre>
+<p>W przypadku języka Python wykorzystanie interpolacji stringów również pozwala na wykorzystanie podeobnego mechanizmu:</p>
+<pre class="hljs"><code><div>query = <span class="hljs-string">"UPDATE BookList SET Book = %s WHERE Book = %s"</span>
+cursor.execute(query, (<span class="hljs-string">"Changing Title"</span>, <span class="hljs-string">"A Really Good Book"</span>))
+</div></code></pre>
+<ol start="2">
+<li>Walidacja typów danych</li>
+</ol>
+<p>Korzystając z rozwiązań SQL, gdzie potrzebujemy wykorzystać własne polecenia jednym ze sposobów zabezpieczenia takich zapytań jest sprawdzanie typów dla wartości przekazywanych przez użytkownika. W przypadku typów łańcuchowych sytuacja jest nieco trudniejsza, gdyż tutaj powinniśmy również wykonać sprawdzenie zgodności formatu jeżeli da się go określić. Można też wykorzystać wyrażenia regularne, które mogą wyłapać najbardziej popularne sposoby ataku poprzez podatność SQL injection.</p>
+<ol start="3">
+<li>Wykorzystanie bibliotek typu ORM</li>
+</ol>
+<p>Wykorzystanie biblioteki ORM, która posiada już zaimplementowane zabezpieczenia przed większością podatności SQL injection będzie dobrym wyborem.</p>
+<p>Poniżej przykład wykorzystania SQLAlchemy.</p>
+<pre class="hljs"><code><div>userToUpdate = session.query(Users).filter(Users.Name == <span class="hljs-string">"admin"</span>).one()
+userToUpdate.Name = <span class="hljs-string">"administrator"</span>
+session.commit()
+</div></code></pre>
+<ol start="4">
+<li>Hardening bazy danych</li>
+</ol>
+<p>Pojęcie &quot;hardeningu&quot; to proces wzmacniania zabezpieczeń systemów informatycznych poprzez usuwanie zbędnych funkcji, usług i aplikacji oraz konfigurowanie pozostałych elementów w celu zminimalizowania podatności na ataki.</p>
+<p>W przypadku baz danych może to być:</p>
+<ul>
+<li>użytkownik bazy danych, który został wykorzystany do wykonywania zapytań nie powinien być użytkownikiem administracyjnym,</li>
+<li>w miarę możliwości można stosować separację użytkowników na poziomie bazy danych, tak aby konto zwykłego użytkownika nie miało dostępu do tabel, do których dostęp powiniem mieć tylko administrator,</li>
+<li>wyłączenie obsługi <code>stacked queries</code>,</li>
+<li>wyłączenie potencjalnie niebezpiecznych funkcji silnika baz danych, np. wczytywania plików, wywoływania poleceń powłoki o ile nie jest to niezbędne dla prawidłowej pracy aplikacji,</li>
+<li>proces bazy danych na serwerze powinien pracować z innymi niż <code>root</code> uprawnieniami,</li>
+<li>wdrożenie mechanizmu logowania i monitorowania,</li>
+<li>wykonywanie audytów przed wdrożeniem aplikacji.</li>
+</ul>
+<h4 id="inne-przyk%C5%82ady-do-przeanalizowania">Inne przykłady do przeanalizowania</h4>
+<ul>
+<li>https://www.w3schools.com/sql/sql_injection.asp</li>
+<li>https://owasp.org/www-community/attacks/Blind_SQL_Injection</li>
+</ul>
+<h3 id="5-inne-zagro%C5%BCenia-dla-aplikacji-webowych">5. Inne zagrożenia dla aplikacji webowych</h3>
+<p>Zagrożeń, które umożliwiają wykonanie nieporządanych operacji w aplikacji webowej jest dużo więcej, ale nie ma tu miejsca, aby opisać je wszystkie w szczegółach.</p>
+<p>Wyminię więc kilka innych, wybranych zagrożeń i krótko wyjaśnię ich istotę.</p>
+<p><strong>1. Path traversal</strong></p>
+<p>Zagrożenie to polega na, przytoczonym już przykladzie z poprzedniego rozdziału, wykorzystaniu niewystarczających (lub braku) zabezpieczeń przed możliwością podania dowolnej ścieżki do pliku, który np. zapisany w bazie danych w postaci wyłącznie łańcucha znaków określającego jesgo ścieżkę, może być później pobrany/wyświetlony przez atakującego.</p>
+<p><strong>Możliwe zagrożenia tej podatności:</strong></p>
+<ul>
+<li>odczytanie plików z serwera np. konfiguracji, hashy haseł,</li>
+<li>wykonanie pliku w powłoce.</li>
+</ul>
+<p><strong>Ochrona:</strong></p>
+<ul>
+<li>walidacja danych wejściowych,</li>
+<li>walidacja ścieżki przy próbie odczytu pliku, np. czy pochodzi z podkatalogu aplikacji lub ścieżki z &quot;white listy&quot;,</li>
+<li>możliwe jest też wdrożenie mechanizmu identyfikacji plików,</li>
+<li>weryfikacja i wdrożenie odpowiednich uprawnień dla procesu serwera www.</li>
+</ul>
+<p><strong>2. Zagrożenia deserializacji</strong></p>
+<p>Ujmując problem ogólnie, deserializacja to proces odwrotny do serializacji, czyli przekształcenia danych z formatu binarnego lub tekstowego do obiektu w pamięci programu. Podatność deserializacji występuje, gdy aplikacja deserializuje dane pochodzące z niezaufanego źródła bez odpowiedniej walidacji i kontroli.</p>
+<p>Ta podatność dotyczy wielu języków programowania, ale krótkie jego omówienie będzie dotyczyło języka Python oraz modułu <code>pickle</code>.</p>
+<p>W przypadku tego modułu po serializacji będziemy widzieli ciąg bajtów, który reprezentuje zserializowane obiekty. W przypadku modułu <code>pickle</code> jest to rozwiązanie, które oferuje możliwości niewielkiego języka programowania, z pewnymi instrukcjami nazywanymi <code>opcodami</code> pozwalające na odtworzenie oryginalnego obiektu.</p>
+<p>Dzięki tym instrukcjom możliwe jest zserializowanie niemal dowolnego obiektu Pythona ale też i wykonanie dowolnej jego funkcji przy deserializacji (konkretnie opcode <code>REDUCE</code>). Możliwe jest więc przekazanie zserializowanych danych w postaci <code>pickle</code>, który przy próbie deserializacji wywołają funkcje dostępne np. w module <code>os.system</code>.</p>
+<p><strong>Ochrona:</strong></p>
+<ul>
+<li>nie używanie deserializacji jeżeli dane mogą pochodzić z niezaufanych źródeł,</li>
+<li>użycie bezpieczniejszego formatu danych np. <code>json</code> jeżeli nie jest wymagana serializacja skomplikowanych obiektów.</li>
+</ul>
+<p><strong>3. Zagrożenia REST API</strong></p>
+<p><strong>Nadpisywanie metod HTTP.</strong></p>
+<p>Polega na użyciu niestandardowego nagłówka HTTP, takiego jak X-HTTP-Method-Override, aby zmusić serwer do przetworzenia żądania inną metodą niż ta, którą wysłał klient (np. w sytuacji gdy klient wysyła POST, ale chce wykonać operację PUT). Serwer odczytuje wartość z nagłówka X-HTTP-Method-Override i wykonuje operację zgodną z tą metodą, zamiast standardowej metody POST. Aplikacja wysyła żądanie POST, ale dodaje nagłówek X-HTTP-Method-Override: PUT, aby zaktualizować zasób na serwerze zamiast go utworzyć.</p>
+<p>Efektem może być ominięcie ograniczeń klienta (np. przeglądarki), który nie obsługuje wszystkich metod HTTP, lub umożliwienie użycia metod, które są blokowane przez serwer (np. PUT do tworzenia plików, DELETE do usuwania).</p>
+<p>Należy zachować ostrożność, ponieważ niewłaściwe obsługiwanie tych nagłówków może stworzyć luki bezpieczeństwa (np. umożliwiając nieupoważnionym użytkownikom tworzenie lub usuwanie plików).</p>
+<p><strong>Pozostale zagrożenia są już bardziej ogólne:</strong></p>
+<ul>
+<li><strong>Uszkodzone uwierzytelnianie i autoryzacja:</strong> Pozwala na nieautoryzowany dostęp do funkcji lub danych, a także kradzież danych uwierzytelniających (np. kluczy API).</li>
+<li><strong>Błędy konfiguracji:</strong> Nieodpowiednie konfiguracje, na przykład brak ograniczenia liczby żądań na minutę (rate limiting), mogą prowadzić do ataków DDoS.</li>
+<li><strong>Ataki injection:</strong> Atakujący mogą wstrzykiwać złośliwy kod (np. SQL injection) w żądaniach, aby uzyskać nieuprawniony dostęp do danych lub przejąć kontrolę nad systemem.</li>
+<li><strong>Ataki DDoS:</strong> Rozproszone ataki odmowy usługi mogą przeciążyć API, powodując jego niedostępność dla legalnych użytkowników.</li>
+<li><strong>Nadmierne udostępnianie danych:</strong> API zwraca więcej danych, niż jest to potrzebne, co może prowadzić do wycieku poufnych informacji, nawet jeśli klient nie prosi o nie bezpośrednio.</li>
+<li><strong>Luki w szyfrowaniu:</strong> Przechwytywanie niezaszyfrowanej komunikacji między klientem a serwerem, co pozwala na dostęp do wrażliwych danych.</li>
+<li><strong>Problemy z zarządzaniem zasobami:</strong> Niewłaściwe zarządzanie zasobami może prowadzić do problemów z wydajnością, a także do wykorzystania luk bezpieczeństwa.</li>
+<li><strong>Interfejsy API Shadow i Zombie:</strong> Starsze, zapomniane interfejsy API, które są wciąż dostępne, ale nie są monitorowane ani zabezpieczone, stanowią łatwy cel dla atakujących.</li>
+</ul>
+<h3 id="6-wbudowane-zabezpieczenia-frameworka-django">6. Wbudowane zabezpieczenia frameworka Django</h3>
+<blockquote>
+<p>Lista wbudowanych zabezpieczenień i ich wyjaśnienie jest skróconą wersją pochodzącą z oficjalnej dokumentacji Django
+https://docs.djangoproject.com/pl/5.2/topics/security/</p>
+</blockquote>
+<h4 id="zawsze-dezynfekuj-dane-od-u%C5%BCytkownik%C3%B3w">Zawsze dezynfekuj dane od użytkowników</h4>
+<p>I to jest rada, która powinna nam przyświecać przy tworzeniu każdej aplikacji. Nie każdy użytkownik będzie chciał korzystać z aplikacji wedle naszego optymistycznego scenariusza.</p>
+<p>O walidacji danych z formularzy można szczegółowo przeczytać tu: https://docs.djangoproject.com/pl/5.2/ref/forms/validation/</p>
+<h4 id="zabezpieczenie-przed-xss">Zabezpieczenie przed XSS</h4>
+<p><strong>Poprawne</strong> wykorzystanie mechanizmu szablonów dostępnego w Django powinno nas uchronić przed większością ataków typu XSS. Każda wartość jest poddawana dezynfekcji, ale są funkcje, które mogą ten mechanizm złagodzić lub wyłączyć. Warto przeczytać o wyjątkach w dokumentacji.</p>
+<h4 id="zabezpieczenie-przed-csrf">Zabezpieczenie przed CSRF</h4>
+<p>Zabezpieczenie przed atakami typu CSRF powinno być włączone (domyślnie jest) i jest obsługiwane między innymi poprzez <code>MIDDLEWARE</code> ale również powinno być osadzane na każdym widoku, formularzu.</p>
+<p>Szczegóły oraz punkty obsługi CSRF w aplikacji Django są opisane tutaj: https://docs.djangoproject.com/pl/5.2/howto/csrf/#using-csrf</p>
+<h4 id="zabezpieczenie-przed-sql-injection">Zabezpieczenie przed SQL injection</h4>
+<p>Django ORM wykorzystuje zapytania sparametryzowane, więc polecenie jest oddzielone od jego parametrów i dodatkowo poddawane formatowaniu jako tekst (ang. escaping).</p>
+<p>Django ORM pozwala jednak na osadzanie własnych, surowych zapytań SQL i tam musimy ustrzegać się wszystkich zagrożeń, które zostały opisane wcześniej.</p>
+<h4 id="ochrona-przed-zagro%C5%BCeniami-typu-clickjacking">Ochrona przed zagrożeniami typu <code>Clickjacking</code></h4>
+<p>Jest to zabezpiecznie, które chroni stronę przez osadzeniem jej wewnątrz znacznika <code>&lt;iframe&gt;</code> i wykorzystania jej w nieporządany sposób. Domyślnie to zabezpieczenie jest włączone.</p>
+<p>Więcej można doczytać tutaj: https://docs.djangoproject.com/pl/5.2/ref/clickjacking/#clickjacking-prevention</p>
+<h4 id="sslhttps">SSL/HTTPS</h4>
+<p>Django obsługuje wykorzystanie protokołu HTTPS, który de facto jest obligatoryjny przy wykorzystaniu z jego wersją 2.0, poprzez szereg opcji uniemożliwiających komunikację po HTTP i automatyczne przekierowania na HTTPS.
+Obsługuje również HSTS (HTTP Strict Transport Security). Więcej w dokumentacji.</p>
+<h4 id="walidacja-nag%C5%82%C3%B3wk%C3%B3w-hosta">Walidacja nagłówków hosta</h4>
+<p>Django umożliwia zdefiniowanie dopuszczalnych adresów hostów, które pojawiają się w nagłówkach żądań poprzez zmienną <code>ALLOWED_HOSTS</code> w pliku <code>settings.py</code>, która to domyślnie jest pusta. W środowisku produkcyjnym należy to zdefiniować zgodnie z konfiguracją wirtualnych hostów np. w serwerze Apache, który może być naszym docelowym rozwiązaniem.</p>
+<p>To powinno nas chronić przed podatnościami typu CSRF (automatyczne dezynfekcja wartości nagłówków powinna zaś chronić przed XSS) poprzez atak na nagłówek.</p>
+<p>O możliwych atakach na nagłówki HTTP można poczytać między innymi tu: https://portswigger.net/web-security/host-header</p>
+<h4 id="referrer-policy">Referrer policy</h4>
+<p>Django pozwala na zdefiniowanie polityki ustawiania wartości <code>Refferer</code>, która określa skąd użytkownik pojawił się na danej podstronie. Zostało to już wspomniane przy okazji podatności CSRF.</p>
+<h4 id="cross-origin-opener-policy">Cross-origin opener policy</h4>
+<p>Ten mechanizm chroni przed atakami typu cross-origin. Więcej: https://docs.djangoproject.com/pl/5.2/ref/middleware/#cross-origin-opener-policy</p>
+<h4 id="session-security">Session security</h4>
+<p>Tutaj jednym z zagrożeń jest polityka cross-origin, która umożliwia definiowanie ciasteczek dla całej domeny, ale jeżeli możliwe jest przejęcie kontroli nad subdomeną, to możliwe jest też przeprowadzenie stosownego ataku. Mechanizm sesji w Django ma swoje ograniczenia, warto o nich przeczytać w dokumentacji: https://docs.djangoproject.com/pl/5.2/topics/http/sessions/#session-security</p>
+<h4 id="zawarto%C5%9B%C4%87-uploadowana-przez-u%C5%BCytkownika">Zawartość uploadowana przez użytkownika</h4>
+<p>Zagrożenia z tym związane zostały już opisane przy okazji kilku opisywanych podatności. Dobrym pomysłem jest delegacja serwowania plików statycznych na serwisy typu CDN. Tutaj obowiązują również zdroworozsądkowe zasady zarządznia zasobami plikowymi:</p>
+<ul>
+<li>definiowanie maksymalnych rozmiarów plików,</li>
+<li>dławienie ilości przesyłanych plików, przepustowości,</li>
+<li>odpowiednie uprawnienia (np. brak możliwości wykonania),</li>
+<li>filtrowanie typów przesyłanych plików,</li>
+<li>filtrowanie ścieżek,</li>
+</ul>
+<h4 id="inne-zagro%C5%BCenia">Inne zagrożenia</h4>
+<p>Tu już zacytuję oryginał:</p>
+<blockquote>
+<p>Make sure that your Python code is outside of the web server’s root. This will ensure that your Python code is not accidentally served as plain text (or accidentally executed).</p>
+</blockquote>
+<blockquote>
+<p>Take care with any user uploaded files.</p>
+</blockquote>
+<blockquote>
+<p>Django does not throttle requests to authenticate users. To protect against brute-force attacks against the authentication system, you may consider deploying a Django plugin or web server module to throttle these requests.</p>
+</blockquote>
+<blockquote>
+<p>Keep your SECRET_KEY, and SECRET_KEY_FALLBACKS if in use, secret.</p>
+</blockquote>
+<blockquote>
+<p>It is a good idea to limit the accessibility of your caching system and database using a firewall.</p>
+</blockquote>
+<blockquote>
+<p>Take a look at the Open Web Application Security Project (OWASP) Top 10 list which identifies some common vulnerabilities in web applications. While Django has tools to address some of the issues, other issues must be accounted for in the design of your project.</p>
+</blockquote>
+<blockquote>
+<p>Mozilla discusses various topics regarding web security. Their pages also include security principles that apply to any system.</p>
+</blockquote>
+<h3 id="7-podsumowanie">7. Podsumowanie</h3>
+<p>Mnogość możliwości przeprowadzenia ataków i podatności może być przytłaczająca. Zwłaszcza dla osób, które chciały tylko stworzyć prostą stronę osobistą, uruchomić blog. Odwieczna zasada &quot;system jest tak bezpieczny jak jego najsłabszy punkt&quot; działa również w tym przypadku. Jedna podatność może uruchomić całą kaskadę zdarzeń i zniweczyć pracę włożoną w inne zabezpieczenia. Warto więc mieć ich świadomość, ale też świadomość, że audytowanie i monitorowanie może znacznie poprawić to bezpieczeństwo.</p>
+<h3 id="7-%C5%BAr%C3%B3d%C5%82a-wiedzy-materia%C5%82y-narz%C4%99dzia">7. Źródła wiedzy, materiały, narzędzia</h3>
+<ol>
+<li>Projekt OWASP oraz aktualna lista TOP 10 zagrożeń wg. tej organizacji: https://owasp.org/Top10/</li>
+<li>Web security wg. Mozilla Security Assurance team: https://infosec.mozilla.org/guidelines/web_security.html</li>
+<li>Narzędzie Burp do testowania bezpieczeństwa aplikacji webowych: https://portswigger.net/burp</li>
+<li>Historyczne przejęzyczenie: https://en.wikipedia.org/wiki/HTTP_referer</li>
+</ol>
+
+</body>
+</html>
