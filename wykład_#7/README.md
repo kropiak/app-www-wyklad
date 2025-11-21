@@ -569,7 +569,7 @@ Mnogość możliwości przeprowadzenia ataków i podatności może być przytła
 
 
 
-### 7. Źródła wiedzy, materiały, narzędzia
+### 8. Źródła wiedzy, materiały, narzędzia
 
 
 1. Projekt OWASP oraz aktualna lista TOP 10 zagrożeń wg. tej organizacji: https://owasp.org/Top10/
