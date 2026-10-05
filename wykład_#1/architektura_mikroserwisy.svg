@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 780" width="100%" height="100%" style="background:#f8fafc; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+  <defs>
+    <!-- Arrowhead markers -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#475569" />
+    </marker>
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#2563eb" />
+    </marker>
+    <marker id="arrow-purple" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#7c3aed" />
+    </marker>
+    <!-- Drop shadows -->
+    <filter id="card-shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Title -->
+  <text x="560" y="32" text-anchor="middle" font-size="20" font-weight="700" fill="#0f172a">Architektura Mikrousług – Studium Przypadku (Wzorzec Netflix / SoundCloud)</text>
+  <text x="560" y="52" text-anchor="middle" font-size="13" fill="#64748b">Nowoczesna architektura aplikacji webowej: API Gateway/BFF, Bounded Contexts, Event-Driven &amp; Database-per-Service</text>
+
+  <!-- ==================== TIER 1: CLIENTS ==================== -->
+  <rect x="40" y="75" width="1040" height="90" rx="12" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" />
+  <text x="55" y="95" font-size="11" font-weight="700" fill="#64748b" letter-spacing="1">1. WARSTWA KLIENTA (FRONTEND)</text>
+
+  <!-- Client 1: Web SPA -->
+  <g transform="translate(100, 105)" filter="url(#card-shadow)">
+    <rect width="240" height="48" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+    <text x="120" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Przeglądarka WWW (SPA / PWA)</text>
+    <text x="120" y="40" text-anchor="middle" font-size="11" fill="#475569">React / Vue / HTML5 / WASM</text>
+  </g>
+
+  <!-- Client 2: Mobile App -->
+  <g transform="translate(440, 105)" filter="url(#card-shadow)">
+    <rect width="240" height="48" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+    <text x="120" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Aplikacja Mobilna</text>
+    <text x="120" y="40" text-anchor="middle" font-size="11" fill="#475569">iOS / Android (Swift, Kotlin)</text>
+  </g>
+
+  <!-- Client 3: Smart TV / External -->
+  <g transform="translate(780, 105)" filter="url(#card-shadow)">
+    <rect width="240" height="48" rx="8" fill="#ffffff" stroke="#2563eb" stroke-width="2" />
+    <text x="120" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1e3a8a">Smart TV / Partner API</text>
+    <text x="120" y="40" text-anchor="middle" font-size="11" fill="#475569">Zewnętrzne integracje / SDK</text>
+  </g>
+
+  <!-- Connectors Tier 1 -> Tier 2 -->
+  <line x1="220" y1="153" x2="220" y2="195" stroke="#475569" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="560" y1="153" x2="560" y2="195" stroke="#475569" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="900" y1="153" x2="900" y2="195" stroke="#475569" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- ==================== TIER 2: EDGE & API GATEWAY / BFF ==================== -->
+  <rect x="40" y="195" width="1040" height="100" rx="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" />
+  <text x="55" y="215" font-size="11" font-weight="700" fill="#1d4ed8" letter-spacing="1">2. BRZEG SIECI, CDN ORAZ API GATEWAY / BFF (BACKEND FOR FRONTEND)</text>
+
+  <!-- Edge & CDN Box -->
+  <g transform="translate(60, 225)" filter="url(#card-shadow)">
+    <rect width="260" height="56" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5" />
+    <text x="130" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">CDN &amp; WAF / Edge Proxy</text>
+    <text x="130" y="42" text-anchor="middle" font-size="11" fill="#475569">Statyka, wideo, ochrona DDoS, SSL</text>
+  </g>
+
+  <!-- API Gateway / BFF Web Box -->
+  <g transform="translate(360, 225)" filter="url(#card-shadow)">
+    <rect width="320" height="56" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5" />
+    <text x="160" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">API Gateway / BFF (Web &amp; Mobile)</text>
+    <text x="160" y="42" text-anchor="middle" font-size="11" fill="#475569">Auth JWT, Rate Limiting, Agregacja, CORS</text>
+  </g>
+
+  <!-- Service Discovery / Registry -->
+  <g transform="translate(720, 225)" filter="url(#card-shadow)">
+    <rect width="340" height="56" rx="8" fill="#ffffff" stroke="#3b82f6" stroke-width="1.5" />
+    <text x="170" y="24" text-anchor="middle" font-size="13" font-weight="700" fill="#1e40af">Service Discovery &amp; Mesh</text>
+    <text x="170" y="42" text-anchor="middle" font-size="11" fill="#475569">Rejestr instancji (Eureka / Consul / K8s DNS)</text>
+  </g>
+
+  <!-- Connector Tier 2 -> Tier 3 -->
+  <path d="M 520 281 L 520 325" stroke="#2563eb" stroke-width="2" marker-end="url(#arrow-blue)" />
+  <text x="535" y="310" font-size="11" font-weight="600" fill="#2563eb">gRPC / REST</text>
+
+  <!-- ==================== TIER 3: MICROSERVICES (BUSINESS DOMAINS) ==================== -->
+  <rect x="40" y="330" width="1040" height="150" rx="12" fill="#faf5ff" stroke="#e9d5ff" stroke-width="1.5" />
+  <text x="55" y="350" font-size="11" font-weight="700" fill="#7e22ce" letter-spacing="1">3. DOMENOWE MIKROUSŁUGI (BOUNDED CONTEXTS &amp; INDEPENDENT DEPLOYMENTS)</text>
+
+  <!-- Service 1: User & Auth -->
+  <g transform="translate(60, 365)" filter="url(#card-shadow)">
+    <rect width="180" height="95" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="1.5" />
+    <rect width="180" height="24" rx="8" fill="#9333ea" />
+    <text x="90" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Auth &amp; Users</text>
+    <text x="90" y="45" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Profil &amp; Sesje</text>
+    <text x="90" y="62" text-anchor="middle" font-size="10" fill="#64748b">OAuth2, RBAC</text>
+    <text x="90" y="78" text-anchor="middle" font-size="10" fill="#9333ea">gRPC / HTTP API</text>
+  </g>
+
+  <!-- Service 2: Catalog & Search -->
+  <g transform="translate(265, 365)" filter="url(#card-shadow)">
+    <rect width="180" height="95" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="1.5" />
+    <rect width="180" height="24" rx="8" fill="#9333ea" />
+    <text x="90" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Catalog &amp; Search</text>
+    <text x="90" y="45" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Katalog &amp; Treści</text>
+    <text x="90" y="62" text-anchor="middle" font-size="10" fill="#64748b">Wyszukiwanie, tagi</text>
+    <text x="90" y="78" text-anchor="middle" font-size="10" fill="#9333ea">Szybki odczyt</text>
+  </g>
+
+  <!-- Service 3: Orders & Payments -->
+  <g transform="translate(470, 365)" filter="url(#card-shadow)">
+    <rect width="180" height="95" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="1.5" />
+    <rect width="180" height="24" rx="8" fill="#9333ea" />
+    <text x="90" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Orders &amp; Payments</text>
+    <text x="90" y="45" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Płatności &amp; Subskr.</text>
+    <text x="90" y="62" text-anchor="middle" font-size="10" fill="#64748b">Stripe, PayU, Koszyk</text>
+    <text x="90" y="78" text-anchor="middle" font-size="10" fill="#9333ea">Transakcje ACID</text>
+  </g>
+
+  <!-- Service 4: Media Streaming -->
+  <g transform="translate(675, 365)" filter="url(#card-shadow)">
+    <rect width="180" height="95" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="1.5" />
+    <rect width="180" height="24" rx="8" fill="#9333ea" />
+    <text x="90" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Media &amp; Streaming</text>
+    <text x="90" y="45" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Transkodowanie</text>
+    <text x="90" y="62" text-anchor="middle" font-size="10" fill="#64748b">Chunking HLS/DASH</text>
+    <text x="90" y="78" text-anchor="middle" font-size="10" fill="#9333ea">Zasobożerne joby</text>
+  </g>
+
+  <!-- Service 5: Notifications & Social -->
+  <g transform="translate(880, 365)" filter="url(#card-shadow)">
+    <rect width="180" height="95" rx="8" fill="#ffffff" stroke="#9333ea" stroke-width="1.5" />
+    <rect width="180" height="24" rx="8" fill="#9333ea" />
+    <text x="90" y="16" text-anchor="middle" font-size="11" font-weight="700" fill="#ffffff">Notifications</text>
+    <text x="90" y="45" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Komunikacja Live</text>
+    <text x="90" y="62" text-anchor="middle" font-size="10" fill="#64748b">WebSockets, E-mail</text>
+    <text x="90" y="78" text-anchor="middle" font-size="10" fill="#9333ea">Powiadomienia Push</text>
+  </g>
+
+  <!-- Connectors Tier 3 <-> Tier 4 (Kafka) -->
+  <line x1="150" y1="460" x2="150" y2="505" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-purple)" />
+  <line x1="355" y1="460" x2="355" y2="505" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-purple)" />
+  <line x1="560" y1="460" x2="560" y2="505" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-purple)" />
+  <line x1="765" y1="460" x2="765" y2="505" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-purple)" />
+  <line x1="970" y1="460" x2="970" y2="505" stroke="#7c3aed" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#arrow-purple)" />
+
+  <!-- ==================== TIER 4: EVENT BUS / MESSAGE BROKER ==================== -->
+  <g transform="translate(40, 505)" filter="url(#card-shadow)">
+    <rect width="1040" height="50" rx="8" fill="#312e81" stroke="#4338ca" stroke-width="1.5" />
+    <text x="520" y="25" text-anchor="middle" font-size="13" font-weight="700" fill="#e0e7ff">SZYNK DANYCH I ZDARZEŃ: Apache Kafka / RabbitMQ / AWS Kinesis (Event-Driven Backbone)</text>
+    <text x="520" y="41" text-anchor="middle" font-size="11" fill="#a5b4fc">Asynchroniczna komunikacja zdarzeniowa: Event Sourcing, wzorzec Saga, Outbox Pattern, powiadomienia</text>
+  </g>
+
+  <!-- Connectors Tier 3 / Tier 4 -> Tier 5 (Databases) -->
+  <line x1="150" y1="555" x2="150" y2="600" stroke="#0f172a" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="355" y1="555" x2="355" y2="600" stroke="#0f172a" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="560" y1="555" x2="560" y2="600" stroke="#0f172a" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="765" y1="555" x2="765" y2="600" stroke="#0f172a" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="970" y1="555" x2="970" y2="600" stroke="#0f172a" stroke-width="2" marker-end="url(#arrow)" />
+
+  <!-- ==================== TIER 5: PERSISTENCE (DATABASE PER SERVICE) ==================== -->
+  <rect x="40" y="585" width="1040" height="120" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4" />
+  <text x="55" y="602" font-size="11" font-weight="700" fill="#475569" letter-spacing="1">4. BAZY DANYCH (WZORZEC DATABASE-PER-SERVICE: POLYGLOT PERSISTENCE)</text>
+
+  <!-- DB 1 -->
+  <g transform="translate(60, 615)" filter="url(#card-shadow)">
+    <rect width="180" height="70" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5" />
+    <text x="90" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="#0369a1">PostgreSQL</text>
+    <text x="90" y="42" text-anchor="middle" font-size="10" fill="#475569">Relacyjna baza kont</text>
+    <text x="90" y="58" text-anchor="middle" font-size="10" fill="#0284c7">+ Redis Session Cache</text>
+  </g>
+
+  <!-- DB 2 -->
+  <g transform="translate(265, 615)" filter="url(#card-shadow)">
+    <rect width="180" height="70" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5" />
+    <text x="90" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="#0369a1">Elasticsearch + Mongo</text>
+    <text x="90" y="42" text-anchor="middle" font-size="10" fill="#475569">Indeksy wyszukiwania</text>
+    <text x="90" y="58" text-anchor="middle" font-size="10" fill="#0284c7">Dokumenty JSON metadanych</text>
+  </g>
+
+  <!-- DB 3 -->
+  <g transform="translate(470, 615)" filter="url(#card-shadow)">
+    <rect width="180" height="70" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5" />
+    <text x="90" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="#0369a1">PostgreSQL / Aurora</text>
+    <text x="90" y="42" text-anchor="middle" font-size="10" fill="#475569">Silna spójność ACID</text>
+    <text x="90" y="58" text-anchor="middle" font-size="10" fill="#0284c7">Księga zamówień i płatności</text>
+  </g>
+
+  <!-- DB 4 -->
+  <g transform="translate(675, 615)" filter="url(#card-shadow)">
+    <rect width="180" height="70" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5" />
+    <text x="90" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="#0369a1">AWS S3 / MinIO</text>
+    <text x="90" y="42" text-anchor="middle" font-size="10" fill="#475569">Blob / Object Storage</text>
+    <text x="90" y="58" text-anchor="middle" font-size="10" fill="#0284c7">Pliki audio/wideo chunks</text>
+  </g>
+
+  <!-- DB 5 -->
+  <g transform="translate(880, 615)" filter="url(#card-shadow)">
+    <rect width="180" height="70" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.5" />
+    <text x="90" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="#0369a1">Redis Cluster</text>
+    <text x="90" y="42" text-anchor="middle" font-size="10" fill="#475569">Pub/Sub, stan połączeń</text>
+    <text x="90" y="58" text-anchor="middle" font-size="10" fill="#0284c7">WebSocket gateway state</text>
+  </g>
+
+  <!-- Bottom Legend / Observability Ribbon -->
+  <rect x="40" y="720" width="1040" height="35" rx="6" fill="#1e293b" />
+  <text x="60" y="742" font-size="11" font-weight="700" fill="#38bdf8">OBSERWOWALNOŚĆ I ZARZĄDZANIE CAŁYM SYSTEMEM:</text>
+  <text x="360" y="742" font-size="11" fill="#e2e8f0">OpenTelemetry (Distributed Tracing)  •  Prometheus &amp; Grafana (Metryki)  •  ELK / Loki (Logi)  •  Kubernetes &amp; Istio Service Mesh</text>
+</svg>

@@ -1,144 +1,371 @@
 <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="UTF-8">
-            <title>Aplikacje WWW&period; Wyk&lstrok;ad &num;1</title>
-            <style>
-/* From extension vscode.github */
+<html>
+<head>
+<title>readme.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) Microsoft Corporation. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-.vscode-dark img[src$=\#gh-light-mode-only],
-.vscode-light img[src$=\#gh-dark-mode-only],
-.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
-.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
-	display: none;
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
 }
 
 </style>
-            
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+
 <style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        <style>
-.task-list-item {
-    list-style-type: none;
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
 }
 
-.task-list-item-checkbox {
-    margin-left: -20px;
-    vertical-align: middle;
-    pointer-events: none;
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
 }
 </style>
+
 <style>
-:root {
-  --color-note: #0969da;
-  --color-tip: #1a7f37;
-  --color-warning: #9a6700;
-  --color-severe: #bc4c00;
-  --color-caution: #d1242f;
-  --color-important: #8250df;
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> or <div class="page"></div> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
 }
 
 </style>
-<style>
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-note: #2f81f7;
-    --color-tip: #3fb950;
-    --color-warning: #d29922;
-    --color-severe: #db6d28;
-    --color-caution: #f85149;
-    --color-important: #a371f7;
-  }
-}
 
-</style>
-<style>
-.markdown-alert {
-  padding: 0.5rem 1rem;
-  margin-bottom: 16px;
-  color: inherit;
-  border-left: .25em solid #888;
-}
-
-.markdown-alert>:first-child {
-  margin-top: 0
-}
-
-.markdown-alert>:last-child {
-  margin-bottom: 0
-}
-
-.markdown-alert .markdown-alert-title {
-  display: flex;
-  font-weight: 500;
-  align-items: center;
-  line-height: 1
-}
-
-.markdown-alert .markdown-alert-title .octicon {
-  margin-right: 0.5rem;
-  display: inline-block;
-  overflow: visible !important;
-  vertical-align: text-bottom;
-  fill: currentColor;
-}
-
-.markdown-alert.markdown-alert-note {
-  border-left-color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-note .markdown-alert-title {
-  color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-important {
-  border-left-color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-important .markdown-alert-title {
-  color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-warning {
-  border-left-color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-warning .markdown-alert-title {
-  color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-tip {
-  border-left-color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-tip .markdown-alert-title {
-  color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-caution {
-  border-left-color: var(--color-caution);
-}
-
-.markdown-alert.markdown-alert-caution .markdown-alert-title {
-  color: var(--color-caution);
-}
-
-</style>
-        
-        </head>
-        <body class="vscode-body vscode-light">
-            <h1 id="aplikacje-www-wykład-1">Aplikacje WWW. Wykład #1</h1>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="aplikacje-www-wykład-1">Aplikacje WWW. Wykład #1</h1>
 <h2 id="1-czym-jest-aplikacja-wwwwebowainternetowa">1. Czym jest aplikacja WWW/webowa/internetowa?</h2>
 <p><strong>Jest to aplikacja uruchamiana na serwerze, a dostęp do niej odbywa się przez przeglądarkę internetową bez konieczności instalacji na urządzeniu użytkownika.</strong></p>
 <p>Aplikacją nazwiemy rozwiązanie, które wychodzi poza schemat klasycznej statycznej strony internetowej. Aplikacja dostarcza pewnej funkcjonalności, która poprzez technologie frontendowe pozwala na realizację pewnych zadań, które często były do tej pory realizowane poprzez aplikacje natywne.</p>
@@ -159,7 +386,7 @@
 <li>brak konieczności instalacji na urządzeniu, ale przede wszystkim aktualizacji do nowszych wersji (aktualizacja odbywa się centralnie czyli na serwerze),</li>
 <li>potencjalnie mniejszy koszt wytworzenia dla wielu różnych urządzeń klienckich, zwłaszcza całej gamy urządzeń mobilnych,</li>
 <li>większa dostępność ze względu na niskie wymagania (przeglądarka) aplikacji,</li>
-<li>stosunkowo łatwa adaptacja użytkownika do nowej aplikacji ze względu na podobieństwo aplikacji www i powszechność z korzystania z przeglądarek internetowych.</li>
+<li>stosunkowo łatwa adaptacja użytkownika do nowej aplikacji ze względu na podobieństwo aplikacji www i powszechność korzystania z przeglądarek internetowych.</li>
 </ul>
 <blockquote>
 <p><strong>Wady aplikacji webowych</strong></p>
@@ -193,10 +420,16 @@
 <li>Pierwsze propozycje projektu <strong>World Wide Web</strong> zaprezentowane przez <strong>Tim'a Berners Lee</strong> wewnątrz <strong>CERN</strong>.</li>
 </ul>
 <blockquote>
+<p><strong>rok 1990</strong></p>
+</blockquote>
+<ul>
+<li>w grudniu <strong>Tim Berners-Lee</strong> uruchomił pierwszy serwer WWW (CERN, Szwajcaria)</li>
+</ul>
+<blockquote>
 <p><strong>rok 1991</strong></p>
 </blockquote>
 <ul>
-<li>zostaje uruchominy <strong>pierwszy serwer webowy</strong> w laboratorium  Stanford Linear Accelerator Center (SLAC) w stanie California (maszyna NeXT).</li>
+<li>zostaje uruchominy <strong>pierwszy serwer webowy</strong> w laboratorium  Stanford Linear Accelerator Center (SLAC) w stanie California (maszyna NeXT) poza Europą.</li>
 <li>Powstaje pierwsza strona internetowa (autor: <strong>Tim Berners Lee</strong>)</li>
 <li><strong>Tim Berners Lee</strong> ogłasza światu projekt <strong>World Wide Web</strong>.</li>
 <li><strong>Tim Berners Lee</strong> przedstawia szkic <strong>pierwszej wersji języka HTML</strong>.</li>
@@ -206,10 +439,10 @@
 <p><strong>rok 1993</strong></p>
 </blockquote>
 <ul>
-<li>CERN po namowach uwalnia WWW dla wszystkich (wcześniej pobierano opłaty licencyjne).</li>
+<li>CERN po namowach uwalnia WWW dla wszystkich (formalne zrzeczenie się praw majątkowych).</li>
 <li>Powstaje <strong>HTML 1.0</strong>.</li>
 <li>Światło dzienne ujrzała przyjazna użytkownikom przeglądarka NCSA Mosaic z interfejsem graficznym.</li>
-<li>Powstaje interfejs CGI do komunikacji z serwerem WWW za pomocą języka HTML.</li>
+<li>Powstaje interfejs CGI (możliwość uruchamiania kodu np. C, Perl) w celu dynamicznego generowania odpowiedzi. Komunikacja odbywa sie poprzez protokół HTTP.</li>
 </ul>
 <blockquote>
 <p><strong>rok 1994</strong></p>
@@ -224,18 +457,18 @@
 <p><strong>rok 1995</strong></p>
 </blockquote>
 <ul>
-<li>Pierwsze publiczne wydanie <strong>PHP/FI</strong> (Personal Home Page/Form Interpreter) w wersji 2.0, którego pierwsza nieoficjalna wersja powstała rok wcześniej za sprawą Rasmusa Lerdorfa.</li>
-<li>Powstała pierwsza wersja języka <strong>JavaScript</strong>. Twórcą jest <strong>Brendan Eich</strong>. (tu nieco więcej o historii JavaScript: <a href="https://www.w3schools.com/js/js_history.asp">https://www.w3schools.com/js/js_history.asp</a>).</li>
+<li>Pierwsze publiczne wydanie <strong>PHP/FI</strong> (Personal Home Page/Form Interpreter) w wersji 1.0, którego pierwsza nieoficjalna wersja powstała rok wcześniej za sprawą Rasmusa Lerdorfa.</li>
+<li>Powstała pierwsza wersja języka <strong>JavaScript</strong>. Twórcą jest <strong>Brendan Eich</strong>. (tu nieco więcej o historii JavaScript: https://www.w3schools.com/js/js_history.asp).</li>
 <li>Ogłoszona zostaje wersja 2.0 języka HTML.</li>
 <li>Powstaje przeglądarka Opera oraz Internet Explorer 1.0.</li>
-<li>Jeff Bezos uruchamian <a href="http://Amazon.com">Amazon.com</a>.</li>
+<li>Jeff Bezos uruchamian Amazon.com.</li>
 </ul>
 <blockquote>
 <p><strong>rok 1996</strong></p>
 </blockquote>
 <ul>
 <li>Firma Macromedia przejmuje technologię, którą nazwą później Macromedia Flash.</li>
-<li>powstaje <strong>CSS (Cascade Style Sheet)</strong>.</li>
+<li>powstaje <strong>CSS (Cascading Style Sheets)</strong>.</li>
 </ul>
 <blockquote>
 <p><strong>rok 1997</strong></p>
@@ -301,7 +534,7 @@
 </blockquote>
 <ul>
 <li>Debiutuje <strong>Google Maps</strong> oraz <strong>YouTube</strong>.</li>
-<li>Ogłoszono technologię <strong>AJAX (Asynchronous Javascript and XML)</strong>, Microsoft. Dała ona początek aplikacjom Rich Internet Application, znanych dzisiaj pod nazwą Single Page Application.</li>
+<li>Jesse James Garrett (z agencji Adaptive Path) ukuł termin AJAX i opisał go w w słynnym eseju <strong>&quot;Ajax: A New Approach to Web Applications&quot;</strong>.</li>
 <li><strong>Webkit (Apple)</strong> przechodzi w open source.</li>
 <li>Million DOlar Homepage (sprawdźcie sami!).</li>
 <li>Ruby on rails debiutuje.</li>
@@ -317,7 +550,7 @@
 <p><strong>rok 2008</strong></p>
 </blockquote>
 <ul>
-<li><a href="http://960.gs">960.gs</a> Framework.</li>
+<li>960.gs Framework.</li>
 <li>Debiutuje <strong>Github</strong>.</li>
 <li>Powstaje pierwsza wersja <strong>Google Chrome</strong>.</li>
 <li>Flexible Web Design, które jest początkiem ruchu w kierunku Responsive Web Design (artykuł Ethan'a Marcotte'a z roku 2010), który znamy do dziś.</li>
@@ -388,7 +621,7 @@
 <ul>
 <li>rozwiązania oparte o AI potrafią wytwarzać większość mniej (to kwestia czasu) skomplikowanego kodu aplikacji webowych (ale i nie tylko).</li>
 </ul>
-<p>Bardziej kompletna lista osadzona na osi czasu jest dostępna pod adresem: <a href="https://thehistoryoftheweb.com/timeline/">https://thehistoryoftheweb.com/timeline/</a>.</p>
+<p>Bardziej kompletna lista osadzona na osi czasu jest dostępna pod adresem: https://thehistoryoftheweb.com/timeline/.</p>
 <h2 id="3-architektura-aplikacji-webowych">3. Architektura aplikacji webowych.</h2>
 <p>Aplikacja webowa (ale dotyczy to również szerszego zakresu aplikacji) składa się zazwyczaj z trzech warstw aplikacji:</p>
 <ul>
@@ -407,20 +640,20 @@
 <ul>
 <li><strong>architektura trójwarstwowa</strong> - architektura, której składowe zostały opisane powyżej czyli frontend, backend i baza danych.</li>
 </ul>
-<p><img src="file:///c:\Users\Krzysztof\__projects\__uwm_aplikacje_www_wykład\wykład_#1\3_warstwy.svg" alt="3 warstwy"><br>
+<p><img src="3_warstwy.svg" alt="3 warstwy"><br>
 <strong>Rysunek 1</strong> - Architektura trójwarstwowa aplikacji webowej.</p>
 <ul>
 <li><strong>architektura mikrousług</strong> - to podejście składa się z wyodrębnionych usług (np. usługa uwierzytelniania, usługa pamięci podręcznej, itp.), które zazwyczaj odpowiadają za jedną funkcję biznesową aplikacji. Takie podejście umożliwia bardziej dynamiczne skalowanie poszczególnych usług w zależności od potrzeb (np. obciążenia) dzięki takim rozwiązaniom jak konteneryzacja.</li>
 </ul>
-<p><img src="file:///c:\Users\Krzysztof\__projects\__uwm_aplikacje_www_wykład\wykład_#1\microservice_architecture_v2.png" alt=""><br>
+<p><img src="microservice_architecture_v2.png" alt=""><br>
 <strong>Rysunek 2</strong> - Przykładowa architektura rozwiązania opartego o mikrousługi.</p>
-<p><em>źródło: <a href="https://atlassian.com">https://atlassian.com</a></em></p>
+<p><em>źródło: https://atlassian.com</em></p>
 <ul>
 <li>
 <p><strong>architektura Web-Queue-Worker</strong> - model wykorzystywany zazwyczaj w przypadku aplikacji, które obsługują długotrwałe i zasobożerne operacje, które tutaj realizowane są poprzez workera oraz kolejkę komunikatów.</p>
 </li>
 <li>
-<p><strong>architektura SPA (Single Page Architecture)</strong> - aplikacja jednostronicowa (czasem nazywana jednoplikową, gdyż składa się z jednego pliku HTML), której zawartość jest przeładowywana z wykorzystaniem technologii AJAX i przypomina to pracę aplikacji natywnej.</p>
+<p><strong>architektura SPA (Single Page Application)</strong> - aplikacja jednostronicowa (czasem nazywana jednoplikową, gdyż składa się z jednego pliku HTML), której zawartość jest przeładowywana z wykorzystaniem technologii AJAX i przypomina to pracę aplikacji natywnej.</p>
 </li>
 </ul>
 <h2 id="monolit-vs-aplikacja-oparta-o-mikrousługi"><strong>Monolit vs aplikacja oparta o mikrousługi</strong></h2>
@@ -447,18 +680,18 @@
 <blockquote>
 <p><strong>Skalowanie aplikacji monolitycznej</strong></p>
 </blockquote>
-<p>Skalowanie aplikacji monolitycznej odbywa się w poziomie i polega na skalowaniu jednej lub wielu jej warstw. Zazwyczaj dotyczy to warstwy backend lub bazodanowej i polega na uruchomieniu kolejnej instancji tej warstwy w postaci serwera fizycznego lub maszyny wirtualnej.</p>
+<p>Skalowanie aplikacji monolitycznej odbywa się najczęściej w pionie (scale-up), które polega na rozbudowie mocy obliczeniowej maszyny, na której jest ona uruchomiona, lub poprzez uruchomienie wielu kopii takiej aplikacji (scale-out), które zazwyczaj dotyczy warstwy backend lub bazodanowej.</p>
 <p>Schematów skalowania jest co najmniej kilka. Przytoczę dwa poniżej.</p>
 <p><strong>Skalowanie warstwy backend</strong></p>
-<p><img src="file:///c:\Users\Krzysztof\__projects\__uwm_aplikacje_www_wykład\wykład_#1\skalowanie_backend.svg" alt=""><br>
+<p><img src="skalowanie_backend.svg" alt=""><br>
 <strong>Rysunek 3</strong> - Przykład architektury systemu ze skalowaniem poziomym warstwy backend.</p>
 <p>Tutaj mamy do czynienia ze skalowaniem tylko warstwy backend, która w porównaniu do warstwy frontend generuje zazwyczaj znaczne obciążenie dla serwera.
 Takie rozwiązanie ma sens o ile tzw. &quot;wąskim gardłem&quot; całej aplikacji jest backend a nie baza danych.</p>
 <p><strong>Skalowanie warstwy backend oraz warstwy bazy danych</strong></p>
-<p><img src="file:///c:\Users\Krzysztof\__projects\__uwm_aplikacje_www_wykład\wykład_#1\skalowanie_backend_i_baza.svg" alt=""><br>
+<p><img src="skalowanie_backend_i_baza.svg" alt="skalowanie_backend_i_baza.svg"><br>
 <strong>Rysunek 4</strong> - Przykład architektury systemu ze skalowaniem poziomym warstwy backend oraz warstwy danych.</p>
-<p><img src="file:///c:\Users\Krzysztof\__projects\__uwm_aplikacje_www_wykład\wykład_#1\skalowanie_backend_i_baza_2.svg" alt=""><br>
-<strong>Rysunek 5</strong> - Przykład architektury systemu ze skalowaniem poziomym warstwy backend.</p>
+<p><img src="skalowanie_backend_i_baza_2.svg" alt="skalowanie_backend_i_baza_2.svg"><br>
+<strong>Rysunek 5</strong> - Przykład architektury systemu ze skalowaniem poziomym z kolokacją backendu i bazy danych na pojedynczym serwerze.</p>
 <p>Tu natomiast mamy do czynienia ze skalowaniem dwóch warstw - backendu oraz bazy danych. To rozwiązanie może być realizowane w kilku wariantach:</p>
 <ul>
 <li>serwer backend oraz oddzielny serwer bazy danych,</li>
@@ -488,7 +721,235 @@ Takie rozwiązanie ma sens o ile tzw. &quot;wąskim gardłem&quot; całej aplika
 <li><strong>koszty</strong> - ze względu na większy stopień skomplikowania całej infrastruktury koszty wdrożenia oraz utrzymania takiej aplikacji mogą być wyższe, ale to zależy również tego czy skalowanie zostało odpowiednio zoptymalizowane względem podobnej wydajności aplikacji monolitycznej,</li>
 <li><strong>zarządzanie danymi</strong> - problem synchronizacji danych między wieloma usługami może być dość skomplikowany do wdrożenia.</li>
 </ul>
-<h3 id="4-kilka-ciekawostek">4. Kilka ciekawostek.</h3>
+<h2 id="4-studium-przypadku-architektura-mikrousług-w-nowoczesnych-aplikacjach-www">4. Studium Przypadku: Architektura Mikrousług w Nowoczesnych Aplikacjach WWW</h2>
+<blockquote>
+<p>Przykład oparty o rzeczywiste doświadczenia inżynierskie twórców platform <strong>SoundCloud</strong> oraz <strong>Netflix</strong>, opublikowane na ich blogach technicznych.</p>
+</blockquote>
+<hr>
+<h3 id="41-wprowadzenie-poza-schemat-podręcznikowy">4.1. Wprowadzenie: Poza schemat podręcznikowy</h3>
+<p>W podstawowej teorii architektury oprogramowania mikroserwisy bywają przedstawiane jako prosta grupa niezależnych „pudełek” połączonych strzałkami. W rzeczywistych aplikacjach webowych o dużej skali podział monolitu na mikrousługi rodzi natychmiast fundamentalne pytania:</p>
+<ul>
+<li>Jak połączyć dziesiątki usług z jedną przeglądarką użytkownika bez zapychania łącza setkami zapytań HTTP?</li>
+<li>Jak zarządzać autoryzacją i sesją użytkownika bez odpytywania bazy danych przy każdym kliknięciu?</li>
+<li>W jaki sposób utrzymać spójność danych, gdy każda usługa ma własną bazę danych?</li>
+<li>Co zrobić, gdy jedna z usług ulegnie awarii, aby cała strona nie przestała działać?</li>
+</ul>
+<p>Poniższe studium przypadku prezentuje architekturę, która odpowiada na te pytania w oparciu o wzorce sprawdzone w boju przez czołowe firmy technologiczne.</p>
+<hr>
+<h3 id="42-geneza-z-rynku-soundcloud-i-narodziny-wzorca-bff">4.2. Geneza z rynku: SoundCloud i narodziny wzorca BFF</h3>
+<p>Świetnym przykładem ewolucji od klasycznej aplikacji webowej do mikrousług jest historia platformy <strong>SoundCloud</strong> (opisana m.in. przez Phila Calçado na blogu technicznym SoundCloud oraz u Martina Fowlera):</p>
+<ol>
+<li><strong>Początek (Monolit „Mothership”)</strong>:<br>
+SoundCloud wystartował jako klasyczna, monolityczna aplikacja w języku Ruby on Rails z jedną bazą danych MySQL.</li>
+<li><strong>Kryzys wzrostu</strong>:<br>
+Gdy serwis zyskał miliony użytkowników, wprowadzono rozbudowane mechanizmy odtwarzania w locie, komentarze osadzane bezpośrednio na fali dźwiękowej, system społecznościowy oraz natywne aplikacje mobilne (iOS i Android).
+<ul>
+<li>Monolit stał się wąskim gardłem: każde wdrożenie niosło ryzyko awarii całego serwisu.</li>
+<li>Narastał dług technologiczny, a czas budowania i testowania aplikacji paraliżował pracę zespołów programistycznych.</li>
+</ul>
+</li>
+<li><strong>Migracja do mikrousług i problem uniwersalnego API</strong>:<br>
+Podzielono monolit na mniejsze serwisy (katalog, autoryzacja, strumieniowanie, profil). Szybko jednak okazało się, że udostępnienie pojedynczego, ogólnego API Gateway dla wszystkich klientów rodzi kolejny problem:
+<ul>
+<li><strong>Przeglądarka internetowa (Web SPA)</strong> potrzebowała bogatych, zagregowanych danych do wyrenderowania całego pulpitu w jednym zapytaniu.</li>
+<li><strong>Aplikacje mobilne</strong> potrzebowały odchudzonych pakietów danych ze względu na ograniczone pakiety komórkowe i mniejsze ekrany.</li>
+</ul>
+</li>
+<li><strong>Rozwiązanie – Wzorzec BFF (Backend For Frontend)</strong>:<br>
+Inżynierowie SoundCloud stworzyli oddzielne warstwy pośredniczące dla każdego typu klienta (dedykowany backend dla aplikacji Web oraz dedykowany dla aplikacji Mobile). Wzorzec ten stał się dziś standardem branżowym w inżynierii webowej.</li>
+</ol>
+<hr>
+<h3 id="43-schemat-architektury">4.3. Schemat Architektury</h3>
+<p>Poniższy diagram przedstawia pełny przepływ danych w nowoczesnej architekturze mikrousług dla aplikacji webowej:</p>
+<p><img src="./architektura_mikroserwisy.svg" alt="Architektura Mikrousług"></p>
+<h4 id="diagram-relacji-mermaid">Diagram relacji (Mermaid)</h4>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD
+    subgraph Klienci["1. Warstwa Klienta"]
+        Web["Przeglądarka WWW (SPA / React)"]
+        Mobile["Aplikacja Mobilna (iOS / Android)"]
+    end
+
+    subgraph Brzeg["2. Brzeg sieci & Brama"]
+        CDN["CDN & WAF (Cloudflare / CloudFront)"]
+        BFF["API Gateway / BFF (Backend For Frontend)"]
+        Discovery["Service Discovery (Eureka / K8s DNS)"]
+    end
+
+    subgraph Uslugi["3. Domenowe Mikrousługi"]
+        Auth["Auth & Users Service"]
+        Catalog["Catalog & Search Service"]
+        Order["Orders & Payments Service"]
+        Stream["Media & Streaming Service"]
+        Notify["Notification Service (WebSockets)"]
+    end
+
+    subgraph Szyna["Szyna Zdarzeń (Event Backbone)"]
+        Kafka["Apache Kafka / RabbitMQ"]
+    end
+
+    subgraph Bazy["4. Bazy Danych (Database-per-Service)"]
+        DB_Auth[("PostgreSQL\n(Konta, OAuth2)")]
+        DB_Cat[("Elasticsearch + Mongo\n(Katalog, JSON)")]
+        DB_Order[("PostgreSQL\n(ACID, Płatności)")]
+        DB_Media[("Object Storage S3\n(Pliki audio/wideo)")]
+        DB_Notify[("Redis Cluster\n(Pub/Sub, Sesje Live)")]
+    end
+
+    Web -->|HTTPS / Statyka| CDN
+    Web -->|Zapytania API| BFF
+    Mobile -->|Zapytania API| BFF
+    CDN -.->|Cache Miss| BFF
+
+    BFF <-->|Sprawdzenie instancji| Discovery
+    BFF -->|gRPC / REST| Auth
+    BFF -->|gRPC / REST| Catalog
+    BFF -->|gRPC / REST| Order
+    BFF -->|gRPC / REST| Stream
+    BFF -->|WebSockets| Notify
+
+    Auth <-->|Zdarzenia| Kafka
+    Catalog <-->|Zdarzenia| Kafka
+    Order <-->|Zdarzenia| Kafka
+    Stream <-->|Zdarzenia| Kafka
+    Notify <-->|Zdarzenia| Kafka
+
+    Auth --- DB_Auth
+    Catalog --- DB_Cat
+    Order --- DB_Order
+    Stream --- DB_Media
+    Notify --- DB_Notify
+</div></code></pre>
+<hr>
+<h3 id="44-szczegółowe-omówienie-poszczególnych-warstw">4.4. Szczegółowe omówienie poszczególnych warstw</h3>
+<h4 id="warstwa-1-klienci-frontend">Warstwa 1: Klienci (Frontend)</h4>
+<p>Aplikacja frontendowa (np. zbudowana w technologiach React, Vue, Angular lub jako PWA) nie komunikuje się bezpośrednio z poszczególnymi mikrousługami. Z punktu widzenia przeglądarki cały backend widoczny jest pod jedną domeną (np. <code>api.twojadomena.pl</code>), co rozwiązuje problemy z polityką CORS (<em>Cross-Origin Resource Sharing</em>) oraz upraszcza zarządzanie ciasteczkami sesyjnymi.</p>
+<h4 id="warstwa-2-brzeg-sieci-cdn-oraz-api-gateway--bff">Warstwa 2: Brzeg sieci, CDN oraz API Gateway / BFF</h4>
+<ol>
+<li><strong>CDN (Content Delivery Network) i WAF</strong>:
+<ul>
+<li>Zdecydowana większość transferu w aplikacjach WWW (pliki HTML, bundle JavaScript, arkusze CSS, grafiki, zwiastuny wideo) w ogóle <strong>nie trafia do mikrousług</strong>. Jest buforowana na serwerach brzegowych (Cloudflare, AWS CloudFront, Fastly).</li>
+<li>WAF (<em>Web Application Firewall</em>) filtruje ataki DDoS, próby SQL Injection oraz ataki typu brute-force.</li>
+</ul>
+</li>
+<li><strong>API Gateway / Wzorzec BFF (Backend For Frontend)</strong>:
+<ul>
+<li><strong>Terminacja SSL/TLS</strong> i zarządzanie certyfikatami.</li>
+<li><strong>Weryfikacja autoryzacji</strong>: Brama sprawdza podpis tokenu JWT użytkownika raz na brzegu. Do wewnętrznych mikroserwisów przekazuje już zweryfikowany kontekst użytkownika w nagłówkach HTTP (np. <code>X-User-Id: 12345</code>, <code>X-User-Role: premium</code>), zdejmując z nich narzut powtarzalnej weryfikacji.</li>
+<li><strong>Agregacja zapytań (<em>API Composition</em>)</strong>: Aby wyrenderować stronę główną, przeglądarka musiałaby odpytać 5 różnych serwisów. BFF robi to równolegle wewnątrz szybkiej sieci lokalnej (np. po protokole gRPC) i zwraca do przeglądarki jeden spójny dokument JSON.</li>
+<li><strong>Rate Limiting</strong>: Ochrona przed nadmierną liczbą zapytań z jednego adresu IP/konta.</li>
+</ul>
+</li>
+</ol>
+<h4 id="warstwa-3-domenowe-mikrousługi-bounded-contexts">Warstwa 3: Domenowe Mikrousługi (Bounded Contexts)</h4>
+<p>Każda usługa odpowiada za ściśle wydzielony obszar biznesowy zgodnie z zasadami <strong>DDD (Domain-Driven Design)</strong>:</p>
+<ul>
+<li><strong>Auth &amp; Users Service</strong>: Zarządza profilami, rejestracją, logowaniem, odświeżaniem tokenów (Refresh Token) i rolami.</li>
+<li><strong>Catalog &amp; Search Service</strong>: Udostępnia dane o treściach (np. albumach, utworach, filmach, artykułach). Charakteryzuje się ogromną przewagą odczytów nad zapisami (<em>Read-Heavy</em>).</li>
+<li><strong>Orders &amp; Payments Service</strong>: Odpowiada za transakcje finansowe, subskrypcje i koszyk. Wymaga bezwzględnej spójności transakcyjnej (ACID).</li>
+<li><strong>Media &amp; Streaming Service</strong>: Obsługuje procesy długotrwałe (transkodowanie plików wideo do formatów adaptacyjnych HLS/DASH, generowanie fali dźwiękowej, przetwarzanie miniatur). Realizowane w modelu <em>Worker Queue</em>.</li>
+<li><strong>Notification Service</strong>: Utrzymuje stałe, dwukierunkowe połączenia z przeglądarkami przez <strong>WebSockets</strong> lub <strong>Server-Sent Events (SSE)</strong>, wysyłając natychmiastowe powiadomienia (np. o zakończeniu przetwarzania pliku lub nowej wiadomości).</li>
+</ul>
+<h4 id="warstwa-4-asynchroniczna-szyna-zdarzeń-apache-kafka--rabbitmq">Warstwa 4: Asynchroniczna Szyna Zdarzeń (Apache Kafka / RabbitMQ)</h4>
+<p>W architekturze mikrousług kluczowe jest unikanie kaskadowych wywołań synchronicznych (tzw. <em>Distributed Monolith Anti-Pattern</em>). Jeśli serwis płatności przy każdym zamówieniu synchronicznie wołałby serwis mailowy, magazynowy i statystyk – awaria dowolnego z nich wyłożyłaby cały proces zakupu.</p>
+<p>Zamiast tego stosuje się <strong>architekturę sterowaną zdarzeniami (Event-Driven Architecture)</strong>:</p>
+<ol>
+<li>Użytkownik opłaca zamówienie w <code>Orders Service</code>.</li>
+<li><code>Orders Service</code> zapisuje transakcję w swojej bazie i rzuca na szynę Kafki zdarzenie: <code>OrderPlaced { orderId: 789, userId: 123 }</code>.</li>
+<li>Inne serwisy nasłuchują na ten temat (<em>topic</em>) asynchronicznie:
+<ul>
+<li><code>Notification Service</code> odbiera zdarzenie i wysyła e-mail oraz push do przeglądarki.</li>
+<li><code>Analytics Service</code> rejestruje konwersję w hurtowni danych.</li>
+<li><code>Media Service</code> odblokowuje dostęp do zasobu premium.</li>
+</ul>
+</li>
+</ol>
+<h4 id="warstwa-5-bazy-danych-zasada-database-per-service">Warstwa 5: Bazy Danych (Zasada <em>Database-per-Service</em>)</h4>
+<p>Kardynalna zasada mikrousług brzmi: <strong>żadna mikrousługa nie ma prawa bezpośrednio dotykać bazy danych innej mikrousługi</strong>. Komunikacja z danymi odbywa się wyłącznie przez publiczne interfejsy API.</p>
+<p>Dzięki temu zyskujemy <strong>Polyglot Persistence</strong> (dobór bazy idealnie dopasowanej do zadania):</p>
+<ul>
+<li><strong>Relacyjna baza SQL (np. PostgreSQL)</strong> dla zamówień i kont (wymóg transakcji ACID, brak anomalii finansowych).</li>
+<li><strong>Silnik wyszukiwania (Elasticsearch)</strong> dla katalogu treści (błyskawiczne wyszukiwanie pełnotekstowe, autouzupełnianie, filtry fasetowe).</li>
+<li><strong>Magazyn obiektowy (AWS S3 / MinIO)</strong> dla ciężkich plików multimedialnych.</li>
+<li><strong>Pamięć In-Memory (Redis)</strong> dla sesji, limitów zapytań i dystrybucji komunikatów WebSocket.</li>
+</ul>
+<hr>
+<h3 id="45-kluczowe-wzorce-odpornościowe-resilience-patterns">4.5. Kluczowe Wzorce Odpornościowe (Resilience Patterns)</h3>
+<p>W systemie rozproszonym <strong>awaria jest stanem normalnym</strong> (zgodnie z powiedzeniem Wernera Vogelsa, CTO Amazona: <em>„Everything fails, all the time”</em>). Nowoczesna architektura mikrousług musi zawierać:</p>
+<ol>
+<li><strong>Circuit Breaker (Bezpiecznik – np. Resilience4j / dawniej Netflix Hystrix)</strong>:
+<ul>
+<li>Jeśli serwis rekomendacji zaczyna odpowiadać ze zbyt dużym opóźnieniem lub zwraca błędy 500, bezpiecznik „otwiera się” i odcina ruch do tego serwisu.</li>
+<li>Zamiast czekać na timeout i zawieszać wątki serwera API, brama natychmiast zwraca odpowiedź zapasową (<strong>Fallback</strong>), np. listę 10 najpopularniejszych pozycji zamiast spersonalizowanych rekomendacji.</li>
+<li>Użytkownik przeglądarki widzi działającą stronę, nie wiedząc nawet, że podsystem rekomendacji ma awarię.</li>
+</ul>
+</li>
+<li><strong>Wzorzec Saga (Zamiast transakcji rozproszonych)</strong>:
+<ul>
+<li>Tradycyjne transakcje dwufazowe (2PC) w chmurze są zbyt wolne i blokujące.</li>
+<li>Transakcję biznesową realizuje się jako sekwencję lokalnych transakcji koordynowanych zdarzeniami. W razie błędu na którymś etapie wyzwalane są tzw. <strong>transakcje kompensujące</strong> (odwracające skutki wcześniejszych kroków, np. zwrot pobranych środków z karty).</li>
+</ul>
+</li>
+<li><strong>Obserwowalność (Observability) i Distributed Tracing</strong>:
+<ul>
+<li>Każde zapytanie wpadające do bramy otrzymuje unikalny identyfikator śledzenia (np. <code>Trace-Id: 9f8a-4b2c</code>).</li>
+<li>Identyfikator ten jest przekazywany w nagłówkach do każdego kolejnego mikroserwisu.</li>
+<li>Dzięki narzędziom takim jak <strong>OpenTelemetry</strong>, <strong>Jaeger</strong> czy <strong>Zipkin</strong>, inżynier może otworzyć jeden wykres i zobaczyć dokładny czas wykonania każdego podzapytania w 10 różnych mikroserwisach biorących udział w obsłudze jednego kliknięcia użytkownika.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="46-kiedy-mikrousługi-to-błąd-podatek-od-mikrousług">4.6. Kiedy mikrousługi to błąd? („Podatek od mikrousług”)</h3>
+<p>Wykład akademicki musi uczyć krytycznego myślenia inżynierskiego. Mikrousługi nie są uniwersalnym „lepszym monolitem” – wprowadzają potężny narzut:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Aspekt</th>
+<th style="text-align:left">Monolit</th>
+<th style="text-align:left">Mikrousługi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Opóźnienia sieciowe</strong></td>
+<td style="text-align:left">Wywołania w pamięci RAM (nanosekundy)</td>
+<td style="text-align:left">Wywołania po sieci HTTP/gRPC (milisekundy)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Spójność danych</strong></td>
+<td style="text-align:left">Natychmiastowa (ACID w jednej bazie)</td>
+<td style="text-align:left">Spójność ostateczna (<em>Eventual Consistency</em>)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Wdrażanie i lokalne uruchomienie</strong></td>
+<td style="text-align:left"><code>git pull</code> &amp; <code>docker compose up</code></td>
+<td style="text-align:left">Konieczność orkiestracji kontenerów (Kubernetes)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Testowanie</strong></td>
+<td style="text-align:left">Proste testy integracyjne w jednym procesie</td>
+<td style="text-align:left">Skomplikowane testy kontraktowe (np. Pact)</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Zarządzanie zespołem</strong></td>
+<td style="text-align:left">Jeden zespół może rozwijać całość</td>
+<td style="text-align:left">Wymaga dojrzałych zespołów zgodnych z <strong>Prawem Conwaya</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Podsumowanie architektoniczne:</strong><br>
+Jeśli zespół liczy kilku programistów, a ruch mieści się na jednej lub dwóch maszynach, wybór mikrousług jest najczęściej błędem architektonicznym (<em>premature optimization</em>). Standardem rekomendowanym na start jest tzw. <strong>Monolit Modułowy (Modular Monolith)</strong> – dobrze zaprojektowany monolit z wyraźnymi granicami domenowymi w kodzie, z którego w razie potrzeby można bez trudu wyciąć pojedynczy mikroserwis (dokładnie tak, jak zaczynał Shopify czy SoundCloud).</p>
+</blockquote>
+<hr>
+<h3 id="47-materiały-źródłowe-i-literatura">4.7. Materiały źródłowe i literatura</h3>
+<ol>
+<li><strong>Phil Calçado (SoundCloud)</strong>: <em>From Monolith to Microservices</em> – seria artykułów o rozbijaniu monolitu Mothership i wdrażaniu BFF: <a href="https://philcalcado.com/">philcalcado.com</a></li>
+<li><strong>Martin Fowler</strong>: <em>Backends For Frontends pattern</em>: <a href="https://martinfowler.com/articles/bff.html">martinfowler.com/articles/bff.html</a></li>
+<li><strong>Netflix Technology Blog</strong>: <em>A Design Analysis of Cloud-Optimized Web Applications</em> oraz materiały o bramie <em>Zuul</em> i odporności: <a href="https://netflixtechblog.com/">netflixtechblog.com</a></li>
+<li><strong>Chris Richardson</strong>: <em>Microservices Patterns: With examples in Java</em> (Manning Publications) – kompendium wzorców Database-per-service, Saga, CQRS i API Gateway.</li>
+<li><strong>Sam Newman</strong>: <em>Building Microservices: Designing Fine-Grained Systems</em> (O'Reilly).</li>
+</ol>
+<h2 id="5-kilka-ciekawostek">5. Kilka ciekawostek.</h2>
 <ol>
 <li>Jak wygląda aktualnie udział przeglądarek internetowych w rynku? Sprawdź: <a href="https://gs.statcounter.com/">https://gs.statcounter.com/</a></li>
 <li>Jaka technologia (oczywiście nie ma 100% pewności, że tylko te) została wykorzystana w danej stronie internetowej? Sprawdź: <a href="https://builtwith.com/">https://builtwith.com/</a></li>
@@ -499,9 +960,7 @@ Takie rozwiązanie ma sens o ile tzw. &quot;wąskim gardłem&quot; całej aplika
 <li>Ankieta Stack Overflow odnośnie technologii webowych: <a href="https://survey.stackoverflow.co/2025/technology#1-web-frameworks-and-technologies">https://survey.stackoverflow.co/2025/technology#1-web-frameworks-and-technologies</a></li>
 <li>Nieco z innej beczki, ale warto wiedzieć skąd wziął się null pointer reference... <a href="https://en.wikipedia.org/wiki/Null_pointer#History">https://en.wikipedia.org/wiki/Null_pointer#History</a></li>
 </ol>
-<p><em>© Krzysztof Ropiak, 2025</em></p>
+<p><em>© Krzysztof Ropiak, 2026</em></p>
 
-            
-            
-        </body>
-        </html>
+</body>
+</html>
